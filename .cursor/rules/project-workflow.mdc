@@ -1,0 +1,16 @@
+---
+description: Core Jade Healing Spa workflow, safety, and agent gates
+alwaysApply: true
+---
+
+# Jade Healing Spa — Agent Rules
+
+Before any work, read `AGENTS.md` and `PROJECT_BRIEF.md`.
+
+- Do not invent spa facts (name details, prices, services, address, awards, medical claims).
+- Do not copy nhaspa.com.vn branding, text, images, or source code.
+- MVP is informational only. No booking, payments, accounts, or extra backend.
+- Do not start a later phase until prerequisites in `docs/STATUS.md` are complete and the owner has approved the gate.
+- Do not deploy or merge to `main` without explicit owner approval.
+- Keep research facts, interpretations, recommendations, and unresolved questions in separate sections.
+- Mark unknown business content as `NEEDS OWNER INPUT`. Never fill it with invented copy on the live site.
