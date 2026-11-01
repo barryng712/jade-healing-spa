@@ -2,17 +2,19 @@
 
 Informational website for the spa. Online booking is **not** in the first version.
 
-This repository currently holds **workflow, research, and tooling**. The public website has not been implemented yet.
+This repository currently holds **workflow, research, BA docs, and tooling**. The public website has not been implemented yet.
 
 ## Current status
 
 See [`docs/STATUS.md`](docs/STATUS.md).
 
+Research is owner-approved. Business Analyst docs are waiting for owner review. Do not start design or coding until those docs are approved.
+
 ## How this project uses AI
 
 You work with the **local Cursor Agent** (the chat in Cursor). Each phase is a different role. You review before the next phase starts.
 
-This is **not** fully autonomous. Cloud Agents and Automations require a paid Cursor plan and are not used here.
+Cursor plan is **Premium**. Cloud Agents and Automations are still **not used** unless you ask.
 
 Read [`AGENTS.md`](AGENTS.md) and [`PROJECT_BRIEF.md`](PROJECT_BRIEF.md) first.
 
@@ -56,7 +58,7 @@ Put real files in:
 - `assets/brand/` — logo, colors, fonts
 - `assets/spa/` — real spa photographs
 
-Business facts belong in later BA docs after you approve them. Do not expect the agent to invent them.
+Business facts: see [`docs/content-requirements.md`](docs/content-requirements.md) and [`docs/unresolved-questions.md`](docs/unresolved-questions.md). Do not expect the agent to invent them.
 
 ## License / content
 

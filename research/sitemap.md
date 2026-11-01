@@ -1,71 +1,77 @@
 # Reference sitemap (observed)
 
+Research date: 2026-11-01  
+This is a map of pages **visited or clearly linked** during Playwright sessions. It is not a complete crawl of the domain.
+
 ## Observed facts
 
-This is a map of pages **actually visited or linked** during the Playwright session. It is not a claim of a complete crawl of every URL on the domain.
+### Confirmed working pages (visited)
 
-## home
+| Role on reference site | URL | Notes |
+| --- | --- | --- |
+| Home | https://nhaspa.com.vn/ | Long scrolling marketing page |
+| About / locations | https://nhaspa.com.vn/gioi-thieu/ | Nav “Cơ sở” resolves here |
+| Services overview | https://nhaspa.com.vn/dich-vu/ | Categories + featured combos |
+| Category: massage | https://nhaspa.com.vn/danh-muc-san-pham/massage/ | |
+| Category: hair / scalp | https://nhaspa.com.vn/danh-muc-san-pham/cham-soc-toc/ | |
+| Category: skin | https://nhaspa.com.vn/danh-muc-san-pham/cham-soc-da/ | |
+| Category: combo | https://nhaspa.com.vn/danh-muc-san-pham/combo/ | |
+| Combo detail | https://nhaspa.com.vn/combo-2-cham-soc-toan-than-tai-tao-nang-luong/ | |
+| Combo detail | https://nhaspa.com.vn/combo-1-cham-soc-da-dau-chuyen-sau-lam-dep-thu-gian/ | |
+| Treatment detail | https://nhaspa.com.vn/massage-body/ | Individual service template |
+| News index | https://nhaspa.com.vn/tin-tuc/ | Out of our MVP unless owner wants a journal |
+| Careers | https://nhaspa.com.vn/tuyen-dung/ | Out of our MVP |
+| Contact | https://nhaspa.com.vn/lien-he/ | Title + footer in capture; little contact body |
+| Editorial | https://nhaspa.com.vn/nha-spa-dia-diem-thu-gian-minh-bach-giua-long-ha-noi/ | Story page |
 
-- https://nhaspa.com.vn/
-  - title: Nhà Spa - Resort thu nhỏ giữa lòng Hà Nội
-  - h1: ( Về Nhà Spa )
-- https://nhaspa.com.vn/
-  - title: Nhà Spa - Resort thu nhỏ giữa lòng Hà Nội
-  - h1: ( Về Nhà Spa )
-- https://nhaspa.com.vn/
-  - title: Nhà Spa - Resort thu nhỏ giữa lòng Hà Nội
-  - h1: (none collected)
+### Linked from homepage but not all visited
 
-## about
+From `research/link-dump.json` (same-origin). Listed as **linked**, not audited in full:
 
-- https://nhaspa.com.vn/gioi-thieu/
-  - title: Về chúng tôi
-  - h1: Nhà Spa
-- https://nhaspa.com.vn/gioi-thieu/
-  - title: Về chúng tôi
-  - h1: Nhà Spa
+- https://nhaspa.com.vn/combo-3-cham-soc-da-chuyen-sau/
+- https://nhaspa.com.vn/goi-dau-tinh-luon-duong-sinh/
+- https://nhaspa.com.vn/sach-sau-cap-am-2/
+- https://nhaspa.com.vn/massage-chan/
+- Several `/tin-tuc/` article URLs
+- WordPress media under `/wp-content/uploads/` (platform signal only; do not reuse files)
 
-## services
+### Visited URLs that 404
 
-- https://nhaspa.com.vn/dich-vu/
-  - title: Dịch vụ
-  - h1: Dịch vụ của chúng tôi
-- https://nhaspa.com.vn/dich-vu/
-  - title: Dịch vụ
-  - h1: Dịch vụ của chúng tôi
+| Guessed slug | Result |
+| --- | --- |
+| https://nhaspa.com.vn/co-so/ | Page Not Found |
+| https://nhaspa.com.vn/dat-lich/ | Page Not Found |
 
-## news
+### Page types **not** found as standalone URLs
 
-- https://nhaspa.com.vn/tin-tuc/
-  - title: Tin tức
-  - h1: Lan tỏa yêu thương
+- Dedicated gallery
+- Dedicated reviews / testimonials index
+- Working standalone booking page at `/dat-lich/`
 
-## other
-
-- https://nhaspa.com.vn/danh-muc-san-pham/massage/
-  - title: Massage - Nhà Spa
-  - h1: Massage
-- https://nhaspa.com.vn/danh-muc-san-pham/cham-soc-toc/
-  - title: Chăm sóc tóc – Gội đầu dưỡng sinh tại Nhà Spa Hà Nội
-  - h1: Chăm sóc tóc
-- https://nhaspa.com.vn/danh-muc-san-pham/cham-soc-da/
-  - title: Chăm sóc da - Nhà Spa
-  - h1: Chăm sóc da
-- https://nhaspa.com.vn/combo-2-cham-soc-toan-than-tai-tao-nang-luong/
-  - title: (2) Bách Yên - Thư giãn toàn thân & tái tạo năng lượng
-  - h1: (2) Bách Yên – Thư giãn toàn thân & tái tạo năng lượng
-- https://nhaspa.com.vn/combo-1-cham-soc-da-dau-chuyen-sau-lam-dep-thu-gian/
-  - title: (3) Phù Vân - Chăm sóc da chuyên sâu & gội đầu thư giãn
-  - h1: (3) Phù Vân – Chăm sóc da chuyên sâu & gội đầu thư giãn
+Those functions appear as **homepage or detail-page modules** (photo grids, Google-style reviews, in-page booking CTA).
 
 ## Interpretations
 
-URL patterns (Vietnamese slugs such as gioi-thieu, dich-vu, lien-he) suggest a typical corporate spa IA: home → about → services → locations → news → contact.
+URL patterns (`gioi-thieu`, `dich-vu`, `danh-muc-san-pham/{category}`, treatment slugs, `lien-he`, `tin-tuc`) match a typical Vietnamese spa marketing site on WordPress.
+
+The information architecture is **catalog-heavy**: home → category → treatment or combo detail. Location proof lives on About. Trust proof (reviews, press, photos) lives mainly on Home.
 
 ## Recommendations
 
-Use a similar **journey shape** (discover services, then a detail page, then contact). Do not clone labels or IA names unless they also match our real business.
+For Jade Healing Spa MVP, use a **shorter** tree:
+
+1. Home  
+2. About  
+3. Services (overview)  
+4. Service detail (one template, many pages)  
+5. Gallery (only if we have real photos)  
+6. Reviews (only if the owner supplies publishable reviews)  
+7. Contact / location  
+
+Do **not** copy their category names, combo names, or slugs. Skip News, Careers, multi-language, and booking until the owner asks.
 
 ## Unresolved questions
 
-- Which of these page types our spa actually needs (single location vs branches, news, booking CTA).
+- Single location or multiple branches for our spa?
+- Public prices on detail pages, or contact-to-ask?
+- Whether we need a news/journal at all.

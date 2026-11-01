@@ -2,7 +2,7 @@
 
 Read this file and `PROJECT_BRIEF.md` before any work.
 
-This is a **local, human-gated workflow**. It is not a fully autonomous multi-agent system. Cursor Cloud Agents and Automations are **not available** on the current Cursor Free plan. Roles below are prompts and handoff documents, not background workers that run on their own.
+This is a **local, human-gated workflow**. Roles below are prompts and handoff documents. Do not run Cloud Agents, Automations, or parallel agents on the same files unless the owner explicitly asks.
 
 ## Current environment (verified 2026-11-01)
 
@@ -10,8 +10,8 @@ This is a **local, human-gated workflow**. It is not a fully autonomous multi-ag
 | --- | --- |
 | Workspace | `/Users/nguyenducbinh/dev/jade-healing-spa` |
 | GitHub remote | `https://github.com/barryng712/jade-healing-spa.git` (existing; do not create `spa-website`) |
-| Cursor plan | Free — local Agent only; limited usage |
-| Cloud Agents / Automations | Unavailable on Free |
+| Cursor plan | Premium (owner confirmed 2026-11-01) |
+| Cloud Agents / Automations / Bugbot | Available on Premium; **not used** unless the owner asks |
 | Playwright | Project-local `@playwright/test` + Chromium |
 | Figma MCP | Configured in `.cursor/mcp.json`; **not connected until owner completes OAuth** |
 | Booking / payments | Out of MVP scope |
@@ -103,10 +103,8 @@ Prerequisites: a running local site.
 - Placeholder content must be labeled until replaced.
 - Reasonable request rates against the reference site.
 
-## Paid vs Free (Cursor)
+## Cursor plan notes
 
-**Works on Free (with usage limits):** local Agent chat, local subagents, Git, Playwright, MCP servers the owner connects.
+Owner is on **Premium**. Default for this repo is still the local Agent chat with phase gates.
 
-**Requires a paid Cursor plan (Premium or higher as of 2026-11-01):** Cloud Agents, Automations, Bugbot, Origin code hosting.
-
-Do not upgrade or purchase anything unless the owner asks.
+Do not enable Cloud Agents, Automations, Bugbot, or extra paid tools unless the owner asks. Do not purchase additional subscriptions unless the owner asks.

@@ -136,6 +136,70 @@ No forms submitted. No bookings. No accounts created.
 - Footer labels (truncated): Facebook · Messenger · Tiktok · Instagram · Youtube · xDevLabs LLC · Back to top
 - Notes: services; mobile
 
+### Follow-up visit (same day, later session)
+
+These pages were opened after the first crawl. Screenshots `20`–`43`. No forms submitted.
+
+#### Tuyển dụng
+
+- URL: https://nhaspa.com.vn/tuyen-dung/
+- Classification: careers (reference-only; **out of our MVP**)
+- Screenshot: `20-tuyen-dung-desktop.png`
+
+#### Massage body (individual treatment)
+
+- URL: https://nhaspa.com.vn/massage-body/
+- Classification: service detail
+- Page title (observed): includes a public price in the document title
+- Layout observed in screenshot `34`: breadcrumb → treatment title → star rating row → duration/price-style metadata → “Đặt lịch ngay” CTA → photo + short copy columns → numbered process → outcomes → FAQ accordion → related-service cards → footer
+- Mobile capture: `43-massage-body-detail-mobile.png`
+
+#### Combo category
+
+- URL: https://nhaspa.com.vn/danh-muc-san-pham/combo/
+- Classification: service category
+- Screenshot: `35-combo-cat-desktop.png`
+
+#### Brand / story article
+
+- URL: https://nhaspa.com.vn/nha-spa-dia-diem-thu-gian-minh-bach-giua-long-ha-noi/
+- Classification: editorial / about-adjacent
+- Screenshot: `36-nha-spa-desktop.png`
+
+#### Liên hệ
+
+- URL: https://nhaspa.com.vn/lien-he/
+- Classification: contact
+- Screenshot `37-lien-he-desktop.png`: page title “Liên hệ”, then immediately the site footer (logo, social icons, copyright). **No map, address list, hours, or contact form was visible in this capture.**
+
+#### Guessed location / booking URLs
+
+- https://nhaspa.com.vn/co-so/ — title “Page Not Found - Nhà Spa” (`38-co-so-desktop.png`)
+- https://nhaspa.com.vn/dat-lich/ — title “Page Not Found - Nhà Spa” (`39-dat-lich-desktop.png`)
+- Nav label “Cơ sở” on the homepage **points to** https://nhaspa.com.vn/gioi-thieu/ (about), not a separate `/co-so/` page
+
+#### Reviews and gallery (no dedicated URLs found)
+
+- No `/danh-gia/`, `/review/`, `/gallery/`, or `/thu-vien/` link appeared in the homepage same-origin link dump.
+- Homepage scrolled capture `30-home-scrolled-desktop.png` shows: photo mosaic of the space, a **Google-style review module** (star row + review cards + “Xem thêm”), a press/mentions strip, and another photo grid near the footer.
+- About page `02-gioi-thieu-desktop.png` shows **branch cards** (street/building names as large titles) plus a nearby-places list and FAQ accordion — this is where location information lives on the reference site.
+
+#### Booking CTA (observed, not used)
+
+- Homepage hero includes a dark-green control labeled in Vietnamese for booking (`Đặt lịch`).
+- Service detail includes a similar CTA.
+- Direct `/dat-lich/` URL 404s. Booking was **not** clicked through to a form.
+
+#### Mobile navigation
+
+- Mobile homepage captures `10` and `21` look the same after a forced click on a candidate menu toggle. A distinct full-screen hamburger overlay was **not** confirmed.
+- Primary items remain reachable by scrolling; header is compact with a search-like control and a round chat button.
+
+#### Chat / overlays
+
+- Round chat button, lower right, on desktop and mobile.
+- Seasonal promotional chips appeared over some pages during this visit (Christmas-themed). These are third-party/on-page widgets, not core IA.
+
 
 ## Interpretations
 

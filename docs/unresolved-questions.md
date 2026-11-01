@@ -2,6 +2,8 @@
 
 Items the owner must answer. Agents must not invent answers.
 
+The same gaps are listed with IDs in `docs/content-requirements.md`.
+
 ## Business identity
 
 - [ ] Legal business name and public display name
