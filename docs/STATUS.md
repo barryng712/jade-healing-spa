@@ -1,44 +1,41 @@
 # Project status
 
-Last updated: 2026-11-01 (BA docs written; awaiting owner approval)
+Last updated: 2026-11-02 (informational site built locally; awaiting owner review)
 
 Legend: `not started` · `in progress` · `blocked` · `complete` · `owner approved`
 
 | Phase | Status | Notes |
 | --- | --- | --- |
 | A. Environment inspect | complete | macOS 26.5.2, Apple M5, Node 26.13.0, Git 2.50.1, GitHub remote exists |
-| B. GitHub setup | complete | Using existing `barryng712/jade-healing-spa`. Do not create `spa-website`. `gh` CLI optional / not required |
-| C. Project documentation | complete | Workflow + BA docs in `docs/`. Design guidelines remain a stub until Design |
-| D. Playwright setup | complete | `@playwright/test` + Chromium; `tests/verify-playwright.spec.ts` last run passed |
-| E. Figma MCP | blocked | `.cursor/mcp.json` points at `https://mcp.figma.com/mcp`. Owner must complete OAuth (see `docs/FIGMA_SETUP.md`) |
-| F. Reference research | owner approved | Owner approved 2026-11-01. Deliverables in `research/` |
-| G. Research handoff | owner approved | Closed after BA started |
-| BA requirements | complete | `docs/requirements.md` and related files written. **Gate: owner review** |
-| Design | not started | Gate: owner approves BA; Figma OAuth still blocked; brand photos still empty |
-| Development | not started | Gate: owner approves design (or an explicit design exception) |
-| QA | not started | Gate: local site exists |
-| Release | not started | Gate: owner approval; no deploy without it |
+| B. GitHub setup | complete | `barryng712/jade-healing-spa` |
+| C. Project documentation | complete | Confirmed copy in `docs/confirmed-content.md` |
+| D. Playwright setup | complete | `@playwright/test` + Chromium |
+| E. Figma MCP | complete | Connected. Canvas write is not available on Starter. Do not redraw in Figma. |
+| F. Reference research | owner approved | 2026-11-01 |
+| G. Research handoff | owner approved | Closed |
+| BA requirements | owner approved | Answers in `docs/unresolved-questions.md`; remaining: menu, photos, Zalo URL, Google listing URL, About story |
+| Design | owner approved | 2026-11-02. `docs/design-guidelines.md` + `docs/design-preview.html` |
+| Development | complete | Local Next.js site on `feat/informational-site`, 2026-11-02. Awaiting owner review. Run `npm run dev`. Not deployed. Nine spa photos are published from `assets/spa/` with the printed phone footer removed. `Unknown-9.jpg` is unused because it shows an unconfirmed menu. |
+| QA | not started | Gate: owner reviews this local site |
+| Release | not started | Domain planned: jadehealingspa.com.vn; hosting not chosen; no deploy |
 
 ## Cursor plan
 
-- Current: **Premium** (owner confirmed 2026-11-01)
-- Local Agent: available
-- Cloud Agents / Automations / Bugbot: available on Premium **in product terms**; this project still uses a **local, human-gated** workflow unless the owner asks to use those features
-- Fully autonomous multi-agent orchestration: **not in use**
-
-Roles are prompts you start in this chat. They do not run in the background unless you explicitly start Cloud Agents later.
+- **Premium** (owner confirmed)
+- Local, human-gated workflow unless you ask for Cloud Agents
 
 ## Git
 
-- Default branch: `main` (keep stable)
-- Current work branch: `chore/setup-workflow`
-- Do not merge to `main` without owner approval
-- Do not push to `main`
+- Default: `main` (keep stable)
+- Work branch: `feat/informational-site`
+- Do not merge or push `main` without approval
 
-## Owner actions right now
+## Next chat (new Agent — after the owner reviews this site)
 
-1. Review BA docs: `docs/requirements.md`, `docs/sitemap.md`, `docs/user-journeys.md`, `docs/content-requirements.md`, `docs/acceptance-criteria.md`.
-2. Approve BA, or request changes.
-3. Optional, in parallel: connect Figma MCP (`docs/FIGMA_SETUP.md`).
-4. Optional, in parallel: add real files to `assets/brand/` and `assets/spa/`.
-5. Answer items in `docs/unresolved-questions.md` / `docs/content-requirements.md` (required before honest website copy).
+Paste this as the first message only after you approve the local site:
+
+> Act as QA. The informational site is built. Read `AGENTS.md`, `PROJECT_BRIEF.md`, `docs/STATUS.md`, `docs/confirmed-content.md`, and `docs/acceptance-criteria.md`. Test the local Next.js site with Playwright, independently of the Developer. Do not deploy. Do not push `main`.
+
+Still open: real menu, logo and approved photos, Zalo URL, Google Maps place URL, About story, hosting.
+
+Nine photos from `assets/spa/` are on the site. The printed footer with **0917 110 066** was cropped so the only phone shown is **0357050796**. `Unknown-9.jpg` stays unused because it lists a menu, 120 phút, and promotional lines that are not confirmed.

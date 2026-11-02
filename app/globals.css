@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f4f0e8;
+  --color-ink: #1c1915;
+  --color-wood: #5c4636;
+  --color-moss: #3f4a3a;
+  --color-line: #e4dcd0;
+  --color-cream: #fbf8f3;
+  --color-muted: #5c554c;
+  --color-frame: #ddd4c8;
+  --font-sans: var(--font-be-vietnam), "Be Vietnam Pro", sans-serif;
+  --font-display: var(--font-fraunces), Fraunces, Georgia, serif;
+}
+
+html {
+  background: var(--color-paper);
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-wood);
+  outline-offset: 3px;
+}
+
+.hero-focus:focus-visible {
+  outline-color: var(--color-cream);
+}
+
+[aria-current="page"] {
+  color: var(--color-wood);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.header-overlay [aria-current="page"] {
+  color: var(--color-cream);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes film-a {
+  from {
+    transform: scale(1.14) translate3d(-1.5%, -0.6%, 0);
+  }
+  to {
+    transform: scale(1.2) translate3d(1.4%, 0.8%, 0);
+  }
+}
+
+@keyframes film-b {
+  from {
+    transform: scale(1.15) translate3d(1.3%, 0.5%, 0);
+  }
+  to {
+    transform: scale(1.21) translate3d(-1.4%, -0.9%, 0);
+  }
+}
+
+.photo-film {
+  transform: scale(1.14);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy {
+    animation: rise 0.9s ease 0.12s both;
+  }
+
+  .photo-film.film-a.is-live,
+  .photo-film.film-b.is-live {
+    animation-duration: 14s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-play-state: paused;
+  }
+
+  .photo-film.film-a.is-live {
+    animation-name: film-a;
+  }
+
+  .photo-film.film-b.is-live {
+    animation-name: film-b;
+  }
+
+  .photo-film.is-live.is-on {
+    animation-play-state: running;
+  }
+
+  .reveal-once {
+    opacity: 0;
+    transform: translateY(1.75rem);
+  }
+
+  .reveal-once.is-in {
+    animation: rise 0.9s ease forwards;
+  }
+}
+
+@media (scripting: none) {
+  .reveal-once {
+    opacity: 1;
+    transform: none;
+  }
+}

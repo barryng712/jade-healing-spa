@@ -2,13 +2,13 @@
 
 Informational website for the spa. Online booking is **not** in the first version.
 
-This repository currently holds **workflow, research, BA docs, and tooling**. The public website has not been implemented yet.
+The public site is a Vietnamese informational Next.js app. Online booking is not included. It is not deployed.
 
 ## Current status
 
 See [`docs/STATUS.md`](docs/STATUS.md).
 
-Research is owner-approved. Business Analyst docs are waiting for owner review. Do not start design or coding until those docs are approved.
+Design is owner-approved. The local site is built and waiting for your review. QA starts after you approve it.
 
 ## How this project uses AI
 
@@ -34,10 +34,12 @@ Remote already connected: `https://github.com/barryng712/jade-healing-spa.git`
 
 ```bash
 npm install
-npx playwright install chromium
-npm run verify:playwright
-npm run research:nhaspa
+npm run dev
+npm run build
+npm run lint
 ```
+
+Open `http://127.0.0.1:3000`. Playwright research scripts are still available: `npm run verify:playwright` and `npm run research:nhaspa`.
 
 ## Figma (manual connect)
 
