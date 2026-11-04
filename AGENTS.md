@@ -4,7 +4,13 @@ Read this file and `PROJECT_BRIEF.md` before any work.
 
 This is a **local, human-gated workflow**. Roles below are prompts and handoff documents. Do not run Cloud Agents, Automations, or parallel agents on the same files unless the owner explicitly asks.
 
-## Current environment (verified 2026-11-01)
+## Current phase (2026-11-04)
+
+The informational site is **built locally** on `feat/informational-site`. Research, BA, and design are owner-approved. Development is complete and waiting for the owner to review the local site. **QA has not started. The site is not deployed.**
+
+Do not rebuild the site, restore the old four sample services, or put the step-length mock back. The live menu is `lib/menu.ts`. Full progress is in `docs/STATUS.md`.
+
+## Current environment
 
 | Item | Status |
 | --- | --- |
@@ -13,7 +19,8 @@ This is a **local, human-gated workflow**. Roles below are prompts and handoff d
 | Cursor plan | Premium (owner confirmed 2026-11-01) |
 | Cloud Agents / Automations / Bugbot | Available on Premium; **not used** unless the owner asks |
 | Playwright | Project-local `@playwright/test` + Chromium |
-| Figma MCP | Configured in `.cursor/mcp.json`; **not connected until owner completes OAuth** |
+| Figma MCP | Connected. Canvas write is not available. Do not redraw in Figma. Design lives in `docs/design-guidelines.md` and the Next.js site. |
+| Local site | `npm run dev` → `http://127.0.0.1:3000`. Vietnamese only. |
 | Booking / payments | Out of MVP scope |
 
 ## How work actually happens
@@ -72,20 +79,20 @@ Prerequisites: research complete and owner approved.
 
 ### Agent 3 — UI/UX Designer
 
-Prerequisites: BA docs approved; real brand assets in `assets/`.
+Prerequisites: BA docs approved. This phase is **owner-approved** (2026-11-02).
 
-- Design an original system. Do not clone nhaspa.
+- Design an original system. Do not clone nhaspa or Kim Healing Spa.
 - Desktop and mobile.
-- Use Figma MCP only after it is connected and write access is verified.
-- Record the Figma file URL in `docs/design-guidelines.md`.
+- Figma canvas write is not available. Do not start a new Figma file.
+- Later visual changes stay in `docs/design-guidelines.md` and the site.
 
 ### Agent 4 — Developer
 
-Prerequisites: approved design (or an owner-approved design exception).
+Prerequisites: approved design. **Met.** The site is already on `feat/informational-site`.
 
-- Implement the approved design.
+- Change the existing site when the owner asks. Do not start a second app.
 - Informational site only. No booking.
-- Do not invent business facts.
+- Do not invent business facts. Ritual steps stay labeled samples until the owner sends the real lines.
 - Accessibility, SEO basics, responsive layout.
 
 ### Agent 5 — Independent QA / Reviewer

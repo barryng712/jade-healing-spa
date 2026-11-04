@@ -1,6 +1,7 @@
 /**
  * Live copy. Source of truth: docs/confirmed-content.md.
- * Do not add prices, reviews, a Zalo URL, or an About story here.
+ * Do not add reviews, a Zalo URL, or an About story here.
+ * Menu names, minutes, and prices live in lib/menu.ts.
  */
 
 export const site = {
@@ -33,8 +34,6 @@ export const nav = [
   { href: "/reviews", label: "Đánh giá" },
   { href: "/contact", label: "Liên hệ" },
 ] as const;
-
-export const sampleNotice = "Dịch vụ minh họa — menu thật sẽ thay sau";
 
 export const photoPendingLabel = "Ảnh sẽ được thay bằng ảnh spa";
 

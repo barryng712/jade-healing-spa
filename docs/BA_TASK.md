@@ -1,6 +1,6 @@
 # Business Analyst task
 
-**Status:** done 2026-11-01 (research was owner-approved). Do not rewrite these files unless the owner requests BA changes.
+**Status:** done 2026-11-01; owner answers applied the same day. Live copy: `docs/confirmed-content.md`. Do not rewrite unless the owner changes facts.
 
 ## Role
 

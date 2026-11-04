@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { services } from "@/lib/services";
+import { menuGroups, serviceCategories } from "@/lib/menu";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,7 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/gallery",
     "/reviews",
     "/contact",
-    ...services.map((service) => `/services/${service.slug}`),
+    ...serviceCategories.map((category) => `/services/${category.slug}`),
+    ...menuGroups.map((group) => `/services/${group.category}/${group.slug}`),
   ];
 
   return paths.map((path) => ({

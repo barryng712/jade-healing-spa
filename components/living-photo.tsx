@@ -8,17 +8,20 @@ export function LivingPhoto({
   alt,
   priority = false,
   sizes = "100vw",
+  tone = "hero",
 }: {
   src: string;
   alt: string;
   priority?: boolean;
   sizes?: string;
+  tone?: "hero" | "soft";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [live, setLive] = useState(false);
   const [playing, setPlaying] = useState(false);
-  const variant = src.length % 2 === 0 ? "film-a" : "film-b";
-  const duration = 12 + (src.length % 3) * 2;
+  const variant =
+    tone === "soft" ? "film-soft" : src.length % 2 === 0 ? "film-a" : "film-b";
+  const duration = tone === "soft" ? 18 : 12 + (src.length % 3) * 2;
 
   useEffect(() => {
     const node = ref.current;

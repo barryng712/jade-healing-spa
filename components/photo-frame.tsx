@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { LivingPhoto } from "@/components/living-photo";
 import { photoPendingLabel } from "@/lib/site";
 
 export function PhotoFrame({
@@ -7,7 +7,7 @@ export function PhotoFrame({
   label = photoPendingLabel,
   className = "",
   priority = false,
-  sizes = "(min-width: 768px) 50vw, 100vw",
+  sizes = "(min-width: 768px) 40vw, 100vw",
 }: {
   src?: string;
   alt?: string;
@@ -28,14 +28,7 @@ export function PhotoFrame({
 
   return (
     <div className={`relative overflow-hidden bg-frame ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority={priority}
-        sizes={sizes}
-        className="object-cover"
-      />
+      <LivingPhoto src={src} alt={alt} priority={priority} sizes={sizes} tone="soft" />
     </div>
   );
 }

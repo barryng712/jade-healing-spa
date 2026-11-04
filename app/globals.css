@@ -74,8 +74,31 @@ body {
   }
 }
 
-.photo-film {
+@keyframes reel-left {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes film-soft {
+  from {
+    transform: scale(1.03);
+  }
+  to {
+    transform: scale(1.07) translate3d(-1%, -0.4%, 0);
+  }
+}
+
+.photo-film.film-a,
+.photo-film.film-b {
   transform: scale(1.14);
+}
+
+.photo-film.film-soft {
+  transform: scale(1.03);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -84,7 +107,8 @@ body {
   }
 
   .photo-film.film-a.is-live,
-  .photo-film.film-b.is-live {
+  .photo-film.film-b.is-live,
+  .photo-film.film-soft.is-live {
     animation-duration: 14s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
@@ -101,6 +125,10 @@ body {
     animation-name: film-b;
   }
 
+  .photo-film.film-soft.is-live {
+    animation-name: film-soft;
+  }
+
   .photo-film.is-live.is-on {
     animation-play-state: running;
   }
@@ -112,6 +140,14 @@ body {
 
   .reveal-once.is-in {
     animation: rise 0.9s ease forwards;
+  }
+
+  .photo-reel {
+    animation: reel-left 42s linear infinite;
+  }
+
+  .photo-reel:hover {
+    animation-play-state: paused;
   }
 }
 

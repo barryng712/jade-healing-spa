@@ -25,15 +25,37 @@ Study **https://nhaspa.com.vn/** for:
 
 Do **not** copy its branding, text, images, or source code.
 
+## Where the site is (2026-11-04)
+
+A local Next.js site exists on `feat/informational-site`. It is not deployed. QA has not started.
+
+Built:
+
+- Home, About, Services, Gallery, Reviews, Contact
+- Menu from the Canva “MEMU TỔNG JADE” Vietnamese page: Massage, Chăm sóc tóc, Combo, then one page per liệu trình
+- Detail: photo on the left, ritual on the right; minute chips change the name and price; the photo stays
+- Owner photos from `assets/spa/` (copied for the site under `public/spa/`)
+- Header and home hero use the script logo cut from those photos (`public/spa/logo-mark.png`)
+- Home services band is sand linen `#E9DCC8`, taken from the plaster, linen, and wood in the photos
+
+Still labeled, not invented:
+
+- Ritual steps are ten “Bước mẫu” lines until the owner sends the real steps
+- About story is still a gap
+- Reviews have no quotes
+- Zalo has no URL
+- The nature banner photo is a stand-in (`soaking-hall`)
+
 ## Our site must use
 
-- Our own spa branding
-- Our real photographs (`assets/spa/` when provided)
+- Our own spa branding, including the script mark already printed on the spa photos
+- Our real photographs in `assets/spa/`
 - Our real services and business information
 - Original visual design
 - Responsive desktop and mobile layouts
+- Vietnamese only
 
-Until the owner supplies facts and photos, agents must mark gaps as `NEEDS OWNER INPUT`. Inventing those facts is forbidden.
+Gaps that are still unknown must stay `NEEDS OWNER INPUT`. Inventing those facts is forbidden.
 
 ## MVP pages
 
@@ -55,20 +77,22 @@ Until the owner supplies facts and photos, agents must mark gaps as `NEEDS OWNER
 
 ## Owner decisions still needed
 
-These are not known from the repository and must not be invented:
+Already confirmed: display name, legal name, address, phone, hours, email, Facebook, map pin, parking note, Vietnamese only, public prices, planned domain `jadehealingspa.com.vn`. See `docs/confirmed-content.md`.
 
-- Legal business name and display name
-- Logo, colors, typography, and brand rules
-- Real address, phone, hours, map
-- Service list, descriptions, durations, and prices (if prices will be public)
-- Real photographs
-- Review policy (which reviews may be published)
-- Domain and hosting
-- Languages (Vietnamese, English, or both)
+Still open. Do not invent these:
+
+- Ritual steps for each minute mark
+- Vietnamese name for Jade Emperor Therapy
+- Whether An thần & giấc ngủ stays under Massage, and Chăm sóc theo nhu cầu stays under Combo (assumption S8)
+- Zalo URL
+- Google Maps place URL (reviews stay empty until then)
+- About story, facilities, and team
+- A separate vector logo file, if a cleaner master than the photo cut is wanted
+- Hosting, and who signs off before go-live
 
 ## Workflow gates
 
-See `docs/STATUS.md`. Design and development do not start until research is approved, then BA, then design.
+See `docs/STATUS.md`. Research, BA, and design are approved. Development is built locally and waiting for owner review. QA is next, and only after that review. Do not deploy.
 
 ## Repository note
 

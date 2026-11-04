@@ -19,6 +19,34 @@ export const aboutPhoto: SpaPhoto = {
   alt: "Quầy lễ tân Jade Healing Spa",
 };
 
+/** Logo printed on the full frame was cropped off. Herbs only. */
+export const herbPhoto: SpaPhoto = {
+  src: "/spa/herb-ground.jpg",
+  alt: "Mâm thảo mộc khô tại Jade Healing Spa",
+};
+
+/** Opener for /services. A room, not a second copy of the home lounge. */
+export const servicesOpener: SpaPhoto = {
+  src: "/spa/treatment-room.jpg",
+  alt: "Phòng giường trị liệu Jade Healing Spa",
+};
+
+/**
+ * One real space per menu category. These are rooms and the herb tray,
+ * not confirmed photos of a specific ritual.
+ */
+export const categoryPhotos = {
+  massage: {
+    src: "/spa/treatment-bed.jpg",
+    alt: "Giường và khăn tại Jade Healing Spa",
+  },
+  "cham-soc-toc": herbPhoto,
+  combo: {
+    src: "/spa/soaking-hall.jpg",
+    alt: "Khu bồn tắm Jade Healing Spa",
+  },
+} as const satisfies Record<string, SpaPhoto>;
+
 export const galleryPhotos: SpaPhoto[] = [
   heroPhoto,
   aboutPhoto,
@@ -54,21 +82,61 @@ export const galleryPhotos: SpaPhoto[] = [
 
 export const homeGalleryPhotos = galleryPhotos.slice(1, 4);
 
+/** Home “nhà” reel. Rooms already on the site, not a treatment photo. */
+export const homeReelPhotos: SpaPhoto[] = [
+  aboutPhoto,
+  servicesOpener,
+  categoryPhotos.combo,
+  herbPhoto,
+];
+
+/** Temporary home banner. Owner will replace the picture. */
+export const homeNatureBanner: SpaPhoto = {
+  src: "/spa/soaking-hall.jpg",
+  alt: "Khu bồn tắm Jade Healing Spa",
+};
+
+/** Space photos beside a menu group. Not a confirmed photo of that treatment. */
 export const servicePhotos: Record<string, SpaPhoto> = {
-  "goi-dau-thu-gian": {
+  "goi-duong-sinh": {
     src: "/spa/treatment-bed.jpg",
     alt: "Giường và khăn tại Jade Healing Spa",
   },
-  "massage-body": {
+  "an-than-giac-ngu": {
+    src: "/spa/soaking-hall.jpg",
+    alt: "Khu bồn tắm Jade Healing Spa",
+  },
+  "co-vai-gay": {
     src: "/spa/treatment-room.jpg",
     alt: "Phòng giường trị liệu Jade Healing Spa",
   },
-  "cham-soc-da-mat": {
-    src: "/spa/flowers.jpg",
-    alt: "Hoa và bàn gỗ tại Jade Healing Spa",
+  "thu-gian-toan-than": {
+    src: "/spa/lounge.jpg",
+    alt: "Ghế cong, trần gỗ và cây trong Jade Healing Spa",
   },
-  "combo-nghi-ngan": {
+  "cham-soc-theo-nhu-cau": {
+    src: "/spa/treatment-room.jpg",
+    alt: "Phòng giường trị liệu Jade Healing Spa",
+  },
+  "lung-eo": {
+    src: "/spa/treatment-bed.jpg",
+    alt: "Giường và khăn tại Jade Healing Spa",
+  },
+  "lung-hong-chan": {
     src: "/spa/soaking-tubs.jpg",
     alt: "Bồn tắm và cây trong Jade Healing Spa",
+  },
+  "thai-doc-am-tu-cung": herbPhoto,
+  "duong-sinh-nhuan-trang": {
+    src: "/spa/soaking-hall.jpg",
+    alt: "Khu bồn tắm Jade Healing Spa",
+  },
+  "nang-co-mat": {
+    src: "/spa/treatment-room.jpg",
+    alt: "Phòng giường trị liệu Jade Healing Spa",
+  },
+  "jade-emperor": {
+    src: "/spa/lounge.jpg",
+    alt: "Ghế cong, trần gỗ và cây trong Jade Healing Spa",
   },
 };

@@ -1,102 +1,42 @@
-# User journeys — Jade Healing Spa (our site)
+# User journeys — Jade Healing Spa
 
-**Status:** complete — awaiting owner approval  
-
-Reference journeys (observed) live in `research/user-journeys.md`. This file is for **our** visitors. Every path ends in **call, message, or visit**. Online booking is out of MVP.
+**Status:** local site, 2026-11-04. Contact facts from 2026-11-01.  
+Ends in **call, Facebook, Zalo, or visit**. No online booking.
 
 ---
 
-## Observed facts (why these journeys)
+## Observed vs now confirmed
 
-- Reference visitors are led to “see the space → pick a treatment → book”. Their booking URL 404s; we will not copy that dead end.
-- Their Contact page was weak; location lived on About. We should not make guests hunt for hours and phone.
-- Reviews and photos there were mixed into Home. We still give Gallery and Reviews their own URLs so proof is easy to share.
-
-## Recommendation
-
-Design six journeys below. Primary action is **NEEDS OWNER INPUT** (call vs Zalo vs walk-in). Until then, journeys assume Contact is the conversion page.
+Public Facebook had email and address, no phone. Owner **confirmed** hotline 0357050796, hours 09:00–21:00 daily, Facebook + Zalo as primary buttons. Zalo URL still missing. Google Maps reviews for this spa were **not found** on 2026-11-01.
 
 ---
 
 ## Journey 1 — First impression (Home)
 
-1. Visitor opens `/`.
-2. Sees a real spa photograph (or labeled placeholder) and a short positioning line.
-3. Understands this is an informational spa site, not a booking app.
-4. Chooses: About, Services, Gallery, or Contact.
-
-**Success:** Visitor knows what the spa is and where to go next.  
-**Failure:** Generic template look, fake photos, or a fake “Đặt lịch” button.
+See the script logo and **Chăm sóc · An yên · Chữa lành**. The hero is shorter than the screen. Then the house block, three service cards on the sand band, the nature banner, gallery frames, and the visit strip.
 
 ## Journey 2 — Who we are (About)
 
-1. Visitor opens `/about` from header or Home.
-2. Reads owner-approved story and approach.
-3. Sees facilities only as described/photographed by the owner.
-4. Finds a clear link to Contact (address must not be hidden).
+Short confirmed line + Contact. Full story waits for owner text.
 
-**Success:** Visitor can explain the spa in one sentence and knows how to get details to visit.  
-**Blocked today:** All story text is **NEEDS OWNER INPUT**.
+## Journey 3 — Choose a treatment
 
-## Journey 3 — Choose a treatment (Services)
+Hover Dịch vụ, choose Massage, Chăm sóc tóc, or Combo, then open one item. On the detail page the photo stays put and the minute chips swap the ritual name, price, and step slot. Step text is still empty. See `docs/design-guidelines.md`.
 
-1. Visitor opens `/services`.
-2. Scans the full publishable list (grouped only if owner defines groups).
-3. Opens `/services/[slug]`.
-4. Reads name, short description, optional duration/price, photos, what to expect (owner text only).
-5. Uses Contact CTA (or `tel:` / Zalo if approved) — **not** a booking form.
+## Journey 4 — Gallery
 
-**Success:** Visitor can name a treatment they might request in person or by phone.  
-**Blocked today:** Service list is **NEEDS OWNER INPUT**.
+Owner photos from `assets/spa/` are on `/gallery`. `Unknown-9.jpg` is not used.
 
-## Journey 4 — See the space (Gallery)
+## Journey 5 — Reviews
 
-1. Visitor opens `/gallery` or a Home photo preview.
-2. Views owner photos of interiors / facilities.
-3. May continue to Contact or Services.
+Do not invent quotes. Offer Google Maps pin. When the owner sends a Maps **place** URL, embed or link that listing only.
 
-**Success:** Visitor believes the space is real.  
-**Empty state:** Honest labeled placeholders; no stock interiors passed off as ours.
+## Journey 6 — Visit or message (conversion)
 
-## Journey 5 — Proof (Reviews)
+Contact shows address (ngách 66/18), 09:00–21:00, `tel:+84357050796`, email, Facebook, parking note, map. Zalo button waits for URL.
 
-1. Visitor opens `/reviews` or a Home review module.
-2. Reads only quotes the owner has allowed, with real attribution rules the owner sets.
+**Mobile:** tap-to-call and Facebook work; Zalo only after link exists.
 
-**Success:** Trust without fabrication.  
-**Empty state:** Explain that reviews will appear when approved — never invent stars or names.
+## Out of MVP
 
-## Journey 6 — Visit or call (Contact) — primary conversion
-
-1. Visitor opens `/contact` from header, footer, or in-page CTA.
-2. Sees address, hours, phone, map or maps link, and messaging apps — all verified.
-3. Taps phone or opens maps on mobile; copies details on desktop.
-
-**Success:** Visitor can call or arrive without guessing.  
-**Blocked today:** All contact fields are **NEEDS OWNER INPUT**.  
-**Do not:** Add a booking calendar to mimic the reference CTA.
-
----
-
-## Cross-cutting journeys
-
-| Journey | Requirement |
-| --- | --- |
-| Mobile | Same URLs; stacked layout; menu that actually opens; tap targets for phone and maps |
-| Keyboard | Skip to content (later), visible focus, menu close with Escape |
-| Dead ends | Unknown URLs → original 404 with link Home |
-| Language | Single language until owner supplies a full second copy of every page |
-
-## Out of MVP (do not design as a path)
-
-- Create account / log in
-- Pick a bed, therapist, or time slot
-- Pay online
-- Submit a booking form
-- Read news or apply for a job
-
-## Unresolved
-
-- Primary CTA: call, Zalo, Facebook, walk-in, or email? **NEEDS OWNER INPUT**
-- One branch or many?
-- Publish prices on detail pages, or “liên hệ để biết giá”?
+Accounts, scheduling, payment, news, careers, English.

@@ -1,6 +1,8 @@
 # Figma MCP setup (owner action)
 
-Verified in this workspace on 2026-11-01: **Figma MCP is not connected**. No Figma tools are visible in the agent session.
+**Progress, 2026-11-04:** `docs/STATUS.md` records Figma MCP as connected. Canvas write is not available, so agents must not redraw the site in Figma. The notes below are the original connect steps from 2026-11-01.
+
+Verified in this workspace on 2026-11-01: Figma MCP was not connected yet. No Figma tools were visible in that session.
 
 A project config was added at `.cursor/mcp.json` pointing at the official remote server:
 

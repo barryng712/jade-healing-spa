@@ -8,7 +8,7 @@ The public site is a Vietnamese informational Next.js app. Online booking is not
 
 See [`docs/STATUS.md`](docs/STATUS.md).
 
-Design is owner-approved. The local site is built and waiting for your review. QA starts after you approve it.
+Research, BA, and design are approved. The local site is built on `feat/informational-site` and waiting for your review (progress through 2026-11-04 in [`docs/STATUS.md`](docs/STATUS.md)). QA starts after you approve it. The site is not deployed.
 
 ## How this project uses AI
 
@@ -41,26 +41,15 @@ npm run lint
 
 Open `http://127.0.0.1:3000`. Playwright research scripts are still available: `npm run verify:playwright` and `npm run research:nhaspa`.
 
-## Figma (manual connect)
+## Figma
 
-Figma MCP is listed in `.cursor/mcp.json` but is **not authenticated** until you connect it:
-
-1. `Cmd+Shift+P` → Command Palette
-2. Run `/add-plugin figma` in Cursor Chat, **or** open **Cursor Settings → Tools & MCP**
-3. Click **Connect** next to Figma
-4. In the browser, click **Allow access** for your Figma account
-5. Return here and ask the agent to verify Figma tools
-
-Do not paste Figma passwords or tokens into chat.
+Figma MCP is connected. Canvas write is not available, so the design stays in `docs/design-guidelines.md` and the site. Do not redraw it in Figma.
 
 ## What you still need to provide
 
-Put real files in:
+Photos are already in `assets/spa/` and on the site. The header logo is the script mark cut from those photos.
 
-- `assets/brand/` — logo, colors, fonts
-- `assets/spa/` — real spa photographs
-
-Business facts: see [`docs/content-requirements.md`](docs/content-requirements.md) and [`docs/unresolved-questions.md`](docs/unresolved-questions.md). Do not expect the agent to invent them.
+Still needed: ritual steps for each minute mark, a Vietnamese name for Jade Emperor Therapy, the Zalo URL, a Google Maps place URL, the About story, and a hosting choice. A separate vector logo is optional. See [`docs/unresolved-questions.md`](docs/unresolved-questions.md). Do not expect the agent to invent them.
 
 ## License / content
 

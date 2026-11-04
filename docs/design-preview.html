@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jade Healing Spa — khung thiết kế</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Fraunces:opsz,wght@9..144,460;9..144,560&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f4f0e8;
+      --ink: #1c1915;
+      --wood: #5c4636;
+      --moss: #3f4a3a;
+      --line: #e4dcd0;
+      --white: #fbf8f3;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #d9d2c6;
+      color: var(--ink);
+      font-family: "Be Vietnam Pro", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .board-label {
+      max-width: 1120px;
+      margin: 28px auto 10px;
+      padding: 0 20px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #6b6258;
+    }
+    .frame {
+      max-width: 1120px;
+      margin: 0 auto 48px;
+      background: var(--paper);
+      border: 1px solid #cfc6b8;
+      overflow: hidden;
+    }
+    header.nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mark {
+      font-family: Fraunces, serif;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+    }
+    nav.links { display: flex; gap: 18px; font-size: 14px; }
+    nav.links a { text-decoration: none; }
+    .utils { display: flex; gap: 10px; }
+    .btn {
+      display: inline-block;
+      background: var(--wood);
+      color: var(--white);
+      text-decoration: none;
+      padding: 10px 16px;
+      font-size: 14px;
+    }
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--wood);
+    }
+    .hero {
+      min-height: 520px;
+      background:
+        linear-gradient(180deg, rgba(28,25,21,0.15), rgba(28,25,21,0.45)),
+        repeating-linear-gradient(90deg, #6a5344 0 18px, #5a4638 18px 20px);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 48px 40px 56px;
+    }
+    .hero small { letter-spacing: 0.16em; text-transform: uppercase; font-size: 12px; opacity: 0.85; }
+    .hero h1 {
+      font-family: Fraunces, serif;
+      font-weight: 460;
+      font-size: 64px;
+      line-height: 1.05;
+      margin: 12px 0 8px;
+    }
+    .hero p { font-size: 22px; margin: 0 0 22px; max-width: 28ch; }
+    .hero .utils { margin-top: 8px; }
+    .hero .btn.ghost { color: white; border-color: white; }
+    section { padding: 64px 40px; }
+    h2 {
+      font-family: Fraunces, serif;
+      font-weight: 460;
+      font-size: 40px;
+      margin: 0 0 12px;
+    }
+    .note { color: #6b6258; max-width: 46ch; }
+    .flag {
+      display: inline-block;
+      border: 1px solid var(--wood);
+      padding: 4px 8px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .services { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; margin-top: 28px; }
+    .svc { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: start; }
+    .ph {
+      background: #ddd4c8;
+      min-height: 110px;
+      display: flex;
+      align-items: flex-end;
+      padding: 8px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #6b6258;
+    }
+    .ph.tall { min-height: 220px; }
+    .svc h3 { font-family: Fraunces, serif; font-size: 22px; margin: 0 0 6px; font-weight: 460; }
+    .svc p { margin: 0 0 8px; font-size: 14px; }
+    .svc a { font-size: 14px; }
+    .split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 28px; }
+    .visit {
+      background: var(--moss);
+      color: var(--white);
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+    }
+    .visit a { color: white; }
+    footer.site {
+      padding: 28px 40px 36px;
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .map {
+      background: #e7e0d4;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b6258;
+    }
+    dl { margin: 0; }
+    dt { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #6b6258; margin-top: 14px; }
+    dd { margin: 2px 0 0; }
+    .gallery { display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; }
+    .gallery .ph { min-height: 280px; }
+    .empty { border: 1px dashed var(--wood); padding: 28px; max-width: 46ch; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+    .chip {
+      border: 1px solid var(--line);
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    .chip.on { background: var(--wood); color: var(--white); border-color: var(--wood); }
+    .tier {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+    .steps { border-left: 1px solid var(--wood); padding-left: 16px; }
+    .steps h3 { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-family: "Be Vietnam Pro", sans-serif; font-weight: 500; }
+  </style>
+</head>
+<body>
+  <p class="board-label">Artboard 01 — Hành trình 1 · Trang chủ · desktop</p>
+  <article class="frame">
+    <header class="nav">
+      <div class="mark">Jade Healing Spa</div>
+      <nav class="links">
+        <a href="#about">Về spa</a>
+        <a href="#services">Dịch vụ</a>
+        <a href="#gallery">Thư viện ảnh</a>
+        <a href="#reviews">Đánh giá</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+      <div class="utils">
+        <a class="btn" href="tel:+84357050796">Gọi 0357050796</a>
+      </div>
+    </header>
+    <div class="hero">
+      <small>Ảnh sẽ được thay bằng ảnh spa</small>
+      <h1>Jade Healing Spa</h1>
+      <p>Chăm sóc · An yên · Chữa lành</p>
+      <div class="utils">
+        <a class="btn" href="tel:+84357050796">Gọi điện</a>
+        <a class="btn ghost" href="https://www.facebook.com/jadehealingspa/">Facebook</a>
+      </div>
+    </div>
+    <section>
+      <h2>Một khoảng gỗ và cây giữa Cầu Giấy.</h2>
+      <p class="note">Không gian yên để nghỉ. Đây không phải lời hứa chữa bệnh.</p>
+    </section>
+    <section id="services">
+      <h2>Dịch vụ</h2>
+      <p class="note">Mỗi nhóm có các mốc phút riêng. Chi tiết từng bước sẽ được bổ sung.</p>
+      <div class="tier" style="border-top:0;padding-top:8px">
+        <div>
+          <h3 style="font-family:Fraunces,serif;font-weight:460;font-size:22px;margin:0">Gội dưỡng sinh an thần</h3>
+          <p class="note">60 phút · 90 phút · 120 phút</p>
+        </div>
+        <div>
+          <h3 style="font-family:Fraunces,serif;font-weight:460;font-size:22px;margin:0">An thần &amp; giấc ngủ</h3>
+          <p class="note">60 phút · 90 phút · 120 phút · 150 phút</p>
+        </div>
+      </div>
+    </section>
+    <section class="visit">
+      <div>
+        <h2>Ghé spa</h2>
+        <p>Số 2 ngách 66/18 Dịch Vọng Hậu, Cầu Giấy, Hà Nội<br />09:00–21:00 · Có chỗ đỗ xe</p>
+      </div>
+      <a class="btn" href="#contact">Liên hệ</a>
+    </section>
+    <footer class="site">
+      <div>CÔNG TY TNHH JADE NATURE CARE</div>
+      <div>0357050796 · jadehealingspa@gmail.com</div>
+    </footer>
+  </article>
+
+  <p class="board-label">Artboard 02 — Hành trình 2 · Về spa</p>
+  <article class="frame" id="about">
+    <header class="nav">
+      <div class="mark">Jade Healing Spa</div>
+      <nav class="links"><a href="#services">Dịch vụ</a><a href="#contact">Liên hệ</a></nav>
+    </header>
+    <section>
+      <h2>Về Jade Healing Spa</h2>
+      <p>Chăm sóc · An yên · Chữa lành</p>
+      <p class="empty">Câu chuyện sẽ được bổ sung. Không gian gỗ và cây — chưa dùng số mét vuông hay địa chỉ Duy Tân.</p>
+    </section>
+  </article>
+
+  <p class="board-label">Artboard 03 — Hành trình 3 · Nhóm dịch vụ, chọn mốc phút</p>
+  <article class="frame" id="detail">
+    <header class="nav"><div class="mark">Jade Healing Spa</div></header>
+    <section>
+      <p class="note">Dịch vụ / Gội dưỡng sinh an thần</p>
+      <h2>Gội dưỡng sinh an thần</h2>
+      <div class="chips">
+        <span class="chip">60 phút</span>
+        <span class="chip on">90 phút</span>
+        <span class="chip">120 phút</span>
+      </div>
+      <div class="tier">
+        <div>
+          <h3 style="font-family:Fraunces,serif;font-weight:460;font-size:26px;margin:0 0 8px">Gội Dưỡng Sinh An Yên Chuyên Sâu</h3>
+          <p>90 phút · 690.000 Vnđ</p>
+        </div>
+        <div class="steps">
+          <h3>Các bước</h3>
+          <p class="note">Các bước của mốc 90 phút sẽ được bổ sung. Mốc này có trình tự riêng, khác 60 và 120 phút.</p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <p class="board-label">Artboard 04 — Hành trình 4 · Thư viện ảnh</p>
+  <article class="frame" id="gallery">
+    <header class="nav"><div class="mark">Jade Healing Spa</div></header>
+    <section>
+      <h2>Thư viện ảnh</h2>
+      <div class="gallery">
+        <div class="ph">Ảnh spa sẽ được thêm khi chủ spa gửi file</div>
+        <div class="ph">Ảnh spa sẽ được thêm khi chủ spa gửi file</div>
+      </div>
+    </section>
+  </article>
+
+  <p class="board-label">Artboard 05 — Hành trình 5 · Đánh giá</p>
+  <article class="frame" id="reviews">
+    <header class="nav"><div class="mark">Jade Healing Spa</div></header>
+    <section>
+      <h2>Đánh giá</h2>
+      <p class="empty">Chưa có đánh giá được phép đăng. Không có sao giả.<br /><a href="https://www.google.com/maps?q=21.03320,105.78426">Xem vị trí trên Google Maps</a></p>
+    </section>
+  </article>
+
+  <p class="board-label">Artboard 06 — Hành trình 6 · Liên hệ</p>
+  <article class="frame" id="contact">
+    <header class="nav"><div class="mark">Jade Healing Spa</div></header>
+    <section class="contact-grid">
+      <div>
+        <h2>Liên hệ</h2>
+        <dl>
+          <dt>Địa chỉ</dt>
+          <dd>Số 2 ngách 66/18 Dịch Vọng Hậu, Cầu Giấy, Hà Nội</dd>
+          <dt>Giờ</dt>
+          <dd>09:00–21:00, thứ Hai–Chủ nhật</dd>
+          <dt>Điện thoại</dt>
+          <dd>0357050796</dd>
+          <dt>Email</dt>
+          <dd>jadehealingspa@gmail.com</dd>
+          <dt>Đỗ xe</dt>
+          <dd>Có chỗ đỗ xe</dd>
+        </dl>
+        <p><a class="btn" href="tel:+84357050796">Gọi điện</a></p>
+      </div>
+      <div class="map">Bản đồ · 21.03320, 105.78426</div>
+    </section>
+  </article>
+</body>
+</html>
