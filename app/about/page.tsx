@@ -23,12 +23,16 @@ export default function AboutPage() {
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
           <div>
-            <h1 className="font-display text-[32px] font-[460] md:text-[40px]">Về {site.name}</h1>
-            <p className="mt-3">{site.tagline}</p>
-            <p className="mt-6 max-w-[46ch] border border-dashed border-wood p-7">
+            <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
+              Về {site.name}
+            </h1>
+            <p className="mt-3 font-display text-[18px] leading-7 italic md:text-[22px] md:leading-8">
+              {site.tagline}
+            </p>
+            <p className="mt-6 max-w-[62ch] rounded border border-dashed border-sage p-7">
               Câu chuyện sẽ được bổ sung.
             </p>
-            <p className="mt-6 max-w-[46ch]">Một khoảng gỗ và cây giữa Cầu Giấy.</p>
+            <p className="mt-6 max-w-[62ch]">Một khoảng gỗ và cây giữa Cầu Giấy.</p>
             <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
               <Link className="underline underline-offset-4" href="/services">
                 Xem dịch vụ

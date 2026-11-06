@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PhotoFrame } from "@/components/photo-frame";
-import { ServiceDetailStage } from "@/components/service-detail-stage";
 import { ServiceRitual } from "@/components/service-ritual";
 import { Wrap } from "@/components/wrap";
 import {
@@ -51,8 +50,9 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
   return (
     <article className="pt-8 pb-14 md:pt-10 md:pb-16">
       <Wrap>
-        <nav aria-label="Đường dẫn" className="text-sm text-muted">
-          <ol className="flex flex-wrap items-center gap-2">
+        <div className="mx-auto max-w-[760px]">
+        <nav aria-label="Đường dẫn" className="text-center text-sm text-muted">
+          <ol className="flex flex-wrap items-center justify-center gap-2">
             <li>
               <Link className="underline underline-offset-4" href="/services">
                 Dịch vụ
@@ -69,45 +69,42 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
           </ol>
         </nav>
 
-        <ServiceDetailStage
+        <ServiceRitual
+          group={group}
+          tierId={initialTierId}
           photo={
-            <>
-              <PhotoFrame
-                src={photo?.src}
-                alt={photo?.alt ?? "Không gian Jade Healing Spa"}
-                priority
-                className="h-full min-h-[240px] lg:absolute lg:inset-0 lg:min-h-0"
-                sizes="(min-width: 1024px) 45vw, 100vw"
-              />
-              <p className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1c1915]/80 to-transparent px-4 pt-10 pb-3 text-sm text-cream">
-                Ảnh không gian spa, giữ nguyên khi đổi số phút.
-              </p>
-            </>
+            <PhotoFrame
+              src={photo?.src}
+              alt={photo?.alt ?? "Không gian Jade Healing Spa"}
+              priority
+              flush
+              className="aspect-[16/10] w-full"
+              sizes="(min-width: 768px) 70vw, 100vw"
+            />
           }
-        >
-          <h1 className="font-display text-[32px] font-[460] leading-tight md:text-[40px]">{group.name}</h1>
-          <ServiceRitual key={group.slug} group={group} initialTierId={initialTierId} />
-        </ServiceDetailStage>
+        />
 
         {others.length > 0 ? (
-          <>
-            <h2 className="mt-12 font-display text-[28px] font-[460] md:text-[32px]">
-              Trong {categoryInfo.name}
+          <div className="mt-12">
+            <h2 className="font-display text-[26px] leading-8 font-medium md:text-[28px] md:leading-9">
+              Dịch vụ liên quan
             </h2>
-            <ul className="mt-4 border-t border-line">
+            <ul className="mt-4 grid gap-3">
               {others.map((item) => (
-                <li key={item.slug} className="border-b border-line py-4">
+                <li key={item.slug}>
                   <Link
-                    className="font-display text-xl no-underline hover:underline"
+                    className="flex items-center justify-between gap-4 rounded border border-line px-4 py-3 no-underline hover:bg-sand/40"
                     href={servicePath(item)}
                   >
-                    {item.name}
+                    <span className="font-display text-[20px] leading-7 font-medium">{item.name}</span>
+                    <span className="shrink-0 text-sm underline underline-offset-4">Xem chi tiết</span>
                   </Link>
                 </li>
               ))}
             </ul>
-          </>
+          </div>
         ) : null}
+        </div>
       </Wrap>
     </article>
   );

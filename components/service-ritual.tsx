@@ -1,79 +1,59 @@
-"use client";
-
-import { useState } from "react";
+import type { ReactNode } from "react";
+import { ClockIcon } from "@/components/clock-icon";
 import { ContactActions } from "@/components/contact-actions";
 import { StepList } from "@/components/step-list";
 import { formatPrice, type MenuGroup } from "@/lib/menu";
+import { sampleNote, sampleStepCount } from "@/lib/service-journeys";
 
 export function ServiceRitual({
   group,
-  initialTierId,
+  tierId,
+  photo,
 }: {
   group: MenuGroup;
-  initialTierId?: string;
+  tierId?: string;
+  photo?: ReactNode;
 }) {
-  const initial =
-    group.tiers.find((item) => item.id === initialTierId)?.id ?? group.tiers[0].id;
-  const [tierId, setTierId] = useState(initial);
   const tier = group.tiers.find((item) => item.id === tierId) ?? group.tiers[0];
   const realSteps = tier.steps && tier.steps.length > 0 ? tier.steps : null;
   const steps =
     realSteps ??
-    Array.from({ length: 10 }, (_, index) => {
+    Array.from({ length: sampleStepCount }, (_, index) => {
       return `Bước mẫu ${index + 1}. Dòng thử bố cục cho ${tier.minutes} phút, chưa phải nội dung liệu trình.`;
     });
 
   return (
     <div>
-      <fieldset>
-        <legend className="text-xs uppercase tracking-[0.08em]">
-          {group.tiers.length > 1 ? "Chọn số phút" : "Thời lượng"}
-        </legend>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {group.tiers.map((item) => {
-            const selected = item.id === tier.id;
-            return (
-              <label
-                key={item.id}
-                className={`relative inline-flex min-h-11 cursor-pointer items-center px-3 text-sm ${
-                  selected ? "bg-wood text-cream" : "border border-line text-ink"
-                }`}
-              >
-                <input
-                  className="absolute inset-0 cursor-pointer opacity-0"
-                  type="radio"
-                  name={`${group.slug}-phut`}
-                  value={item.id}
-                  checked={selected}
-                  onChange={() => setTierId(item.id)}
-                />
-                <span>{item.minutes} phút</span>
-              </label>
-            );
-          })}
-        </div>
-      </fieldset>
+      <h1 className="mt-4 text-center font-display text-[32px] leading-10 font-medium md:text-[44px] md:leading-[52px]">
+        {tier.name}
+      </h1>
+      <p className="mx-auto mt-3 max-w-[36rem] text-center text-[15px] leading-6 italic md:text-base md:leading-7">
+        {sampleNote}
+      </p>
+      <p className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[15px] leading-6">
+        <span className="font-medium">{formatPrice(tier.priceVnd)}</span>
+        <span className="inline-flex items-center gap-1.5">
+          <ClockIcon className="size-4" />
+          {tier.minutes} phút
+        </span>
+      </p>
 
-      <div className="mt-6" aria-live="polite">
-        <p className="text-xs uppercase tracking-[0.08em] text-muted">Liệu trình</p>
-        <h2 className="mt-2 font-display text-[26px] font-[460] leading-snug md:text-[32px]">
-          {tier.name}
-        </h2>
-        <p className="mt-2 text-muted">
-          {tier.minutes} phút · {formatPrice(tier.priceVnd)}
-        </p>
-        <div className="mt-5">
-          <ContactActions />
-        </div>
-        <h3 className="mt-8 text-xs uppercase tracking-[0.08em]">Các bước</h3>
+      {photo ? <div className="mt-6 overflow-hidden rounded-[6px]">{photo}</div> : null}
+
+      <div className="mt-10 text-left">
+        <h2 className="font-display text-[28px] leading-9 font-medium md:text-[32px] md:leading-10">Quy trình</h2>
         {realSteps ? null : (
-          <p className="mt-2 text-sm text-muted">
-            Mười dòng dưới đây chỉ để xem bố cục. Các bước thật sẽ được thay vào sau.
+          <p className="mt-2 text-sm leading-6 italic">
+            {sampleStepCount} dòng dưới đây chỉ để xem bố cục. Các bước thật sẽ được thay vào sau.
           </p>
         )}
-        <div className="mt-3">
-          <StepList steps={steps} />
+        <div className="mt-5">
+          <StepList steps={steps} plain />
         </div>
+      </div>
+
+      <div className="mt-8 flex justify-center">
+        <ContactActions />
       </div>
     </div>
   );

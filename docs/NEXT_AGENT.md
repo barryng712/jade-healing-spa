@@ -1,15 +1,15 @@
 # Next agent
 
-Design was **owner-approved 2026-11-02**. Start a **new** Cursor Agent chat. Do not keep using the design thread.
+The informational site is on `feat/informational-site`. Current layout: `docs/design-guidelines.md` (2026-11-07).
 
-## First message
+## A. Next change
 
-The informational site is already built on `feat/informational-site`. The next role is QA, after the owner reviews the local site. The prompt is in `docs/STATUS.md`.
+Read `docs/STATUS.md` (“Next chat”). Do not restore the sand services band, the price bands, or the minute chips. Menu = `lib/menu.ts`. Ritual steps stay “Bước mẫu”. The 2026-11-06 QA draft is an earlier build.
 
-Do not restore the old four sample services or the step-length mock. The menu is the Canva groups in `lib/menu.ts`, filed under Massage, Chăm sóc tóc, and Combo. Ritual steps are still the labeled “Bước mẫu” lines.
+## B. Ongoing product changes
 
-As of 2026-11-04 the home bands are shorter, the services band is sand linen `#E9DCC8`, and the header plus home hero use `public/spa/logo-mark.png`. Do not put the typed name or the pale green services band back.
+For UI / feature / page / journey work: `/product-change` → BA → Design → Dev → QA with owner gates. See `docs/change-requests/README.md` and `AGENTS.md` section B.
 
 ## Do not redo
 
-Research, BA questions, Figma canvas, or a new visual direction.
+Initial research, full BA from scratch, Figma canvas, or a new visual direction unless a CR says so.

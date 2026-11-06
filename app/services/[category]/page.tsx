@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ServiceGroupList } from "@/components/service-group-list";
+import { ServiceDirectory } from "@/components/service-directory";
 import { Wrap } from "@/components/wrap";
-import { getCategory, groupsInCategory, serviceCategories } from "@/lib/menu";
-import { servicePhotos } from "@/lib/photos";
+import { getCategory, serviceCategories } from "@/lib/menu";
 
 type Props = {
   params: Promise<{ category: string }>;
 };
+
+const sectionId = {
+  massage: "massage",
+  "cham-soc-toc": "goi",
+  combo: "combo",
+} as const;
 
 export function generateStaticParams() {
   return serviceCategories.map((category) => ({ category: category.slug }));
@@ -29,8 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ServiceCategoryPage({ params }: Props) {
   const { category: slug } = await params;
   const category = getCategory(slug);
-  if (!category) notFound();
-  const groups = groupsInCategory(category.slug);
+  if (!category || !(slug in sectionId)) notFound();
+  const only = sectionId[slug as keyof typeof sectionId];
 
   return (
     <section className="py-12 md:py-20">
@@ -46,10 +51,14 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <li>{category.name}</li>
           </ol>
         </nav>
-        <h1 className="mt-4 font-display text-[32px] font-[460] md:text-[40px]">{category.name}</h1>
-        <p className="mt-3 max-w-[48ch] text-muted">{category.description}</p>
-        <div className="mt-8">
-          <ServiceGroupList groups={groups} photos={servicePhotos} />
+        <h1 className="mt-4 font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
+          {category.name}
+        </h1>
+        <p className="mt-3 max-w-[42ch] text-[15px] leading-6 md:text-base md:leading-[26px]">
+          {category.description}
+        </p>
+        <div className="mt-8 md:mt-10">
+          <ServiceDirectory only={only} />
         </div>
       </Wrap>
     </section>

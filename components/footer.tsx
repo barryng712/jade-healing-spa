@@ -4,11 +4,11 @@ import { nav, site } from "@/lib/site";
 export function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto grid w-full max-w-[1120px] gap-8 px-5 py-8 text-sm md:px-10 md:py-10 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid w-full max-w-[1120px] gap-8 px-5 py-8 text-sm leading-[22px] md:px-10 md:py-10 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="font-display text-lg">{site.name}</p>
+          <p className="font-medium">{site.name}</p>
           <p className="mt-2">{site.legalName}</p>
-          <p className="mt-2 text-muted">{site.address}</p>
+          <p className="mt-2">{site.address}</p>
           <p className="mt-2">{site.hours}</p>
         </div>
         <div>
@@ -45,7 +45,7 @@ export function Footer() {
           </ul>
         </nav>
       </div>
-      <div className="mx-auto w-full max-w-[1120px] px-5 pb-8 text-sm text-muted md:px-10">
+      <div className="mx-auto w-full max-w-[1120px] px-5 pb-8 text-[13px] leading-5 md:px-10">
         © {new Date().getFullYear()} {site.legalName}
       </div>
     </footer>

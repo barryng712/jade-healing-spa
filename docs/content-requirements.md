@@ -31,11 +31,11 @@ Do not copy web photos into `assets/`. Do not publish look-alike brands.
 | ID | Item | Owner note |
 | --- | --- | --- |
 | C6b | Zalo link | Needed for the Zalo button |
-| S1–S3, S5, S7 | Menu names and durations | On the site from the Canva menu, 2026-11-02. Ritual steps are still “Bước mẫu” until real lines arrive. |
+| S1–S3, S5, S7 | Menu names and durations | On the site from the Canva menu. Card blurbs, the detail lead, and the twelve step lines are still labeled samples. |
 | S4 | Prices | Public. Numbers are the Canva menu in `lib/menu.ts`. |
 | S6 | Health/contraindication copy | Omit unless professionally approved |
 | I5–I8 | About story, philosophy, facilities, team | Not supplied |
-| B1–B7 | Logo and photos | Photos are in `assets/spa/` and on the site. The wordmark is the script cut in `public/spa/logo-mark.png`. A separate vector master is still open. Display type is Fraunces; body is Be Vietnam Pro. |
+| B1–B7 | Logo and photos | Photos are in `assets/spa/` and on the site. The wordmark is the script cut in `public/spa/logo-mark.png`. A separate vector master is still open. Display type is Cormorant Garamond; body is Manrope. |
 | R1–R3 | Review quotes | Show Google Maps reviews — **listing URL still needed** |
 | L2–L3 | Hosting, launch approver | Not yet |
 

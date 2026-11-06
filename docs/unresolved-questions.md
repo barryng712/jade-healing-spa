@@ -27,7 +27,7 @@ Owner answers recorded **2026-11-01**. Confirmed values live in `docs/confirmed-
 
 - [ ] **C6b** Zalo URL (or confirm Zalo chat = 0357050796). CTA includes Zalo but no link was given.
 - [ ] **S1 / S5** Names, minutes, and prices arrived 2026-11-02 (Canva menu). **Ritual steps for each minute mark are still missing.** Jade Emperor Therapy still has no Vietnamese name. Do not write the steps.
-- [ ] **S8** Category placement to confirm: An thần & giấc ngủ is under Massage, and Chăm sóc theo nhu cầu is under Combo, because the 2026-11-03 note did not name them. Combo items from “Dịch vụ bổ trợ” are now separate gói pages.
+- [ ] **S8** Live placement, owner-directed 2026-11-07: An thần 60/90/120 stays in the massage intents; the 150-minute ritual is a Combo card. Chăm sóc theo nhu cầu stays under Combo. Say if that split should change.
 - [x] **B1–B7 photos** Owner photos are in `assets/spa/` and on the site via `public/spa/`. `Unknown-9.jpg` stays unused.
 - [x] **Wordmark** The header and home hero use the script mark cut from those photos (`public/spa/logo-mark.png`), 2026-11-04.
 - [ ] **Vector logo** A separate clean master file is still open if the photo cut should be replaced.

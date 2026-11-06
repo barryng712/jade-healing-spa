@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Fraunces:opsz,wght@9..144,460;9..144,560&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Manrope:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --paper: #f4f0e8;
@@ -176,9 +177,156 @@
     }
     .steps { border-left: 1px solid var(--wood); padding-left: 16px; }
     .steps h3 { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-family: "Be Vietnam Pro", sans-serif; font-weight: 500; }
+
+    .home-services-proposal { max-width: 1120px; margin: 0 auto 56px; }
+    .proposal-note {
+      margin: 0 0 14px;
+      font-family: Manrope, "Be Vietnam Pro", sans-serif;
+      font-size: 13px;
+      line-height: 20px;
+      color: #263b32;
+    }
+    .proposal-desktop { margin-bottom: 36px; overflow-x: auto; }
+    .proposal-desktop .band { min-width: 1120px; }
+    .phone-frame { width: 390px; max-width: 100%; }
+    .band {
+      position: relative;
+      overflow: hidden;
+      background: #e9e2d5;
+      color: #263b32;
+    }
+    .proposal-desktop .band { padding: 80px 40px; }
+    .phone-frame .band { padding: 48px 20px; }
+    .band-texture {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      mix-blend-mode: multiply;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .band-inner { position: relative; }
+    .home-services-proposal .band-title {
+      margin: 0;
+      max-width: 18ch;
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 36px;
+      line-height: 44px;
+      color: #263b32;
+    }
+    .phone-frame .band-title { font-size: 28px; line-height: 36px; }
+    .band-lead {
+      margin: 12px 0 0;
+      max-width: 42ch;
+      font-family: Manrope, "Be Vietnam Pro", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      color: #263b32;
+    }
+    .phone-frame .band-lead { margin-top: 8px; font-size: 15px; line-height: 24px; }
+    .band-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 32px;
+      align-items: start;
+      margin-top: 24px;
+    }
+    .phone-frame .band-grid { grid-template-columns: 1fr; }
+    .band-link {
+      display: block;
+      color: #263b32;
+      text-decoration: none;
+    }
+    .band-link:focus-visible {
+      outline: 1px solid #263b32;
+      outline-offset: 2px;
+    }
+    .band-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 4px;
+    }
+    .proposal-desktop .band-name { white-space: nowrap; }
+    .band-name {
+      display: block;
+      margin-top: 12px;
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      color: #263b32;
+    }
+    .phone-frame .band-name { margin-top: 8px; font-size: 22px; line-height: 30px; }
+    .band-link:hover .band-name,
+    .band-link:focus-visible .band-name {
+      color: #263b32;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
   </style>
 </head>
 <body>
+  <p style="margin:0;padding:12px 20px;background:#263b32;color:#f8f6f0;font-family:Manrope,sans-serif;font-size:14px;line-height:22px;">Bản vẽ cũ (dải cát, font cũ). Bố cục đang chạy nằm ở site Next.js và docs/design-guidelines.md, cập nhật 2026-11-07.</p>
+  <p class="board-label">Đề xuất — Dải dịch vụ trang chủ · chờ chủ spa duyệt · chưa đưa vào trang</p>
+  <div class="home-services-proposal">
+    <p class="proposal-note">Màn rộng · khung 1440 · cột 1120. Ảnh bo góc 4px, tỉ lệ 4/5. Tên một dòng, cùng đường chân chữ. Mô tả từng nhóm không hiện ở dải này.</p>
+    <div class="proposal-desktop">
+      <div class="band">
+        <img class="band-texture" src="../public/textures/sand-stucco.jpg" alt="" />
+        <div class="band-inner">
+          <h2 class="band-title">Dịch vụ</h2>
+          <p class="band-lead">Ba lối vào. Chọn một nhóm để xem từng liệu trình.</p>
+          <div class="band-grid">
+            <a class="band-link" href="/services/massage">
+              <img class="band-photo" src="../public/spa/treatment-bed.jpg" alt="Giường và khăn tại Jade Healing Spa" />
+              <span class="band-name">Massage</span>
+            </a>
+            <a class="band-link" href="/services/cham-soc-toc">
+              <img class="band-photo" src="../public/spa/herb-ground.jpg" alt="Mâm thảo mộc khô tại Jade Healing Spa" />
+              <span class="band-name">Chăm sóc tóc</span>
+            </a>
+            <a class="band-link" href="/services/combo">
+              <img class="band-photo" src="../public/spa/soaking-hall.jpg" alt="Khu bồn tắm Jade Healing Spa" />
+              <span class="band-name">Combo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="proposal-note">Điện thoại · 390. Cùng tỉ lệ 4/5, một cột.</p>
+    <div class="phone-frame">
+      <div class="band">
+        <img class="band-texture" src="../public/textures/sand-stucco.jpg" alt="" />
+        <div class="band-inner">
+          <h2 class="band-title">Dịch vụ</h2>
+          <p class="band-lead">Ba lối vào. Chọn một nhóm để xem từng liệu trình.</p>
+          <div class="band-grid">
+            <a class="band-link" href="/services/massage">
+              <img class="band-photo" src="../public/spa/treatment-bed.jpg" alt="Giường và khăn tại Jade Healing Spa" />
+              <span class="band-name">Massage</span>
+            </a>
+            <a class="band-link" href="/services/cham-soc-toc">
+              <img class="band-photo" src="../public/spa/herb-ground.jpg" alt="Mâm thảo mộc khô tại Jade Healing Spa" />
+              <span class="band-name">Chăm sóc tóc</span>
+            </a>
+            <a class="band-link" href="/services/combo">
+              <img class="band-photo" src="../public/spa/soaking-hall.jpg" alt="Khu bồn tắm Jade Healing Spa" />
+              <span class="band-name">Combo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <p class="board-label">Artboard 01 — Hành trình 1 · Trang chủ · desktop</p>
   <article class="frame">
     <header class="nav">

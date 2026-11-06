@@ -14,6 +14,13 @@ export const heroPhoto: SpaPhoto = {
   alt: "Ghế cong, trần gỗ và cây trong Jade Healing Spa",
 };
 
+/**
+ * Optional home film. Leave empty to keep the moving photo (faster first paint).
+ * To swap in a video, put an mp4 in `public/` and set this to "/hero.mp4".
+ * It plays muted, with the photo as the first frame. No sound, no third-party host.
+ */
+export const heroVideoSrc = "";
+
 export const aboutPhoto: SpaPhoto = {
   src: "/spa/reception.jpg",
   alt: "Quầy lễ tân Jade Healing Spa",
@@ -95,6 +102,47 @@ export const homeNatureBanner: SpaPhoto = {
   src: "/spa/soaking-hall.jpg",
   alt: "Khu bồn tắm Jade Healing Spa",
 };
+
+const galleryBand: SpaPhoto = {
+  src: "/spa/dried-flowers.jpg",
+  alt: "Chi tiết hoa khô tại Jade Healing Spa",
+};
+
+const reviewsBand: SpaPhoto = {
+  src: "/spa/flowers.jpg",
+  alt: "Hoa và bàn gỗ tại Jade Healing Spa",
+};
+
+const aboutBand: SpaPhoto = {
+  src: "/spa/logo-wall.jpg",
+  alt: "Logo Jade Healing Spa trên tường",
+};
+
+/** Photo under the header. Home returns null because it already has a scene. */
+export function bandPhoto(pathname: string): SpaPhoto | null {
+  if (pathname === "/") return null;
+  if (pathname === "/about") return aboutBand;
+  if (pathname === "/gallery") return galleryBand;
+  if (pathname === "/reviews") return reviewsBand;
+  if (pathname === "/contact") return aboutPhoto;
+  if (pathname === "/services") return servicesOpener;
+
+  const detail = pathname.match(/^\/services\/[^/]+\/([^/]+)\/?$/);
+  if (detail) {
+    const slug = detail[1];
+    if (slug && slug in servicePhotos) return servicePhotos[slug] ?? servicesOpener;
+  }
+
+  const category = pathname.match(/^\/services\/([^/]+)\/?$/);
+  if (category) {
+    const slug = category[1];
+    if (slug === "massage" || slug === "cham-soc-toc" || slug === "combo") {
+      return categoryPhotos[slug];
+    }
+  }
+
+  return heroPhoto;
+}
 
 /** Space photos beside a menu group. Not a confirmed photo of that treatment. */
 export const servicePhotos: Record<string, SpaPhoto> = {

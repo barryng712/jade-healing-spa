@@ -14,25 +14,27 @@ export default function ContactPage() {
       <Wrap>
         <div className="grid items-start gap-10 lg:grid-cols-2">
           <div>
-            <h1 className="font-display text-[32px] font-[460] md:text-[40px]">Liên hệ</h1>
+            <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
+              Liên hệ
+            </h1>
             <dl className="mt-2">
-              <dt className="mt-4 text-xs uppercase tracking-[0.1em] text-muted">Địa chỉ</dt>
+              <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Địa chỉ</dt>
               <dd className="mt-0.5">{site.address}</dd>
-              <dt className="mt-4 text-xs uppercase tracking-[0.1em] text-muted">Giờ</dt>
+              <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Giờ</dt>
               <dd className="mt-0.5">{site.hours}</dd>
-              <dt className="mt-4 text-xs uppercase tracking-[0.1em] text-muted">Điện thoại</dt>
+              <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Điện thoại</dt>
               <dd className="mt-0.5">
                 <a className="underline underline-offset-4" href={site.phoneTel}>
                   {site.phoneDisplay}
                 </a>
               </dd>
-              <dt className="mt-4 text-xs uppercase tracking-[0.1em] text-muted">Email</dt>
+              <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Email</dt>
               <dd className="mt-0.5">
                 <a className="underline underline-offset-4" href={`mailto:${site.email}`}>
                   {site.email}
                 </a>
               </dd>
-              <dt className="mt-4 text-xs uppercase tracking-[0.1em] text-muted">Facebook</dt>
+              <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Facebook</dt>
               <dd className="mt-0.5">
                 <a
                   className="underline underline-offset-4"
@@ -43,9 +45,9 @@ export default function ContactPage() {
                   facebook.com/jadehealingspa
                 </a>
               </dd>
-              <dt className="mt-4 text-xs uppercase tracking-[0.1em] text-muted">Đỗ xe</dt>
+              <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Đỗ xe</dt>
               <dd className="mt-0.5">{site.parking}</dd>
-              <dt className="mt-4 text-xs uppercase tracking-[0.1em] text-muted">Zalo</dt>
+              <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Zalo</dt>
               <dd className="mt-0.5">Liên kết Zalo sẽ được bổ sung.</dd>
             </dl>
             <div className="mt-6">
@@ -56,11 +58,11 @@ export default function ContactPage() {
             <iframe
               title="Bản đồ vị trí Jade Healing Spa"
               src={site.mapEmbedUrl}
-              className="h-[280px] w-full border-0 bg-[#e7e0d4]"
+              className="h-[280px] w-full rounded-[2px] border-0 bg-sand"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <p className="mt-3 text-sm text-muted">
+            <p className="mt-3 text-[13px] leading-5">
               <a
                 className="underline underline-offset-4"
                 href={site.mapUrl}

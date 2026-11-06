@@ -1,21 +1,24 @@
 import type { Metadata, Viewport } from "next";
-import { Be_Vietnam_Pro, Fraunces } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { PagePhotoBand } from "@/components/page-photo-band";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin", "vietnamese"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-fraunces",
+  variable: "--font-cormorant",
 });
 
-const beVietnam = Be_Vietnam_Pro({
+const manrope = Manrope({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500"],
   display: "swap",
-  variable: "--font-be-vietnam",
+  variable: "--font-manrope",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4f0e8",
+  themeColor: "#f8f6f0",
   width: "device-width",
   initialScale: 1,
 };
@@ -81,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className={`${fraunces.variable} ${beVietnam.variable}`}>
+    <html lang="vi" className={`${cormorant.variable} ${manrope.variable}`}>
       <body className="font-sans antialiased">
         <a
           href="#noi-dung"
@@ -91,6 +94,7 @@ export default function RootLayout({
         </a>
         <Header />
         <main id="noi-dung" className="pt-[4.75rem]">
+          <PagePhotoBand />
           {children}
         </main>
         <Footer />

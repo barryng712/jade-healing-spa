@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f4f0e8;
-  --color-ink: #1c1915;
-  --color-wood: #5c4636;
-  --color-moss: #3f4a3a;
-  --color-line: #e4dcd0;
-  --color-cream: #fbf8f3;
-  --color-muted: #5c554c;
-  --color-frame: #ddd4c8;
-  --font-sans: var(--font-be-vietnam), "Be Vietnam Pro", sans-serif;
-  --font-display: var(--font-fraunces), Fraunces, Georgia, serif;
+  --color-paper: #f8f6f0;
+  --color-ink: #263b32;
+  --color-wood: #263b32;
+  --color-moss: #263b32;
+  --color-sage: #78846b;
+  --color-sand: #e9e2d5;
+  --color-bronze: #ad9066;
+  --color-forest-deep: #1b2c25;
+  --color-line: color-mix(in srgb, #78846b 42%, #f8f6f0);
+  --color-cream: #f8f6f0;
+  --color-muted: #263b32;
+  --color-frame: color-mix(in srgb, #78846b 22%, #f8f6f0);
+  --font-sans: var(--font-manrope), Manrope, "Be Vietnam Pro", "Segoe UI", sans-serif;
+  --font-display: var(--font-cormorant), "Cormorant Garamond", "Times New Roman", serif;
 }
 
 html {
@@ -22,8 +26,15 @@ body {
   background: var(--color-paper);
   color: var(--color-ink);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 26px;
   overflow-x: clip;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 17px;
+    line-height: 28px;
+  }
 }
 
 :focus-visible {
@@ -33,6 +44,20 @@ body {
 
 .hero-focus:focus-visible {
   outline-color: var(--color-cream);
+}
+
+.hero-scrim {
+  position: absolute;
+  z-index: -1;
+  inset: -2.75rem -1.75rem -2.25rem -1.25rem;
+  background: radial-gradient(
+    ellipse 100% 115% at 42% 48%,
+    rgb(27 44 37 / 0.82) 0%,
+    rgb(27 44 37 / 0.55) 58%,
+    transparent 80%
+  );
+  filter: blur(12px);
+  pointer-events: none;
 }
 
 [aria-current="page"] {
@@ -83,6 +108,27 @@ body {
   }
 }
 
+@keyframes hero-drift {
+  from {
+    transform: translate3d(0, 8px, 0);
+  }
+  to {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    transform: scaleY(0.45);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
 @keyframes film-soft {
   from {
     transform: scale(1.03);
@@ -101,7 +147,19 @@ body {
   transform: scale(1.03);
 }
 
+.scroll-cue {
+  display: block;
+  width: 1px;
+  height: 2.25rem;
+  background: linear-gradient(to bottom, transparent, currentColor);
+  transform-origin: top;
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   .hero-copy {
     animation: rise 0.9s ease 0.12s both;
   }
@@ -142,6 +200,18 @@ body {
     animation: rise 0.9s ease forwards;
   }
 
+  .reveal-float.is-in {
+    animation: rise 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
+  }
+
+  .hero-drift {
+    animation: hero-drift 7.5s ease-in-out infinite alternate;
+  }
+
+  .scroll-cue {
+    animation: cue 1.8s ease-in-out infinite;
+  }
+
   .photo-reel {
     animation: reel-left 42s linear infinite;
   }
@@ -155,5 +225,18 @@ body {
   .reveal-once {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-once {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .scroll-cue,
+  .hero-drift {
+    animation: none;
   }
 }

@@ -8,6 +8,7 @@ export function PhotoFrame({
   className = "",
   priority = false,
   sizes = "(min-width: 768px) 40vw, 100vw",
+  flush = false,
 }: {
   src?: string;
   alt?: string;
@@ -15,11 +16,12 @@ export function PhotoFrame({
   className?: string;
   priority?: boolean;
   sizes?: string;
+  flush?: boolean;
 }) {
   if (!src) {
     return (
       <div
-        className={`flex items-end bg-frame p-2 text-[11px] uppercase tracking-[0.06em] text-muted ${className}`}
+        className={`flex items-end bg-frame p-2 text-[13px] leading-5 ${flush ? "" : "rounded-[2px]"} ${className}`}
       >
         {label}
       </div>
@@ -27,7 +29,7 @@ export function PhotoFrame({
   }
 
   return (
-    <div className={`relative overflow-hidden bg-frame ${className}`}>
+    <div className={`relative overflow-hidden bg-frame ${flush ? "" : "rounded-[2px]"} ${className}`}>
       <LivingPhoto src={src} alt={alt} priority={priority} sizes={sizes} tone="soft" />
     </div>
   );

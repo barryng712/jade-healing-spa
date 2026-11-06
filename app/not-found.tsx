@@ -10,7 +10,7 @@ export default function NotFound() {
   return (
     <section className="py-16 md:py-24">
       <Wrap>
-        <h1 className="font-display text-[32px] font-[460] md:text-[40px]">
+        <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
           Không tìm thấy trang
         </h1>
         <p className="mt-3 max-w-[46ch]">Trang này không có trên website.</p>

@@ -6,10 +6,11 @@ import { LogoLockup } from "@/components/logo";
 import { PhotoFrame } from "@/components/photo-frame";
 import { PhotoReel } from "@/components/photo-reel";
 import { Reveal } from "@/components/reveal";
+import { SectionTexture } from "@/components/section-texture";
 import { Scene } from "@/components/scene";
-import { ServiceCategoryCards } from "@/components/service-category-cards";
+import { ServiceDirectory } from "@/components/service-directory";
 import { Wrap } from "@/components/wrap";
-import { heroPhoto, homeGalleryPhotos, homeNatureBanner, homeReelPhotos } from "@/lib/photos";
+import { heroPhoto, heroVideoSrc, homeGalleryPhotos, homeNatureBanner, homeReelPhotos } from "@/lib/photos";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -22,26 +23,42 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Scene src={heroPhoto.src} alt={heroPhoto.alt} priority size="home" className="-mt-[4.75rem]">
-        <h1 aria-label={site.name}>
+      <Scene
+        src={heroPhoto.src}
+        alt={heroPhoto.alt}
+        videoSrc={heroVideoSrc}
+        priority
+        size="home"
+        scrollHref="#tiep-theo"
+        className="-mt-[4.75rem]"
+      >
+        <div>
           <LogoLockup tone="cream" className="h-16 md:h-24" />
-        </h1>
-        <p className="mt-3 mb-5 max-w-[28ch] text-base md:text-lg">{site.tagline}</p>
+        </div>
+        <p className="mt-3 mb-5 max-w-[28ch] font-display text-[18px] leading-7 italic md:text-[22px] md:leading-8">
+          {site.tagline}
+        </p>
         <div className="hero-focus">
           <ContactActions tone="hero" />
         </div>
       </Scene>
 
-      <section className="overflow-hidden py-8 md:py-12">
-        <Wrap>
-          <Reveal>
+      <section
+        id="tiep-theo"
+        className="relative z-10 -mt-[24svh] overflow-hidden rounded-t-[28px] bg-paper py-10 shadow-[0_-28px_60px_rgba(38,59,50,0.12)] md:rounded-t-[40px] md:py-14"
+      >
+        <SectionTexture src="/textures/linen-neutral.jpg" />
+        <Wrap className="relative">
+          <Reveal className="reveal-float">
             <div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
               <div>
-                <h2 className="max-w-[14ch] font-display text-[28px] leading-[1.15] font-[460] md:text-[36px]">
+                <h1 className="max-w-[14ch] font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
                   Một nhà cho thân, sự nghỉ, và nghi thức.
-                </h2>
-                <p className="mt-5 max-w-[36ch] text-muted">Một khoảng gỗ và cây giữa Cầu Giấy.</p>
-                <p className="mt-3 max-w-[36ch] text-muted">
+                </h1>
+                <p className="mt-3 max-w-[36ch] text-[15px] leading-6 md:text-base md:leading-[26px]">
+                  Một khoảng gỗ và cây giữa Cầu Giấy.
+                </p>
+                <p className="mt-3 max-w-[36ch]">
                   Không gian yên để nghỉ. Đây không phải lời hứa chữa bệnh.
                 </p>
               </div>
@@ -53,10 +70,10 @@ export default function HomePage() {
         </Wrap>
       </section>
 
-      <section className="bg-[#e9dcc8] py-8 md:py-12">
+      <section className="bg-paper py-12 text-ink md:py-16">
         <Wrap>
-          <Reveal>
-            <ServiceCategoryCards />
+          <Reveal className="reveal-float">
+            <ServiceDirectory />
           </Reveal>
         </Wrap>
       </section>
@@ -69,22 +86,25 @@ export default function HomePage() {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#1c1915]/45" aria-hidden="true" />
+        <div className="absolute inset-0 bg-ink/45" aria-hidden="true" />
         <Wrap className="relative z-10 py-10 text-center md:py-12">
-          <h2 className="mx-auto max-w-[16ch] font-display text-[28px] leading-[1.15] font-[460] md:text-[40px]">
+          <h2 className="mx-auto max-w-[16ch] font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
             Từ gỗ, cây và nước.
           </h2>
-          <p className="mx-auto mt-4 max-w-[36ch] text-sm text-cream/85">
+          <p className="mx-auto mt-3 max-w-[42ch] text-[15px] leading-6 text-cream md:text-base md:leading-[26px]">
             Ảnh này để xem bố cục, sẽ đổi khi có ảnh khác.
           </p>
         </Wrap>
       </section>
 
-      <section className="py-8 md:py-12">
-        <Wrap>
+      <section className="relative overflow-hidden bg-paper py-8 md:py-12">
+        <SectionTexture src="/textures/linen-neutral.jpg" />
+        <Wrap className="relative">
           <Reveal>
             <div className="mb-6 flex items-end justify-between gap-4">
-              <h2 className="font-display text-[28px] font-[460] md:text-[34px]">Thư viện ảnh</h2>
+              <h2 className="font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
+                Thư viện ảnh
+              </h2>
               <Link className="text-sm underline underline-offset-4" href="/gallery">
                 Xem tất cả
               </Link>
@@ -105,11 +125,14 @@ export default function HomePage() {
         </Wrap>
       </section>
 
-      <section className="bg-moss text-cream">
-        <Wrap>
+      <section className="relative overflow-hidden bg-ink text-cream">
+        <SectionTexture src="/textures/olive-weave.jpg" blend="mix-blend-soft-light opacity-90" />
+        <Wrap className="relative">
           <Reveal className="flex flex-col gap-4 py-8 md:flex-row md:items-end md:justify-between md:py-10">
             <div>
-              <h2 className="font-display text-[28px] font-[460] md:text-[34px]">Ghé spa</h2>
+              <h2 className="font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
+                Ghé spa
+              </h2>
               <p className="mt-3">
                 {site.address}
                 <br />
@@ -117,7 +140,7 @@ export default function HomePage() {
               </p>
             </div>
             <Link
-              className="inline-flex min-h-11 items-center justify-center bg-wood px-4 text-sm text-cream no-underline hover:bg-[#4a382b]"
+              className="inline-flex min-h-11 items-center justify-center rounded bg-cream px-4 text-sm font-medium text-ink no-underline hover:bg-white"
               href="/contact"
             >
               Liên hệ

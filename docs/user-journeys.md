@@ -1,7 +1,8 @@
 # User journeys — Jade Healing Spa
 
-**Status:** local site, 2026-11-04. Contact facts from 2026-11-01.  
-Ends in **call, Facebook, Zalo, or visit**. No online booking.
+**Status:** local site, 2026-11-07. Contact facts from 2026-11-01.  
+Ends in **call, Facebook, Zalo, or visit**. No online booking.  
+Layout detail: `docs/design-guidelines.md`.
 
 ---
 
@@ -13,15 +14,25 @@ Public Facebook had email and address, no phone. Owner **confirmed** hotline 035
 
 ## Journey 1 — First impression (Home)
 
-See the script logo and **Chăm sóc · An yên · Chữa lành**. The hero is shorter than the screen. Then the house block, three service cards on the sand band, the nature banner, gallery frames, and the visit strip.
+The first screen is only the moving lounge photo, the script logo, **Chăm sóc · An yên · Chữa lành**, Gọi điện, and Facebook. **Kéo xuống** moves to the next band. A video can replace the moving photo later (`heroVideoSrc` in `lib/photos.ts`); it stays empty until the owner supplies a file.
+
+Scrolling reveals, with one fade: the house block (the page `h1`), the services directory (Massage, Gội đầu dưỡng sinh, Combo), the nature banner, gallery frames, and the visit strip. The `h1` and the service names are in the HTML, not inside the photo.
 
 ## Journey 2 — Who we are (About)
 
-Short confirmed line + Contact. Full story waits for owner text.
+Short confirmed line + Contact. Full story waits for owner text. The page opens with a living photo under the header.
 
 ## Journey 3 — Choose a treatment
 
-Hover Dịch vụ, choose Massage, Chăm sóc tóc, or Combo, then open one item. On the detail page the photo stays put and the minute chips swap the ritual name, price, and step slot. Step text is still empty. See `docs/design-guidelines.md`.
+Hover **Dịch vụ**. Three columns: massage intents (Thư giãn, Phục hồi, Trị liệu), the three gội tier names, and the combo gói names including the 150-minute sleep ritual.
+
+On `/services` or Home, the same three sections are cards: photo, short labeled sample, **Xem chi tiết**. There is no “Nhóm dịch vụ” bar.
+
+- Massage card → `/services/massage/nhom/thu-gian`, `phuc-hoi`, or `tri-lieu`. One row per matching tier, using that tier’s menu name, exact price, clock, and minutes. Thư giãn is 40 and 60. Phục hồi is 90. Trị liệu is 120. Lưng – eo has no 120-minute tier.
+- Gội card → the detail page for that minute (`?phut=`).
+- Combo card → the gói page. The 150-minute sleep ritual is in this section.
+
+The detail page shows only the chosen minute: tier name, one labeled sample line, price beside the clock, photo, **Quy trình**, twelve labeled **Bước mẫu** lines, contact, related services. No minute switcher. Step text is still empty. See `docs/design-guidelines.md`.
 
 ## Journey 4 — Gallery
 
@@ -35,7 +46,7 @@ Do not invent quotes. Offer Google Maps pin. When the owner sends a Maps **place
 
 Contact shows address (ngách 66/18), 09:00–21:00, `tel:+84357050796`, email, Facebook, parking note, map. Zalo button waits for URL.
 
-**Mobile:** tap-to-call and Facebook work; Zalo only after link exists.
+**Mobile:** tap-to-call and Facebook work; Zalo only after a link exists. The home services section must be on screen after a scroll. A fade must not leave it invisible.
 
 ## Out of MVP
 

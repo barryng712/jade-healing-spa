@@ -25,26 +25,28 @@ Study **https://nhaspa.com.vn/** for:
 
 Do **not** copy its branding, text, images, or source code.
 
-## Where the site is (2026-11-04)
+## Where the site is (2026-11-07)
 
-A local Next.js site exists on `feat/informational-site`. It is not deployed. QA has not started.
+A local Next.js site exists on `feat/informational-site`. It is not deployed. The 2026-11-06 QA draft describes an earlier layout.
 
 Built:
 
 - Home, About, Services, Gallery, Reviews, Contact
-- Menu from the Canva “MEMU TỔNG JADE” Vietnamese page: Massage, Chăm sóc tóc, Combo, then one page per liệu trình
-- Detail: photo on the left, ritual on the right; minute chips change the name and price; the photo stays
+- Menu from the Canva “MEMU TỔNG JADE” Vietnamese page
+- Home opens on a full-screen moving photo. Services are Massage (Thư giãn, Phục hồi, Trị liệu), Gội đầu dưỡng sinh, and Combo
+- A massage intent lists one tier per row. Detail shows only the minute in `?phut=`
 - Owner photos from `assets/spa/` (copied for the site under `public/spa/`)
 - Header and home hero use the script logo cut from those photos (`public/spa/logo-mark.png`)
-- Home services band is sand linen `#E9DCC8`, taken from the plaster, linen, and wood in the photos
 
 Still labeled, not invented:
 
-- Ritual steps are ten “Bước mẫu” lines until the owner sends the real steps
+- Ritual steps are twelve “Bước mẫu” lines until the owner sends the real steps
+- Card descriptions are labeled samples
 - About story is still a gap
 - Reviews have no quotes
 - Zalo has no URL
 - The nature banner photo is a stand-in (`soaking-hall`)
+- `heroVideoSrc` is empty until the owner supplies a film
 
 ## Our site must use
 

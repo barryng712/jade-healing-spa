@@ -1,0 +1,13 @@
+---
+description: Menu and confirmed content must not be invented
+globs: "{lib/menu.ts,docs/confirmed-content.md,docs/content-requirements.md,docs/change-requests/**}"
+alwaysApply: false
+---
+
+# Menu & content
+
+- Live menu source: `lib/menu.ts` (Canva MEMU TỔNG JADE). Do not restore obsolete four-sample menus.
+- Confirmed marketing/contact copy: `docs/confirmed-content.md`.
+- Ritual steps remain labeled samples until the owner supplies real lines.
+- Never invent prices, minutes, addresses, phones, Zalo URLs, or medical claims.
+- Change requests that touch services must call out menu/doc updates in the BA section.

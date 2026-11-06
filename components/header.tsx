@@ -3,18 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import {
-  categoryPath,
-  groupsInCategory,
-  minuteMarks,
-  serviceCategories,
-  servicePath,
-} from "@/lib/menu";
+import { comboOffers, goiOffers, massageIntents } from "@/lib/service-journeys";
 import { LogoLockup } from "@/components/logo";
 import { nav, site } from "@/lib/site";
 
 function sceneAtTop(pathname: string) {
-  return pathname === "/";
+  return pathname.length > 0;
 }
 
 function isCurrent(pathname: string, href: string) {
@@ -23,7 +17,7 @@ function isCurrent(pathname: string, href: string) {
 }
 
 const linkClass =
-  "inline-flex min-h-11 items-center text-sm no-underline hover:text-wood";
+  "inline-flex min-h-11 items-center text-sm font-medium no-underline hover:text-wood";
 
 export function Header() {
   const pathname = usePathname();
@@ -68,7 +62,7 @@ export function Header() {
 
   useEffect(() => {
     const onScroll = () => {
-      const threshold = pathname === "/" ? 0.48 : 0.42;
+      const threshold = pathname === "/" ? 0.86 : 0.34;
       setScrolled(window.scrollY > window.innerHeight * threshold);
     };
     onScroll();
@@ -80,7 +74,7 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-30 transition-colors duration-300 ${
         overlay
-          ? "header-overlay bg-[#1c1915]/30 text-cream backdrop-blur-[2px]"
+          ? "header-overlay bg-ink/30 text-cream backdrop-blur-[2px]"
           : "border-b border-line bg-paper/95 text-ink backdrop-blur-md"
       }`}
     >
@@ -117,32 +111,58 @@ export function Header() {
                     className="fixed inset-x-0 top-[4.5rem] z-40 px-5 md:px-10"
                     onMouseEnter={openServices}
                   >
-                    <div className="mx-auto grid w-full max-w-[1120px] grid-cols-3 gap-6 border border-line bg-paper p-6 text-ink">
-                      {serviceCategories.map((category) => (
-                        <div key={category.slug}>
-                          <Link
-                            className="font-display text-lg no-underline hover:text-wood"
-                            href={categoryPath(category.slug)}
-                          >
-                            {category.name}
-                          </Link>
-                          <ul className="mt-3 space-y-2">
-                            {groupsInCategory(category.slug).map((group) => (
-                              <li key={group.slug}>
-                                <Link
-                                  className="text-sm no-underline hover:text-wood"
-                                  href={servicePath(group)}
-                                >
-                                  {group.name}
-                                  <span className="mt-0.5 block text-xs text-muted">
-                                    {minuteMarks(group)}
-                                  </span>
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
+                    <div className="mx-auto grid w-full max-w-[1120px] grid-cols-3 gap-6 rounded border border-line bg-paper p-6 text-ink">
+                      <div>
+                        <Link
+                          className="font-display text-[22px] leading-[30px] font-medium no-underline hover:text-wood"
+                          href="/services#massage"
+                        >
+                          Dịch vụ massage
+                        </Link>
+                        <ul className="mt-3 space-y-2">
+                          {massageIntents().map((offer) => (
+                            <li key={offer.id}>
+                              <Link className="text-sm no-underline hover:text-wood" href={offer.href}>
+                                {offer.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <Link
+                          className="font-display text-[22px] leading-[30px] font-medium no-underline hover:text-wood"
+                          href="/services#goi"
+                        >
+                          Gội đầu dưỡng sinh
+                        </Link>
+                        <ul className="mt-3 space-y-2">
+                          {goiOffers().map((offer) => (
+                            <li key={offer.id}>
+                              <Link className="text-sm no-underline hover:text-wood" href={offer.href}>
+                                {offer.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <Link
+                          className="font-display text-[22px] leading-[30px] font-medium no-underline hover:text-wood"
+                          href="/services#combo"
+                        >
+                          Combo
+                        </Link>
+                        <ul className="mt-3 space-y-2">
+                          {comboOffers().map((offer) => (
+                            <li key={offer.id}>
+                              <Link className="text-sm no-underline hover:text-wood" href={offer.href}>
+                                {offer.title}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 ) : null}
@@ -162,14 +182,14 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            className="inline-flex min-h-11 items-center bg-wood px-4 text-sm text-cream no-underline hover:bg-[#4a382b]"
+            className="inline-flex min-h-11 items-center rounded bg-wood px-4 text-sm font-medium text-cream no-underline hover:bg-forest-deep"
             href={site.phoneTel}
           >
             <span className="lg:hidden">Gọi</span>
             <span className="hidden lg:inline">Gọi {site.phoneDisplay}</span>
           </a>
           <a
-            className={`hidden min-h-11 items-center border px-4 text-sm no-underline lg:inline-flex ${
+            className={`hidden min-h-11 items-center rounded border px-4 text-sm font-medium no-underline lg:inline-flex ${
               overlay
                 ? "border-cream text-cream hover:bg-white/10"
                 : "border-wood hover:bg-wood/5"
@@ -182,7 +202,7 @@ export function Header() {
           </a>
           <button
             type="button"
-            className={`inline-flex min-h-11 items-center border px-3 text-sm lg:hidden ${
+            className={`inline-flex min-h-11 items-center rounded border px-3 text-sm font-medium lg:hidden ${
               overlay ? "border-cream" : "border-wood"
             }`}
             aria-expanded={open}
@@ -204,24 +224,41 @@ export function Header() {
             {nav.map((item) =>
               item.href === "/services" ? (
                 <div key={item.href} className="border-b border-line py-3">
-                  <Link className="text-base no-underline" href="/services">
+                  <Link className="text-base leading-6 font-medium no-underline" href="/services">
                     Dịch vụ
                   </Link>
                   <ul className="mt-2 space-y-2 pl-3">
-                    {serviceCategories.map((category) => (
-                      <li key={category.slug}>
-                        <Link className="text-sm no-underline" href={categoryPath(category.slug)}>
-                          {category.name}
-                        </Link>
-                      </li>
-                    ))}
+                    <li>
+                      <Link className="text-sm font-medium no-underline" href="/services#massage">
+                        Dịch vụ massage
+                      </Link>
+                      <ul className="mt-1 space-y-1 pl-3">
+                        {massageIntents().map((offer) => (
+                          <li key={offer.id}>
+                            <Link className="text-sm no-underline" href={offer.href}>
+                              {offer.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                    <li>
+                      <Link className="text-sm font-medium no-underline" href="/services#goi">
+                        Gội đầu dưỡng sinh
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="text-sm font-medium no-underline" href="/services#combo">
+                        Combo
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               ) : (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="border-b border-line py-3 text-base no-underline"
+                  className="border-b border-line py-3 text-base leading-6 font-medium no-underline"
                   aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
                 >
                   {item.label}
@@ -229,13 +266,13 @@ export function Header() {
               ),
             )}
             <a
-              className="mt-4 inline-flex min-h-12 items-center justify-center bg-wood px-4 text-base text-cream no-underline"
+              className="mt-4 inline-flex min-h-12 items-center justify-center rounded bg-wood px-4 text-[15px] font-medium text-cream no-underline hover:bg-forest-deep"
               href={site.phoneTel}
             >
               Gọi {site.phoneDisplay}
             </a>
             <a
-              className="mt-2 mb-4 inline-flex min-h-12 items-center justify-center border border-wood px-4 text-base no-underline"
+              className="mt-2 mb-4 inline-flex min-h-12 items-center justify-center rounded border border-wood px-4 text-[15px] font-medium no-underline"
               href={site.facebook}
               target="_blank"
               rel="noopener noreferrer"

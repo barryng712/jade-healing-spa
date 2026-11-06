@@ -1,6 +1,6 @@
 # Acceptance criteria — Jade Healing Spa MVP
 
-**Status:** local site built 2026-11-04. These checks are for QA, which has not started.  
+**Status:** local site, 2026-11-07. The 2026-11-06 QA draft checked an earlier layout. These rows match the site now. A new QA pass has not been requested.  
 **Copy source:** `docs/confirmed-content.md`
 
 Viewports: 1440×1000, ~768px, 390×844.
@@ -24,8 +24,8 @@ Viewports: 1440×1000, ~768px, 390×844.
 
 | ID | Criterion |
 | --- | --- |
-| H1 | Hero shows the script logo and **Chăm sóc · An yên · Chữa lành** (wellness tone, not medical claims) |
-| H2 | Home services are the three category cards only: Massage, Chăm sóc tóc, Combo |
+| H1 | The first screen is the moving photo, the script logo, and **Chăm sóc · An yên · Chữa lành**. The page `h1` is in the HTML below that screen. No medical claims |
+| H2 | Home services are three sections: Massage (Thư giãn, Phục hồi, Trị liệu), Gội đầu dưỡng sinh (three tiers), Combo (gói cards plus the 150-minute sleep ritual). Sample lines stay labeled |
 | H3 | No fake photos or fake quotes |
 | H4 | No booking widget |
 
@@ -41,7 +41,8 @@ Viewports: 1440×1000, ~768px, 390×844.
 
 | ID | Criterion |
 | --- | --- |
-| V1 | Only Canva menu treatments, under Massage, Chăm sóc tóc, and Combo. Detail steps are labeled “Bước mẫu” until real steps arrive |
+| V1 | Only Canva menu treatments. Detail steps are labeled “Bước mẫu” until real steps arrive. There is no minute switcher on the detail page |
+| V5 | `/services` shows the three card sections, not eleven price bands. A massage intent lists one row per matching tier, with that tier’s name and exact price. `?phut=` opens that tier only |
 | V2–V4 | Real slugs only; no invented VND |
 
 ## Gallery

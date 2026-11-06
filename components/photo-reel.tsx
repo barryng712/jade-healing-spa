@@ -11,7 +11,7 @@ export function PhotoReel({ photos }: { photos: SpaPhoto[] }) {
           const copy = index >= photos.length;
           return (
             <li key={`${photo.src}-${index}`} className="pr-3" aria-hidden={copy}>
-              <div className="relative h-[200px] w-[150px] overflow-hidden rounded-xl sm:h-[240px] sm:w-[176px] md:h-[280px] md:w-[200px]">
+              <div className="relative h-[200px] w-[150px] overflow-hidden rounded-[2px] sm:h-[240px] sm:w-[176px] md:h-[280px] md:w-[200px]">
                 <Image
                   src={photo.src}
                   alt={copy ? "" : photo.alt}
@@ -26,7 +26,7 @@ export function PhotoReel({ photos }: { photos: SpaPhoto[] }) {
       </ul>
       <ul className="hidden gap-3 motion-reduce:grid motion-reduce:grid-cols-3">
         {photos.slice(0, 3).map((photo) => (
-          <li key={photo.src} className="relative h-[220px] overflow-hidden rounded-xl">
+          <li key={photo.src} className="relative h-[220px] overflow-hidden rounded-[2px]">
             <Image src={photo.src} alt={photo.alt} fill sizes="33vw" className="object-cover" />
           </li>
         ))}

@@ -8,7 +8,7 @@ export function Logo({
   tone?: "ink" | "cream";
   className?: string;
 }) {
-  const color = tone === "cream" ? "#fbf8f3" : "#5c4636";
+  const color = tone === "cream" ? "#F8F6F0" : "#263B32";
 
   return (
     <span

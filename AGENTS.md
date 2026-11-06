@@ -4,11 +4,11 @@ Read this file and `PROJECT_BRIEF.md` before any work.
 
 This is a **local, human-gated workflow**. Roles below are prompts and handoff documents. Do not run Cloud Agents, Automations, or parallel agents on the same files unless the owner explicitly asks.
 
-## Current phase (2026-11-04)
+## Current phase (2026-11-07)
 
-The informational site is **built locally** on `feat/informational-site`. Research, BA, and design are owner-approved. Development is complete and waiting for the owner to review the local site. **QA has not started. The site is not deployed.**
+The informational site is **built locally** on `feat/informational-site`. It is not deployed. Layout source of truth: `docs/design-guidelines.md` and `docs/user-journeys.md`.
 
-Do not rebuild the site, restore the old four sample services, or put the step-length mock back. The live menu is `lib/menu.ts`. Full progress is in `docs/STATUS.md`.
+Do not rebuild the site, restore the sand services band, the eleven price bands, the minute chips, or the “Nhóm dịch vụ” bar. The live menu is `lib/menu.ts`. Ritual steps stay labeled “Bước mẫu”. Full progress is in `docs/STATUS.md`.
 
 ## Current environment
 
@@ -25,6 +25,8 @@ Do not rebuild the site, restore the old four sample services, or put the step-l
 
 ## How work actually happens
 
+### A. MVP phase work (research → first launch)
+
 1. Owner opens a Cursor Agent chat (this local agent).
 2. Owner names the role for that session, for example: “Act as Website Researcher.”
 3. The agent reads this file, `PROJECT_BRIEF.md`, and `docs/STATUS.md`.
@@ -32,7 +34,20 @@ Do not rebuild the site, restore the old four sample services, or put the step-l
 5. Owner reviews the deliverable and updates the gate in `docs/STATUS.md`.
 6. The next role starts only after the previous gate is approved.
 
-You may use Cursor’s local subagents for research or review **inside one session**. That is still one person launching one chat. It is not Cloud Agent orchestration.
+### B. Ongoing product changes (UI, features, pages, journeys)
+
+After the informational site exists, **do not** skip straight to coding unless the owner explicitly waives gates.
+
+1. Owner runs **`/product-change`** (skill) and describes the idea.
+2. Agent creates `docs/change-requests/CR-YYYYMMDD-slug.md` and updates `docs/change-requests/INDEX.md`.
+3. **BA** (`ba-analyst` / `/ba-evaluate`) → owner gate.
+4. **Designer** (`designer` / `/design-analyze`) → owner gate.
+5. **Developer** (`developer` / `/implement-change`) → owner gate.
+6. **QA** (`qa-reviewer` / `/qa-review-change`) → owner gate → close CR (`/handoff-gate`).
+
+Details: `docs/change-requests/README.md`. Cursor config: `.cursor/agents/`, `.cursor/skills/`, `.cursor/rules/`, `.cursor/hooks.json`.
+
+You may use Cursor’s local subagents for research or review **inside one session**. That is still one person launching one chat. It is not Cloud Agent orchestration. **Do not auto-chain BA→Design→Dev→QA without owner gates** unless the owner explicitly says to continue in the same message after approving.
 
 ## Git (simple terms)
 
@@ -51,54 +66,61 @@ Rules:
 
 ### Orchestrator / Project Manager
 
-- Maintain `docs/STATUS.md`.
-- Enforce phase gates.
+- Maintain `docs/STATUS.md` and `docs/change-requests/INDEX.md`.
+- Enforce phase gates and change-request gates.
 - Check that each role’s files exist and are not empty stubs when that phase is marked complete.
 - Keep unresolved questions in `docs/unresolved-questions.md`.
 - Never claim the project is autonomous.
+- Prefer `/handoff-gate` after each owner approval on a CR.
 
 ### Agent 1 — Website Researcher
 
-Prerequisites: Playwright verification passed.
+Prerequisites: a reference URL from the owner. Playwright is available for scripted passes; a browser pass is enough for a focused note.
 
-- Browse `https://nhaspa.com.vn/` with Playwright.
-- Desktop 1440×1000 and mobile 390×844.
-- Observe information architecture, navigation, journeys, and visual patterns.
+- Subagent file: `.cursor/agents/website-researcher.md` · skill `/research-reference`.
+- Study information architecture and visual rhythm. First reference remains `https://nhaspa.com.vn/`. Later notes (for example nangsen.net services) live under `research/`.
+- Desktop about 1440 wide, and mobile 390 when the journey needs it.
 - Do not copy branding, marketing copy, images, or source code.
 - Do not submit forms or make bookings.
-- Write files under `research/`.
+- Stop after `research/`. BA reads the note before any requirement change.
 
 ### Agent 2 — Product / Business Analyst
 
-Prerequisites: research complete and owner approved.
+Prerequisites: research complete and owner approved (initial MVP), **or** an open change request at stage `ba`.
 
-- Read `research/` first.
+- Subagent file: `.cursor/agents/ba-analyst.md` · skill `/ba-evaluate`.
+- Initial MVP: read `research/` first; write `docs/requirements.md`, `docs/sitemap.md`, `docs/user-journeys.md`, `docs/content-requirements.md`, `docs/acceptance-criteria.md`.
+- Change requests: fill the BA section of the CR; update BA docs only as needed.
 - Separate observed facts from recommendations.
-- Write `docs/requirements.md`, `docs/sitemap.md`, `docs/user-journeys.md`, `docs/content-requirements.md`, `docs/acceptance-criteria.md`.
 - Flag every item that needs owner approval as `NEEDS OWNER INPUT`.
 
 ### Agent 3 — UI/UX Designer
 
-Prerequisites: BA docs approved. This phase is **owner-approved** (2026-11-02).
+Prerequisites: BA docs approved for initial design (**owner-approved** 2026-11-02), **or** CR BA gate approved.
 
+- Subagent file: `.cursor/agents/designer.md` · skill `/design-analyze`.
 - Design an original system. Do not clone nhaspa or Kim Healing Spa.
 - Desktop and mobile.
-- Figma canvas write is not available. Do not start a new Figma file.
-- Later visual changes stay in `docs/design-guidelines.md` and the site.
+- Figma canvas write is not available. Do not start a new Figma file unless the owner asks.
+- Visual system lives in `docs/design-guidelines.md` and the Next.js site; CR proposals go in the CR Design section.
 
 ### Agent 4 — Developer
 
-Prerequisites: approved design. **Met.** The site is already on `feat/informational-site`.
+Prerequisites: approved design (initial MVP **met** — site on `feat/informational-site`), **or** CR Design gate approved.
 
+- Subagent file: `.cursor/agents/developer.md` · skill `/implement-change`.
 - Change the existing site when the owner asks. Do not start a second app.
 - Informational site only. No booking.
 - Do not invent business facts. Ritual steps stay labeled samples until the owner sends the real lines.
 - Accessibility, SEO basics, responsive layout.
+- Live menu: `lib/menu.ts`.
 
 ### Agent 5 — Independent QA / Reviewer
 
-Prerequisites: a running local site.
+Prerequisites: a running local site, **and** (for a CR) Dev gate approved.
 
+- Subagent file: `.cursor/agents/qa-reviewer.md` · skills `/qa-review-change`, `/local-smoke`.
+- Optional: `.cursor/agents/content-guard.md` for invented-copy checks.
 - Test with Playwright independently of the Developer.
 - Check navigation, links, layout, content, responsiveness, accessibility, console errors.
 - File bugs; Developer fixes; QA re-tests.

@@ -1,7 +1,7 @@
 import { site } from "@/lib/site";
 
 const base =
-  "inline-flex min-h-11 items-center justify-center px-4 text-sm no-underline";
+  "inline-flex min-h-11 items-center justify-center rounded px-[22px] text-sm font-medium no-underline";
 
 export function ContactActions({
   tone = "paper",
@@ -14,10 +14,14 @@ export function ContactActions({
     tone === "hero"
       ? "border border-cream bg-transparent text-cream hover:bg-white/10"
       : "border border-wood bg-transparent text-ink hover:bg-wood/5";
+  const primary =
+    tone === "hero"
+      ? "bg-cream text-ink hover:bg-white"
+      : "bg-wood text-cream hover:bg-forest-deep";
 
   return (
     <div className="flex flex-wrap gap-2.5">
-      <a className={`${base} bg-wood text-cream hover:bg-[#4a382b]`} href={site.phoneTel}>
+      <a className={`${base} ${primary}`} href={site.phoneTel}>
         {callLabel}
       </a>
       <a

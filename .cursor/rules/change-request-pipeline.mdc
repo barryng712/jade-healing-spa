@@ -1,0 +1,16 @@
+---
+description: Change-request pipeline BA → Design → Dev → QA with owner gates
+alwaysApply: true
+---
+
+# Change requests
+
+When the owner wants UI/feature/page/journey changes on the existing site, use the change-request pipeline — not a one-shot “just build it” unless they explicitly waive gates.
+
+1. Prefer `/product-change` (or create `docs/change-requests/CR-*.md` from `_TEMPLATE.md`).
+2. Stages in order: **BA → Designer → Developer → QA**.
+3. **Owner gate** after each stage (`approved` in the CR table) before the next role.
+4. Do not run Cloud Agents, Automations, or parallel writers on the same files unless the owner asks.
+5. Subagents `ba-analyst`, `designer`, `developer`, `qa-reviewer` match those stages; `content-guard` is optional before ship.
+6. Keep MVP informational; mark unknowns `NEEDS OWNER INPUT`.
+7. Design source of truth: `docs/design-guidelines.md` + the Next.js site (no Figma redraw unless asked).

@@ -12,8 +12,10 @@ export default function ReviewsPage() {
   return (
     <section className="py-12 md:py-20">
       <Wrap>
-        <h1 className="font-display text-[32px] font-[460] md:text-[40px]">Đánh giá</h1>
-        <p className="mt-6 max-w-[46ch] border border-dashed border-wood p-7">
+        <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
+          Đánh giá
+        </h1>
+        <p className="mt-6 max-w-[62ch] rounded border border-dashed border-sage p-7">
           Chưa có đánh giá được phép đăng.
           <br />
           <a
