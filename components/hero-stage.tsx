@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { HeroFilm } from "@/components/hero-film";
 
 export function HeroStage({
@@ -20,11 +20,20 @@ export function HeroStage({
   className?: string;
 }) {
   const frame = useRef<HTMLDivElement>(null);
+  const heroImg = useRef<HTMLImageElement | null>(null);
+  const [photoReady, setPhotoReady] = useState(false);
+
+  useEffect(() => {
+    if (heroImg.current?.complete) setPhotoReady(true);
+  }, []);
 
   useEffect(() => {
     const node = frame.current;
     if (!node) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const coarse =
+      window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(max-width: 47.99rem)").matches;
+    if (coarse) return;
 
     let target = 0;
     let current = 0;
@@ -56,16 +65,21 @@ export function HeroStage({
   }, []);
 
   return (
-    <section className={`relative h-[124svh] text-cream ${className}`}>
-      <div className="sticky top-0 h-svh overflow-hidden">
-        <div ref={frame} className="absolute inset-[-14%_0]">
+    <section className={`relative h-[100dvh] text-cream md:h-[124svh] ${className}`}>
+      <div className="sticky top-0 h-[100dvh] overflow-hidden bg-forest-deep md:h-svh">
+        <div ref={frame} className="absolute inset-[-14%_0] md:inset-[-14%_0]">
           <Image
             src={src}
             alt={alt}
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
-            className="hero-drift object-cover object-[center_40%]"
+            className={`hero-drift object-cover object-[center_40%] transition-opacity duration-500 ${
+              photoReady ? "opacity-100" : "opacity-0"
+            }`}
+            onLoadingComplete={() => setPhotoReady(true)}
+            ref={heroImg}
           />
           {videoSrc ? <HeroFilm src={videoSrc} poster={src} /> : null}
         </div>
@@ -73,9 +87,12 @@ export function HeroStage({
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-ink/15 to-ink/25"
           aria-hidden="true"
         />
-        <div className="absolute inset-x-0 bottom-[calc(24svh+1rem)] z-10 mx-auto w-full max-w-[1120px] px-5 md:bottom-[18%] md:px-10">
+        <div className="absolute inset-x-0 bottom-[calc(18dvh+1rem)] z-10 mx-auto w-full max-w-[1120px] px-5 md:bottom-[18%] md:px-10">
           <div className="hero-copy relative mx-auto max-w-[36rem] text-center md:mx-0 md:text-left">
-            <div className="hero-scrim" aria-hidden="true" />
+            <div
+              className={`hero-scrim transition-opacity duration-500 ${photoReady ? "opacity-100" : "opacity-0"}`}
+              aria-hidden="true"
+            />
             {children}
             {scrollHref ? (
               <a
@@ -91,7 +108,7 @@ export function HeroStage({
         {scrollHref ? (
           <a
             href={scrollHref}
-            className="absolute bottom-[calc(24svh-2.75rem)] left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline md:hidden"
+            className="absolute bottom-[calc(18dvh-2.75rem)] left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline md:hidden"
           >
             Kéo xuống
             <span className="scroll-cue" aria-hidden="true" />

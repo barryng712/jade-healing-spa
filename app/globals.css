@@ -86,6 +86,7 @@ body {
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
+    touch-action: pan-x pan-y;
   }
 
   .offer-swipe::-webkit-scrollbar {
@@ -95,7 +96,20 @@ body {
   .offer-swipe > li {
     flex: 0 0 100%;
     scroll-snap-align: start;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
+  }
+
+  /* Horizontal swipe: skip scroll-reveal and Ken Burns so touch scroll stays smooth. */
+  .offer-swipe .reveal-once {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .offer-swipe .photo-film,
+  .offer-swipe .photo-film.is-live.is-on {
+    animation: none !important;
+    transform: none !important;
   }
 }
 
@@ -308,12 +322,17 @@ header.header-overlay nav a[aria-current="page"]:hover {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
+  /* Smooth scroll on desktop only — iOS Safari fights it during finger scroll. */
+  @media (min-width: 48rem) {
+    html {
+      scroll-behavior: smooth;
+    }
   }
 
-  .hero-copy {
-    animation: rise 0.9s ease 0.12s both;
+  @media (min-width: 48rem) {
+    .hero-copy {
+      animation: rise 0.9s ease 0.12s both;
+    }
   }
 
   .photo-film.film-a.is-live,
@@ -356,8 +375,10 @@ header.header-overlay nav a[aria-current="page"]:hover {
     animation: rise 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
   }
 
-  .hero-drift {
-    animation: hero-drift 7.5s ease-in-out infinite alternate;
+  @media (min-width: 48rem) {
+    .hero-drift {
+      animation: hero-drift 7.5s ease-in-out infinite alternate;
+    }
   }
 
   .scroll-cue {

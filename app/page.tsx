@@ -47,7 +47,7 @@ export default function HomePage() {
 
       <section
         id="tiep-theo"
-        className="relative z-10 -mt-[24svh] overflow-hidden rounded-t-[28px] bg-paper py-10 shadow-[0_-28px_60px_rgba(38,59,50,0.12)] md:rounded-t-[40px] md:py-14"
+        className="relative z-10 -mt-10 overflow-hidden rounded-t-[28px] bg-paper py-10 shadow-[0_-28px_60px_rgba(38,59,50,0.12)] md:-mt-[24svh] md:rounded-t-[40px] md:py-14"
       >
         <SectionTexture src="/textures/linen-neutral.jpg" />
         <Wrap className="relative">
