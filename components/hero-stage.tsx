@@ -31,14 +31,23 @@ export function HeroStage({
     const node = frame.current;
     if (!node) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const coarse =
-      window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(max-width: 47.99rem)").matches;
-    if (coarse) return;
+
+    const sticky = node.parentElement;
+    const section = sticky?.parentElement;
 
     let target = 0;
     let current = 0;
     let frameId = 0;
     let running = false;
+
+    /** Scroll distance while sticky holds — ~24svh — not full viewport (Chrome toolbar skews innerHeight). */
+    const parallaxCap = () => {
+      if (!section || !sticky) {
+        const h = window.visualViewport?.height ?? window.innerHeight;
+        return Math.round(h * 0.24);
+      }
+      return Math.max(0, section.offsetHeight - sticky.offsetHeight);
+    };
 
     const step = () => {
       current += (target - current) * 0.14;
@@ -49,25 +58,33 @@ export function HeroStage({
     };
 
     const onScroll = () => {
-      target = Math.min(window.scrollY, window.innerHeight);
+      target = Math.min(window.scrollY, parallaxCap());
       if (!running) {
         running = true;
         frameId = requestAnimationFrame(step);
       }
     };
 
+    const onViewportResize = () => {
+      target = Math.min(window.scrollY, parallaxCap());
+    };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.visualViewport?.addEventListener("resize", onViewportResize);
+    window.visualViewport?.addEventListener("scroll", onViewportResize);
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("scroll", onScroll);
+      window.visualViewport?.removeEventListener("resize", onViewportResize);
+      window.visualViewport?.removeEventListener("scroll", onViewportResize);
     };
   }, []);
 
   return (
-    <section className={`relative h-[100dvh] text-cream md:h-[124svh] ${className}`}>
-      <div className="sticky top-0 h-[100dvh] overflow-hidden bg-forest-deep md:h-svh">
-        <div ref={frame} className="absolute inset-[-14%_0] md:inset-[-14%_0]">
+    <section className={`relative h-[124svh] text-cream ${className}`}>
+      <div className="sticky top-0 h-svh overflow-hidden bg-forest-deep">
+        <div ref={frame} className="absolute inset-[-14%_0]">
           <Image
             src={src}
             alt={alt}
@@ -87,7 +104,7 @@ export function HeroStage({
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-ink/15 to-ink/25"
           aria-hidden="true"
         />
-        <div className="absolute inset-x-0 bottom-[calc(18dvh+1rem)] z-10 mx-auto w-full max-w-[1120px] px-5 md:bottom-[18%] md:px-10">
+        <div className="absolute inset-x-0 bottom-[calc(24svh+1rem)] z-10 mx-auto w-full max-w-[1120px] px-5 md:bottom-[18%] md:px-10">
           <div className="hero-copy relative mx-auto max-w-[36rem] text-center md:mx-0 md:text-left">
             <div
               className={`hero-scrim transition-opacity duration-500 ${photoReady ? "opacity-100" : "opacity-0"}`}
@@ -108,7 +125,7 @@ export function HeroStage({
         {scrollHref ? (
           <a
             href={scrollHref}
-            className="absolute bottom-[calc(18dvh-2.75rem)] left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline md:hidden"
+            className="absolute bottom-[calc(24svh-2.75rem)] left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline md:hidden"
           >
             Kéo xuống
             <span className="scroll-cue" aria-hidden="true" />

@@ -329,10 +329,8 @@ header.header-overlay nav a[aria-current="page"]:hover {
     }
   }
 
-  @media (min-width: 48rem) {
-    .hero-copy {
-      animation: rise 0.9s ease 0.12s both;
-    }
+  .hero-copy {
+    animation: rise 0.9s ease 0.12s both;
   }
 
   .photo-film.film-a.is-live,
@@ -375,9 +373,14 @@ header.header-overlay nav a[aria-current="page"]:hover {
     animation: rise 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
   }
 
-  @media (min-width: 48rem) {
+  .hero-drift {
+    animation: hero-drift 7.5s ease-in-out infinite alternate;
+  }
+
+  /* Ken Burns on the image + parallax on the frame stacks transforms; Chrome mobile janks more than Safari. */
+  @media (max-width: 47.99rem) {
     .hero-drift {
-      animation: hero-drift 7.5s ease-in-out infinite alternate;
+      animation: none;
     }
   }
 
