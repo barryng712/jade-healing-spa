@@ -17,18 +17,17 @@ function isCurrent(pathname: string, href: string) {
 }
 
 const linkClass =
-  "inline-flex min-h-11 items-center text-sm font-medium no-underline hover:text-wood";
+  "inline-flex min-h-11 items-center text-sm font-medium no-underline transition duration-200 hover:-translate-y-px hover:text-sage";
 
 export function Header() {
   const pathname = usePathname();
-  const [openPath, setOpenPath] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
-  const open = openPath === pathname;
   const scene = sceneAtTop(pathname);
-  const overlay = scene && !scrolled && !open && !servicesOpen;
+  const overlay = scene && !scrolled && !menuOpen && !servicesOpen;
 
   function openServices() {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
@@ -45,20 +44,20 @@ export function Header() {
 
   useEffect(() => {
     setServicesOpen(false);
-    setOpenPath(null);
+    setMenuOpen(false);
   }, [pathname]);
 
   useEffect(() => {
-    if (!open && !servicesOpen) return;
+    if (!menuOpen && !servicesOpen) return;
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setOpenPath(null);
+        setMenuOpen(false);
         setServicesOpen(false);
       }
     }
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
-  }, [open, servicesOpen]);
+  }, [menuOpen, servicesOpen]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -114,7 +113,7 @@ export function Header() {
                     <div className="mx-auto grid w-full max-w-[1120px] grid-cols-3 gap-6 rounded border border-line bg-paper p-6 text-ink">
                       <div>
                         <Link
-                          className="font-display text-[22px] leading-[30px] font-medium no-underline hover:text-wood"
+                          className="inline-block font-display text-[22px] leading-[30px] font-medium no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
                           href="/services#massage"
                         >
                           Massage
@@ -122,7 +121,10 @@ export function Header() {
                         <ul className="mt-3 space-y-2">
                           {massageIntents().map((offer) => (
                             <li key={offer.id}>
-                              <Link className="text-sm no-underline hover:text-wood" href={offer.href}>
+                              <Link
+                                className="text-sm no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
+                                href={offer.href}
+                              >
                                 {offer.title}
                               </Link>
                             </li>
@@ -131,7 +133,7 @@ export function Header() {
                       </div>
                       <div>
                         <Link
-                          className="font-display text-[22px] leading-[30px] font-medium no-underline hover:text-wood"
+                          className="inline-block font-display text-[22px] leading-[30px] font-medium no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
                           href="/services#goi"
                         >
                           Gội đầu dưỡng sinh
@@ -139,7 +141,10 @@ export function Header() {
                         <ul className="mt-3 space-y-2">
                           {goiOffers().map((offer) => (
                             <li key={offer.id}>
-                              <Link className="text-sm no-underline hover:text-wood" href={offer.href}>
+                              <Link
+                                className="text-sm no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
+                                href={offer.href}
+                              >
                                 {offer.title}
                               </Link>
                             </li>
@@ -148,7 +153,7 @@ export function Header() {
                       </div>
                       <div>
                         <Link
-                          className="font-display text-[22px] leading-[30px] font-medium no-underline hover:text-wood"
+                          className="inline-block font-display text-[22px] leading-[30px] font-medium no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
                           href="/services#combo"
                         >
                           Combo
@@ -156,7 +161,10 @@ export function Header() {
                         <ul className="mt-3 space-y-2">
                           {comboOffers().map((offer) => (
                             <li key={offer.id}>
-                              <Link className="text-sm no-underline hover:text-wood" href={offer.href}>
+                              <Link
+                                className="text-sm no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
+                                href={offer.href}
+                              >
                                 {offer.title}
                               </Link>
                             </li>
@@ -205,16 +213,16 @@ export function Header() {
             className={`inline-flex min-h-11 items-center rounded border px-3 text-sm font-medium lg:hidden ${
               overlay ? "border-cream" : "border-wood"
             }`}
-            aria-expanded={open}
+            aria-expanded={menuOpen}
             aria-controls="site-menu"
-            onClick={() => setOpenPath(open ? null : pathname)}
+            onClick={() => setMenuOpen((value) => !value)}
           >
-            {open ? "Đóng" : "Menu"}
+            {menuOpen ? "Đóng" : "Menu"}
           </button>
         </div>
       </div>
 
-      {open ? (
+      {menuOpen ? (
         <nav
           id="site-menu"
           aria-label="Di động"
@@ -229,13 +237,19 @@ export function Header() {
                   </Link>
                   <ul className="mt-2 space-y-2 pl-3">
                     <li>
-                      <Link className="text-sm font-medium no-underline" href="/services#massage">
+                      <Link
+                        className="text-sm font-medium no-underline transition-colors duration-200 hover:text-sage"
+                        href="/services#massage"
+                      >
                         Massage
                       </Link>
                       <ul className="mt-1 space-y-1 pl-3">
                         {massageIntents().map((offer) => (
                           <li key={offer.id}>
-                            <Link className="text-sm no-underline" href={offer.href}>
+                            <Link
+                              className="text-sm no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
+                              href={offer.href}
+                            >
                               {offer.title}
                             </Link>
                           </li>
@@ -243,12 +257,18 @@ export function Header() {
                       </ul>
                     </li>
                     <li>
-                      <Link className="text-sm font-medium no-underline" href="/services#goi">
+                      <Link
+                        className="text-sm font-medium no-underline transition-colors duration-200 hover:text-sage"
+                        href="/services#goi"
+                      >
                         Gội đầu dưỡng sinh
                       </Link>
                     </li>
                     <li>
-                      <Link className="text-sm font-medium no-underline" href="/services#combo">
+                      <Link
+                        className="text-sm font-medium no-underline transition-colors duration-200 hover:text-sage"
+                        href="/services#combo"
+                      >
                         Combo
                       </Link>
                     </li>
@@ -258,7 +278,7 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="border-b border-line py-3 text-base leading-6 font-medium no-underline"
+                  className="border-b border-line py-3 text-base leading-6 font-medium no-underline transition-colors duration-200 hover:text-sage"
                   aria-current={isCurrent(pathname, item.href) ? "page" : undefined}
                 >
                   {item.label}

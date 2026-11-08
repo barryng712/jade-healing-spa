@@ -74,7 +74,7 @@ export function HeroStage({
           aria-hidden="true"
         />
         <div className="absolute inset-x-0 bottom-[calc(24svh+1rem)] z-10 mx-auto w-full max-w-[1120px] px-5 md:bottom-[18%] md:px-10">
-          <div className="hero-copy relative max-w-[36rem]">
+          <div className="hero-copy relative mx-auto max-w-[36rem] text-center md:mx-0 md:text-left">
             <div className="hero-scrim" aria-hidden="true" />
             {children}
             {scrollHref ? (
@@ -91,7 +91,7 @@ export function HeroStage({
         {scrollHref ? (
           <a
             href={scrollHref}
-            className="absolute bottom-[calc(24svh-2.75rem)] left-5 z-10 inline-flex items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline md:hidden"
+            className="absolute bottom-[calc(24svh-2.75rem)] left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline md:hidden"
           >
             Kéo xuống
             <span className="scroll-cue" aria-hidden="true" />

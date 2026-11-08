@@ -19,7 +19,7 @@ export function ServiceDirectory({
   reveal?: boolean;
   /** Home services texture band — Sage card borders, Ivory fill. */
   homeBand?: boolean;
-  /** Dark moss band — Ivory titles with cream underlines (not Sage line). */
+  /** Dark moss band — cream section titles (no underline). */
   mossTitles?: boolean;
 }) {
   const visible = only ? sections.filter((section) => section.id === only) : sections;
@@ -27,11 +27,7 @@ export function ServiceDirectory({
     <div className="flex flex-col gap-12 md:gap-14">
       {visible.map((section) => {
         const title = (
-          <h2
-            className={`text-center font-display text-[28px] leading-9 font-medium underline underline-offset-[10px] md:text-[36px] md:leading-[44px] md:underline-offset-[12px] ${
-              mossTitles ? "decoration-cream/75" : "decoration-line"
-            }`}
-          >
+          <h2 className="text-center font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
             {section.title}
           </h2>
         );

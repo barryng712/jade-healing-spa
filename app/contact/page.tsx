@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-7">
       <Wrap>
         <div className="grid items-start gap-10 lg:grid-cols-2">
           <div>

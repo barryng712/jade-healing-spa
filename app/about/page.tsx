@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Về spa",
-  description: `Về ${site.name}. ${site.tagline} Câu chuyện sẽ được bổ sung.`,
+  description: `Về ${site.name}. ${site.tagline}`,
 };
 
 export default function AboutPage() {
@@ -28,9 +28,6 @@ export default function AboutPage() {
             </h1>
             <p className="mt-3 font-display text-[18px] leading-7 italic md:text-[22px] md:leading-8">
               {site.tagline}
-            </p>
-            <p className="mt-6 max-w-[62ch] rounded border border-dashed border-sage p-7">
-              Câu chuyện sẽ được bổ sung.
             </p>
             <p className="mt-6 max-w-[62ch]">Một khoảng gỗ và cây giữa Cầu Giấy.</p>
             <p className="mt-8 flex flex-wrap gap-x-6 gap-y-2">

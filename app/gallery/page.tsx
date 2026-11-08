@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-7">
       <Wrap>
         <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
           Thư viện ảnh

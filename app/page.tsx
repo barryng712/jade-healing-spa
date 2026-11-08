@@ -33,13 +33,14 @@ export default function HomePage() {
         scrollHref="#tiep-theo"
         className="-mt-[4.75rem]"
       >
-        <div>
-          <LogoLockup tone="cream" className="h-16 md:h-24" />
-        </div>
-        <p className="mt-3 mb-5 max-w-[28ch] font-display text-[18px] leading-7 italic md:text-[22px] md:leading-8">
+        <LogoLockup tone="cream" className="h-14 md:h-20" />
+        <h1 className="mx-auto mt-4 max-w-[16ch] font-display text-[28px] leading-9 font-medium text-cream md:mx-0 md:text-[36px] md:leading-[44px]">
+          Một nhà cho thân, sự nghỉ, và nghi thức.
+        </h1>
+        <p className="mx-auto mt-3 mb-5 max-w-[28ch] font-display text-[18px] leading-7 italic md:mx-0 md:text-[22px] md:leading-8">
           {site.tagline}
         </p>
-        <div className="hero-focus">
+        <div className="hero-focus flex justify-center md:justify-start">
           <ContactActions tone="hero" />
         </div>
       </Scene>
@@ -53,10 +54,7 @@ export default function HomePage() {
           <Reveal className="reveal-float">
             <div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
               <div>
-                <h1 className="max-w-[14ch] font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
-                  Một nhà cho thân, sự nghỉ, và nghi thức.
-                </h1>
-                <p className="mt-3 max-w-[36ch] text-[15px] leading-6 md:text-base md:leading-[26px]">
+                <p className="max-w-[36ch] text-[15px] leading-6 md:text-base md:leading-[26px]">
                   Một khoảng gỗ và cây giữa Cầu Giấy.
                 </p>
                 <p className="mt-3 max-w-[36ch]">
@@ -71,8 +69,8 @@ export default function HomePage() {
         </Wrap>
       </section>
 
-      <ServicesMossBand className="py-12 md:py-16">
-        <Wrap className="flex flex-col gap-10 md:gap-12 [&_section_h2]:decoration-cream/75">
+      <ServicesMossBand className="py-12 md:py-7">
+        <Wrap className="flex flex-col gap-8 md:gap-10">
           <Reveal>
             <div>
               <h2 className="font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
@@ -98,9 +96,6 @@ export default function HomePage() {
           <h2 className="mx-auto max-w-[16ch] font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
             Từ gỗ, cây và nước.
           </h2>
-          <p className="mx-auto mt-3 max-w-[42ch] text-[15px] leading-6 text-cream md:text-base md:leading-[26px]">
-            Ảnh này để xem bố cục, sẽ đổi khi có ảnh khác.
-          </p>
         </Wrap>
       </section>
 

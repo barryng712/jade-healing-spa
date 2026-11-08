@@ -40,7 +40,7 @@ export function ServiceGroupList({
                     {category.name}
                   </p>
                 ) : null}
-                <h2 className="font-display text-[28px] leading-9 font-medium group-hover:underline group-hover:underline-offset-4 lg:text-[36px] lg:leading-[44px]">
+                <h2 className="font-display text-[28px] leading-9 font-medium lg:text-[36px] lg:leading-[44px]">
                   {group.name}
                 </h2>
                 <ul className="mt-4 flex flex-col gap-2">

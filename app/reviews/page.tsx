@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function ReviewsPage() {
   return (
-    <section className="py-12 md:py-20">
+    <section className="py-12 md:py-7">
       <Wrap>
         <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
           Đánh giá
         </h1>
-        <p className="mt-6 max-w-[62ch] rounded border border-dashed border-sage p-7">
+        <p className="mt-6 max-w-[62ch]">
           Chưa có đánh giá được phép đăng.
           <br />
           <a

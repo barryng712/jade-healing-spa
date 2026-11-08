@@ -9,7 +9,7 @@ export const site = {
   legalName: "CÔNG TY TNHH JADE NATURE CARE",
   tagline: "Chăm sóc · An yên · Chữa lành",
   address: "Số 2 ngách 66/18 Dịch Vọng Hậu, Cầu Giấy, Hà Nội",
-  phoneDisplay: "0357050796",
+  phoneDisplay: "0357 050 796",
   phoneTel: "tel:+84357050796",
   email: "jadehealingspa@gmail.com",
   hours: "09:00–21:00, thứ Hai–Chủ nhật",

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IntentRows } from "@/components/intent-rows";
-import { ServicesMossBand } from "@/components/services-moss-band";
 import { Wrap } from "@/components/wrap";
 import {
   getMassageIntent,
@@ -36,9 +35,9 @@ export default async function MassageIntentPage({ params }: Props) {
   const rows = rowsForMassageIntent(intent.id);
 
   return (
-    <ServicesMossBand className="py-12 md:py-20">
+    <article className="bg-paper py-12 text-ink md:py-7">
       <Wrap>
-        <nav aria-label="Đường dẫn" className="text-center text-sm text-cream/85">
+        <nav aria-label="Đường dẫn" className="text-center text-sm text-muted">
           <ol className="flex flex-wrap items-center justify-center gap-2">
             <li>
               <Link className="underline underline-offset-4" href="/services">
@@ -55,11 +54,11 @@ export default async function MassageIntentPage({ params }: Props) {
             <li>{intent.name}</li>
           </ol>
         </nav>
-        <h1 className="mt-6 text-center font-display text-[32px] leading-10 font-medium underline decoration-cream/75 underline-offset-[10px] md:text-[44px] md:leading-[52px] md:underline-offset-[12px]">
+        <h1 className="mt-6 text-center font-display text-[32px] leading-10 font-medium md:text-[44px] md:leading-[52px]">
           {intent.name}
         </h1>
-        <IntentRows rows={rows} homeBand />
+        <IntentRows rows={rows} />
       </Wrap>
-    </ServicesMossBand>
+    </article>
   );
 }
