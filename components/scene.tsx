@@ -39,9 +39,7 @@ export function Scene({
   const height =
     size === "band"
       ? "min-h-[70svh] md:min-h-[76svh]"
-      : size === "home"
-        ? "min-h-[calc(100svh+4.75rem)]"
-        : "min-h-[100svh]";
+      : "min-h-[100svh]";
   const veil =
     size === "band"
       ? "bg-gradient-to-t from-ink/80 via-ink/40 to-ink/55"
