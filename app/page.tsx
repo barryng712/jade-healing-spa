@@ -13,6 +13,7 @@ import { ServicesMossBand } from "@/components/services-moss-band";
 import { Wrap } from "@/components/wrap";
 import { heroPhoto, heroVideoSrc, homeGalleryPhotos, homeNatureBanner, homeReelPhotos } from "@/lib/photos";
 import { HomeScrollDiagnosticsGate } from "@/components/dev/home-scroll-diagnostics-gate";
+import { HomeViewportScrollStability } from "@/components/home-viewport-scroll-stability";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <HomeViewportScrollStability />
       <Scene
         src={heroPhoto.src}
         alt={heroPhoto.alt}
@@ -48,7 +50,7 @@ export default function HomePage() {
 
       <section
         id="tiep-theo"
-        className="relative z-10 -mt-[24svh] overflow-hidden rounded-t-[28px] bg-paper py-10 shadow-[0_-28px_60px_rgba(38,59,50,0.12)] md:rounded-t-[40px] md:py-14"
+        className="home-sheet-overlap relative z-10 -mt-[24svh] max-md:-mt-[calc(var(--lock-vh,100svh)*0.24)] overflow-hidden rounded-t-[28px] bg-paper py-10 shadow-[0_-28px_60px_rgba(38,59,50,0.12)] md:rounded-t-[40px] md:py-14"
       >
         <SectionTexture src="/textures/linen-neutral.jpg" />
         <Wrap className="relative">

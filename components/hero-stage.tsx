@@ -86,8 +86,10 @@ export function HeroStage({
   }, []);
 
   return (
-    <section className={`relative h-[124svh] text-cream ${className}`}>
-      <div className="sticky top-0 h-svh overflow-hidden bg-forest-deep">
+    <section
+      className={`hero-stage relative h-[124svh] text-cream max-md:h-[calc(var(--lock-vh,100svh)*1.24)] ${className}`}
+    >
+      <div className="hero-stage-sticky sticky top-0 h-svh max-md:h-[var(--lock-vh,100svh)] overflow-hidden bg-forest-deep">
         <div ref={frame} className="absolute inset-[-14%_0]">
           <Image
             src={src}
@@ -108,7 +110,7 @@ export function HeroStage({
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/50 via-ink/15 to-ink/25"
           aria-hidden="true"
         />
-        <div className="absolute inset-x-0 bottom-[calc(24svh+1rem)] z-10 mx-auto w-full max-w-[1120px] px-5 md:bottom-[18%] md:px-10">
+        <div className="hero-stage-copy absolute inset-x-0 bottom-[calc(24svh+1rem)] z-10 mx-auto w-full max-w-[1120px] px-5 max-md:bottom-[calc(var(--lock-vh,100svh)*0.24+1rem)] md:bottom-[18%] md:px-10">
           <div className="hero-copy relative mx-auto max-w-[36rem] text-center md:mx-0 md:text-left">
             <div
               className={`hero-scrim transition-opacity duration-500 ${photoReady ? "opacity-100" : "opacity-0"}`}
@@ -129,7 +131,7 @@ export function HeroStage({
         {scrollHref ? (
           <a
             href={scrollHref}
-            className="absolute bottom-[calc(24svh-2.75rem)] left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline md:hidden"
+            className="hero-stage-cue absolute bottom-[calc(24svh-2.75rem)] left-1/2 z-10 inline-flex -translate-x-1/2 items-center gap-3 text-[11px] tracking-[0.18em] text-cream uppercase no-underline max-md:bottom-[calc(var(--lock-vh,100svh)*0.24-2.75rem)] md:hidden"
           >
             Kéo xuống
             <span className="scroll-cue" aria-hidden="true" />

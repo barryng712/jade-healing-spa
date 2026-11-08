@@ -55,6 +55,14 @@ body {
   overflow-x: clip;
 }
 
+/* Chrome: live `svh` + overlap triggers scroll anchoring; mobile uses frozen --lock-vh. */
+@media (max-width: 47.99rem) {
+  .hero-stage,
+  .home-sheet-overlap {
+    overflow-anchor: none;
+  }
+}
+
 @media (min-width: 768px) {
   body {
     font-size: 17px;
