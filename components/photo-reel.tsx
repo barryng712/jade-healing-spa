@@ -6,7 +6,7 @@ export function PhotoReel({ photos }: { photos: SpaPhoto[] }) {
 
   return (
     <div className="min-w-0 overflow-hidden" role="region" aria-label="Không gian Jade Healing Spa">
-      <ul className="photo-reel hidden w-max motion-reduce:hidden md:flex">
+      <ul className="photo-reel flex w-max motion-reduce:hidden">
         {loop.map((photo, index) => {
           const copy = index >= photos.length;
           return (
@@ -24,10 +24,10 @@ export function PhotoReel({ photos }: { photos: SpaPhoto[] }) {
           );
         })}
       </ul>
-      <ul className="grid grid-cols-2 gap-3 md:hidden motion-reduce:grid motion-reduce:grid-cols-3">
-        {photos.map((photo) => (
-          <li key={photo.src} className="relative h-[200px] overflow-hidden rounded-[2px] sm:h-[220px]">
-            <Image src={photo.src} alt={photo.alt} fill sizes="50vw" className="object-cover" />
+      <ul className="hidden gap-3 motion-reduce:grid motion-reduce:grid-cols-3">
+        {photos.slice(0, 3).map((photo) => (
+          <li key={photo.src} className="relative h-[220px] overflow-hidden rounded-[2px]">
+            <Image src={photo.src} alt={photo.alt} fill sizes="33vw" className="object-cover" />
           </li>
         ))}
       </ul>

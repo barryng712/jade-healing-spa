@@ -73,8 +73,8 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-30 transition-colors duration-300 ${
         overlay
-          ? "header-overlay bg-forest-deep/55 text-cream md:bg-ink/30 md:backdrop-blur-[2px]"
-          : "border-b border-line bg-paper text-ink md:bg-paper/95 md:backdrop-blur-md"
+          ? "header-overlay bg-ink/30 text-cream backdrop-blur-[2px]"
+          : "border-b border-line bg-paper/95 text-ink backdrop-blur-md"
       }`}
     >
       <div className="mx-auto flex w-full max-w-[1120px] items-center justify-between gap-4 px-5 py-3 md:px-10">

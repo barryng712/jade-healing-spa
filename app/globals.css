@@ -205,47 +205,17 @@ a.offer-card-on-moss:focus-visible {
   mix-blend-mode: soft-light;
 }
 
-@media (max-width: 47.99rem) {
-  .home-services-moss-grain {
-    mix-blend-mode: normal;
-    opacity: 0.32;
-  }
-
-  .section-texture--multiply {
-    mix-blend-mode: normal;
-    opacity: 0.22;
-  }
-
-  .section-texture--soft-light {
-    mix-blend-mode: normal;
-    opacity: 0.42;
-  }
-}
-
-@media (min-width: 48rem) {
-  .section-texture--multiply {
-    mix-blend-mode: multiply;
-    opacity: 1;
-  }
-
-  .section-texture--soft-light {
-    mix-blend-mode: soft-light;
-    opacity: 1;
-  }
-}
-
 .hero-scrim {
   position: absolute;
   z-index: -1;
   inset: -2.75rem -1.75rem -2.25rem -1.25rem;
   background: radial-gradient(
-    ellipse 108% 125% at 42% 48%,
-    rgb(27 44 37 / 0.9) 0%,
-    rgb(27 44 37 / 0.68) 42%,
-    rgb(27 44 37 / 0.34) 68%,
-    rgb(27 44 37 / 0.08) 84%,
-    transparent 92%
+    ellipse 100% 115% at 42% 48%,
+    rgb(27 44 37 / 0.82) 0%,
+    rgb(27 44 37 / 0.55) 58%,
+    transparent 80%
   );
+  filter: blur(12px);
   pointer-events: none;
 }
 
@@ -418,14 +388,12 @@ header.header-overlay nav a[aria-current="page"]:hover {
     animation: cue 1.8s ease-in-out infinite;
   }
 
-  @media (min-width: 48rem) {
-    .photo-reel {
-      animation: reel-left 42s linear infinite;
-    }
+  .photo-reel {
+    animation: reel-left 42s linear infinite;
+  }
 
-    .photo-reel:hover {
-      animation-play-state: paused;
-    }
+  .photo-reel:hover {
+    animation-play-state: paused;
   }
 }
 
@@ -444,8 +412,7 @@ header.header-overlay nav a[aria-current="page"]:hover {
   }
 
   .scroll-cue,
-  .hero-drift,
-  .photo-reel {
+  .hero-drift {
     animation: none;
   }
 }

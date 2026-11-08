@@ -32,10 +32,6 @@ export function HeroStage({
     if (!node) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const coarse = window.matchMedia("(pointer: coarse)").matches;
-    const narrow = window.matchMedia("(max-width: 47.99rem)").matches;
-    if (coarse || narrow) return;
-
     const sticky = node.parentElement;
     const section = sticky?.parentElement;
 
@@ -43,15 +39,14 @@ export function HeroStage({
     let current = 0;
     let frameId = 0;
     let running = false;
-    let scrollCap = 0;
 
-    const measureCap = () => {
-      if (section && sticky) {
-        scrollCap = Math.max(0, section.offsetHeight - sticky.offsetHeight);
-        return;
+    /** Scroll distance while sticky holds — ~24svh — not full viewport (Chrome toolbar skews innerHeight). */
+    const parallaxCap = () => {
+      if (!section || !sticky) {
+        const h = window.visualViewport?.height ?? window.innerHeight;
+        return Math.round(h * 0.24);
       }
-      const h = window.visualViewport?.height ?? window.innerHeight;
-      scrollCap = Math.round(h * 0.24);
+      return Math.max(0, section.offsetHeight - sticky.offsetHeight);
     };
 
     const step = () => {
@@ -63,28 +58,26 @@ export function HeroStage({
     };
 
     const onScroll = () => {
-      target = Math.min(window.scrollY, scrollCap);
+      target = Math.min(window.scrollY, parallaxCap());
       if (!running) {
         running = true;
         frameId = requestAnimationFrame(step);
       }
     };
 
-    const onResize = () => {
-      measureCap();
-      target = Math.min(window.scrollY, scrollCap);
+    const onViewportResize = () => {
+      target = Math.min(window.scrollY, parallaxCap());
     };
 
-    measureCap();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize);
-    window.visualViewport?.addEventListener("resize", onResize);
+    window.visualViewport?.addEventListener("resize", onViewportResize);
+    window.visualViewport?.addEventListener("scroll", onViewportResize);
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-      window.visualViewport?.removeEventListener("resize", onResize);
+      window.visualViewport?.removeEventListener("resize", onViewportResize);
+      window.visualViewport?.removeEventListener("scroll", onViewportResize);
     };
   }, []);
 
