@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PhotoFrame } from "@/components/photo-frame";
 import { ServiceRitual } from "@/components/service-ritual";
+import { ServicesMossBand } from "@/components/services-moss-band";
 import { Wrap } from "@/components/wrap";
 import {
   categoryPath,
@@ -48,10 +49,10 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
   const others = groupsInCategory(group.category).filter((item) => item.slug !== group.slug);
 
   return (
-    <article className="pt-8 pb-14 md:pt-10 md:pb-16">
+    <ServicesMossBand className="py-8 md:py-10">
       <Wrap>
-        <div className="mx-auto max-w-[760px]">
-        <nav aria-label="Đường dẫn" className="text-center text-sm text-muted">
+        <article className="mx-auto max-w-[760px] pb-4 md:pb-6">
+        <nav aria-label="Đường dẫn" className="text-center text-sm text-cream/85">
           <ol className="flex flex-wrap items-center justify-center gap-2">
             <li>
               <Link className="underline underline-offset-4" href="/services">
@@ -72,6 +73,7 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
         <ServiceRitual
           group={group}
           tierId={initialTierId}
+          onMossBand
           photo={
             <PhotoFrame
               src={photo?.src}
@@ -93,7 +95,7 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
               {others.map((item) => (
                 <li key={item.slug}>
                   <Link
-                    className="flex items-center justify-between gap-4 rounded border border-line px-4 py-3 no-underline hover:bg-sand/40"
+                    className="flex items-center justify-between gap-4 rounded border border-sage/45 bg-paper/10 px-4 py-3 text-cream no-underline hover:border-sage/65 hover:bg-white/5"
                     href={servicePath(item)}
                   >
                     <span className="font-display text-[20px] leading-7 font-medium">{item.name}</span>
@@ -104,8 +106,8 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
             </ul>
           </div>
         ) : null}
-        </div>
+        </article>
       </Wrap>
-    </article>
+    </ServicesMossBand>
   );
 }

@@ -9,6 +9,7 @@ import { Reveal } from "@/components/reveal";
 import { SectionTexture } from "@/components/section-texture";
 import { Scene } from "@/components/scene";
 import { ServiceDirectory } from "@/components/service-directory";
+import { ServicesMossBand } from "@/components/services-moss-band";
 import { Wrap } from "@/components/wrap";
 import { heroPhoto, heroVideoSrc, homeGalleryPhotos, homeNatureBanner, homeReelPhotos } from "@/lib/photos";
 import { site } from "@/lib/site";
@@ -70,13 +71,19 @@ export default function HomePage() {
         </Wrap>
       </section>
 
-      <section className="bg-paper py-12 text-ink md:py-16">
-        <Wrap>
-          <Reveal className="reveal-float">
-            <ServiceDirectory />
+      <ServicesMossBand className="py-12 md:py-16">
+        <Wrap className="flex flex-col gap-10 md:gap-12 [&_section_h2]:decoration-cream/75">
+          <Reveal>
+            <div>
+              <h2 className="font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
+                Dịch vụ
+              </h2>
+              <hr className="mt-6 border-0 border-t border-cream/40" aria-hidden="true" />
+            </div>
           </Reveal>
+          <ServiceDirectory reveal homeBand mossTitles />
         </Wrap>
-      </section>
+      </ServicesMossBand>
 
       <section className="relative flex min-h-[32svh] items-center overflow-hidden text-cream md:min-h-[36svh]">
         <Image

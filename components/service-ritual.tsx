@@ -9,18 +9,21 @@ export function ServiceRitual({
   group,
   tierId,
   photo,
+  onMossBand = false,
 }: {
   group: MenuGroup;
   tierId?: string;
   photo?: ReactNode;
+  /** Jade band background — cream type and hero contact buttons. */
+  onMossBand?: boolean;
 }) {
   const tier = group.tiers.find((item) => item.id === tierId) ?? group.tiers[0];
-  const realSteps = tier.steps && tier.steps.length > 0 ? tier.steps : null;
-  const steps =
-    realSteps ??
-    Array.from({ length: sampleStepCount }, (_, index) => {
-      return `Bước mẫu ${index + 1}. Dòng thử bố cục cho ${tier.minutes} phút, chưa phải nội dung liệu trình.`;
-    });
+  const hasRealSteps = Boolean(tier.steps?.length);
+  const steps = hasRealSteps
+    ? tier.steps
+    : Array.from({ length: sampleStepCount }, (_, index) => {
+        return `Bước mẫu ${index + 1}. Dòng thử bố cục cho ${tier.minutes} phút, chưa phải nội dung liệu trình.`;
+      });
 
   return (
     <div>
@@ -42,7 +45,7 @@ export function ServiceRitual({
 
       <div className="mt-10 text-left">
         <h2 className="font-display text-[28px] leading-9 font-medium md:text-[32px] md:leading-10">Quy trình</h2>
-        {realSteps ? null : (
+        {hasRealSteps ? null : (
           <p className="mt-2 text-sm leading-6 italic">
             {sampleStepCount} dòng dưới đây chỉ để xem bố cục. Các bước thật sẽ được thay vào sau.
           </p>
@@ -53,7 +56,7 @@ export function ServiceRitual({
       </div>
 
       <div className="mt-8 flex justify-center">
-        <ContactActions />
+        <ContactActions tone={onMossBand ? "hero" : "paper"} />
       </div>
     </div>
   );

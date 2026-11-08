@@ -98,6 +98,12 @@ export const homeReelPhotos: SpaPhoto[] = [
 ];
 
 /** Temporary home banner. Owner will replace the picture. */
+/** Decorative velvet moss grain (tiled, not full-bleed). Owner reference texture. */
+export const homeServicesMossTexture = "/textures/home-services-moss.jpg" as const;
+
+/** Beige stone panel behind offer-card copy (tiled). */
+export const offerCardBeigeTexture = "/textures/offer-card-beige.jpg" as const;
+
 export const homeNatureBanner: SpaPhoto = {
   src: "/spa/soaking-hall.jpg",
   alt: "Khu bồn tắm Jade Healing Spa",

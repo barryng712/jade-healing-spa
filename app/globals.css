@@ -13,6 +13,14 @@
   --color-cream: #f8f6f0;
   --color-muted: #263b32;
   --color-frame: color-mix(in srgb, #78846b 22%, #f8f6f0);
+  /**
+   * Home “Dịch vụ” band — olive rêu đậm (velvet owner ref). Grain tiles on top — no cover.
+   */
+  --color-jade-band: color-mix(
+    in srgb,
+    #1b2c25 15%,
+    color-mix(in srgb, #263b32 40%, #78846b 60%) 62%
+  );
   --font-sans: var(--font-manrope), Manrope, "Be Vietnam Pro", "Segoe UI", sans-serif;
   --font-display: var(--font-cormorant), "Cormorant Garamond", "Times New Roman", serif;
 }
@@ -44,6 +52,24 @@ body {
 
 .hero-focus:focus-visible {
   outline-color: var(--color-cream);
+}
+
+/* Offer / intent text panels — owner beige stone (512×1024), tiled so all cards match. */
+.offer-card-body {
+  background-color: var(--color-sand);
+  background-image: url("/textures/offer-card-beige.jpg");
+  background-repeat: repeat;
+  background-size: 320px auto;
+  background-position: center top;
+}
+
+/* Velvet grain (735×956) — wide tile + low opacity hides nap repeats; same px on all viewports. */
+.home-services-moss-grain {
+  background-image: url("/textures/home-services-moss.jpg");
+  background-repeat: repeat;
+  background-size: 520px auto;
+  opacity: 1;
+  mix-blend-mode: soft-light;
 }
 
 .hero-scrim {

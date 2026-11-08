@@ -117,7 +117,7 @@ export function Header() {
                           className="font-display text-[22px] leading-[30px] font-medium no-underline hover:text-wood"
                           href="/services#massage"
                         >
-                          Dịch vụ massage
+                          Massage
                         </Link>
                         <ul className="mt-3 space-y-2">
                           {massageIntents().map((offer) => (
@@ -230,7 +230,7 @@ export function Header() {
                   <ul className="mt-2 space-y-2 pl-3">
                     <li>
                       <Link className="text-sm font-medium no-underline" href="/services#massage">
-                        Dịch vụ massage
+                        Massage
                       </Link>
                       <ul className="mt-1 space-y-1 pl-3">
                         {massageIntents().map((offer) => (

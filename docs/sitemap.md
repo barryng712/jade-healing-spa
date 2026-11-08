@@ -40,7 +40,7 @@
 | Đánh giá | `/reviews` |
 | Liên hệ | `/contact` |
 
-**Dịch vụ menu:** Dịch vụ massage → Thư giãn, Phục hồi, Trị liệu. Gội đầu dưỡng sinh → the three tier names. Combo → each gói, plus Đại Nghi Thức Ngủ Sâu Toàn Thân.
+**Dịch vụ menu:** Massage → Thư giãn, Phục hồi, Trị liệu. Gội đầu dưỡng sinh → the three tier names. Combo → each gói, plus Đại Nghi Thức Ngủ Sâu Toàn Thân.
 
 **Header utilities:** Facebook (https://www.facebook.com/jadehealingspa/) and Zalo (URL **NEEDS OWNER INPUT**). Also `tel:+84357050796`.
 

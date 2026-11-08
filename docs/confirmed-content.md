@@ -49,7 +49,7 @@ Header/contact actions: **Facebook** and **Zalo**.
 
 | Item | Owner note |
 | --- | --- |
-| Service menu | Owner Canva “MEMU TỔNG JADE”, 2026-11-02. Vietnamese names, minutes, and prices are in `lib/menu.ts`. Do not invent extra items or prices. **Step lists are still empty** — do not write ritual steps. Jade Emperor Therapy has no Vietnamese name on that page. |
+| Service menu | Owner Canva “MEMU TỔNG JADE”, 2026-11-02. Vietnamese names, minutes, and prices are in `lib/menu.ts`. **Ritual steps** come from each Canva detail slide → `lib/menu-rituals.ts` (one array per `tier.id`; map in `docs/menu-rituals-canva-map.md`). Do not invent steps. Jade Emperor Therapy has no Vietnamese name on that page. |
 | Photography | Owner files are in `assets/spa/` and published from `public/spa/`. `Unknown-9.jpg` is unused. Service photos are rooms and the herb tray, not confirmed photos of a specific ritual. The home banner picture is a stand-in. |
 | Logo | Script mark cut from the logo already on the spa photos: `public/spa/logo-mark.png`. Cream on the dark hero, wood `#5C4636` on paper. A separate vector file is still open. |
 | About story / team | Not supplied |

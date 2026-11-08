@@ -16,7 +16,7 @@ Live words stay in `docs/confirmed-content.md`.
 
 ## Bộ thông số nền tảng
 
-Owner, 2026-11-06. This replaces the 2026-11-02 kit (Paper `#F4F0E8`, Ink `#1C1915`, Wood `#5C4636`, Moss `#3F4A3A`, Sand `#E9DCC8`, Fraunces, Be Vietnam Pro) wherever they disagree. Offer cards stay 4px. The 16px radius is only the massage intent rows (owner, 2026-11-07). Do not use purple gradients, glass cards, or a pale green page wash.
+Owner, 2026-11-06. This replaces the 2026-11-02 kit (Paper `#F4F0E8`, Ink `#1C1915`, Wood `#5C4636`, Moss `#3F4A3A`, Sand `#E9DCC8`, Fraunces, Be Vietnam Pro) wherever they disagree. Offer-card bottoms stay 4px; top corners match the house sheet. The 16px radius is only the massage intent rows (owner, 2026-11-07). Do not use purple gradients, glass cards, or a pale green page wash.
 
 ### Color palette
 
@@ -27,12 +27,13 @@ Owner, 2026-11-06. This replaces the 2026-11-02 kit (Paper `#F4F0E8`, Ink `#1C19
 | Sand | `#E9E2D5` | Token remains. The services index is Ivory, not a sand band. |
 | Ivory | `#F8F6F0` | Page background, text on Forest, primary button label |
 | Bronze | `#AD9066` | 1px accent rules and icon strokes only |
+| Jade band | Dark moss (Forest-deep + Forest/Sage) | Home services (`bg-jade-band` + tiled moss grain). Adjust in `app/globals.css` |
 
 Contrast on Ivory `#F8F6F0` (WCAG): Forest **11.08:1** (body and UI). Sage **3.66:1** (fails body 4.5:1; large text only, so do not set paragraphs or nav in Sage). Bronze **2.79:1** (fails text and button labels). Ivory on a Bronze fill is the same **2.79:1** — do not make a Bronze button. Bronze on Forest is **3.97:1**: large lines only, not small labels. Forest on Sand is **9.30:1**. Ivory on Forest is **11.08:1**.
 
 ### UI characteristics
 
-- Border radius **4px** on buttons and offer cards. Gallery and room frames stay **2px**. Owner override 2026-11-07: massage intent rows are **16px** so the photo sits inside the border, and the detail photo is **6px**. Do not put the 16px radius back on every photo.
+- Border radius **4px** on buttons and the bottom of offer cards. Gallery and room frames stay **2px**. Owner override 2026-11-07: massage intent rows are **16px** so the photo sits inside the border, the detail photo is **6px**, and offer-card top corners match the house sheet (**28px**, **40px** from `md`). Do not put the 16px radius back on every photo.
 - Wide whitespace. Sections stay airy. An 8px step inside a block.
 - High-quality photos. Prefer real spa files from `assets/spa/`, published from `public/spa/`. `Unknown-9.jpg` stays unused.
 - Light motion only: the home photo drifts, the house reel slides right to left, sections fade in once as they enter. Honor `prefers-reduced-motion`. Do not add parallax or scroll-jacking. If JavaScript is off, faded sections stay visible.
@@ -90,7 +91,7 @@ Owner approved this scale on 2026-11-06. It is applied on the local site. **Owne
 | Bronze | `#AD9066` | Hairline accent only |
 | Display | Cormorant Garamond | Headlines and tagline |
 | Body | Manrope | Reading, nav, buttons |
-| Radius | 4px cards, 2px frames, 6px detail photo, 16px intent rows | Owner override on the last two |
+| Radius | 4px card bottoms and buttons, 28/40px offer-card tops, 2px frames, 6px detail photo, 16px intent rows | Card tops match the house sheet |
 | Space | 8px steps; sections stay airy | Not cramped |
 | Motion | Slow drift, one fade, optional muted home film | No parallax. Honor reduced-motion. | |
 
@@ -100,9 +101,9 @@ Photos: real spa files from `assets/spa/`, published from `public/spa/`. `Unknow
 
 ## Chrome (every page)
 
-**Header.** Left: the script mark cut from the logo already on the spa photos (`public/spa/logo-mark.png`). Ivory while it sits on a photo, Forest `#263B32` after scroll. Home keeps the overlay until the guest has scrolled most of the first screen. Other pages open with a living photo under the header (`PagePhotoBand`). Service routes use a taller cover on desktop (about 48svh, between 380px and 520px) and a shorter one on a phone. Detail routes only draw the word **Dịch vụ** on that cover. The cover is decorative (`aria-hidden`). Center/right links: Trang chủ, Về spa, Dịch vụ, Thư viện ảnh, Đánh giá, Liên hệ. Hovering Dịch vụ opens three columns: **Dịch vụ massage** (Thư giãn, Phục hồi, Trị liệu), **Gội đầu dưỡng sinh** (the three tier names), **Combo** (each gói, plus the 150-minute sleep ritual). The first click still goes to the link. Utilities: Gọi `0357050796`, Facebook. Zalo only after a URL exists.
+**Header.** Left: the script mark cut from the logo already on the spa photos (`public/spa/logo-mark.png`). Ivory while it sits on a photo, Forest `#263B32` after scroll. Home keeps the overlay until the guest has scrolled most of the first screen. Other pages open with a living photo under the header (`PagePhotoBand`). Service routes use a taller cover on desktop (about 48svh, between 380px and 520px) and a shorter one on a phone. Detail routes only draw the word **Dịch vụ** on that cover. The cover is decorative (`aria-hidden`). Center/right links: Trang chủ, Về spa, Dịch vụ, Thư viện ảnh, Đánh giá, Liên hệ. Hovering Dịch vụ opens three columns: **Massage** (Thư giãn, Phục hồi, Trị liệu), **Gội đầu dưỡng sinh** (the three tier names), **Combo** (each gói, plus the 150-minute sleep ritual). The first click still goes to the link. Utilities: Gọi `0357050796`, Facebook. Zalo only after a URL exists.
 
-**Mobile.** Same links in a menu that opens and closes. Under Dịch vụ: Dịch vụ massage and the three intents, then the gội tiers, then Combo. Phone is a large tap target.
+**Mobile.** Same links in a menu that opens and closes. Under Dịch vụ: Massage and the three intents, then the gội tiers, then Combo. Phone is a large tap target.
 
 **Footer.** Legal name CÔNG TY TNHH JADE NATURE CARE, address, hours, phone, email, Facebook, nav. No booking.
 
@@ -114,20 +115,20 @@ Guest should know the place in one screen, then choose a service or how to visit
 
 | Band | What they see |
 | --- | --- |
-| 1. Opener | The lounge photo fills the first screen. The script logo, **Chăm sóc · An yên · Chữa lành**, Gọi điện, Facebook, and **Kéo xuống** sit on the photo with the block’s center on the lower third, clear of the header and of the bottom edge. A soft dark wash sits only behind those words, so a lighter photo still keeps the cream type readable. The photo stays pinned for a short scroll and drifts more slowly than the page. The next band then rises over it. Optional film: `heroVideoSrc`. |
+| 1. Opener | The lounge photo fills the first screen. The script logo, **Chăm sóc · An yên · Chữa lành**, Gọi điện, Facebook, and **Kéo xuống** sit on the photo with the block’s center on the lower third, clear of the header and of the bottom edge. On a phone the logo and the call buttons stay one rem above the sheet’s highest rise, and **Kéo xuống** sits just under that line so the sheet covers only the cue. A soft dark wash sits only behind those words, so a lighter photo still keeps the cream type readable. The photo stays pinned for a short scroll and drifts more slowly than the page. The next band then rises over it. Optional film: `heroVideoSrc`. |
 | 2. House | `#tiep-theo` rises over the photo with a rounded top, like a sheet settling. One delayed fade. The page `h1` is **Một nhà cho thân, sự nghỉ, và nghi thức.** Then the wood-and-plant sentence and the line that this is not a medical promise. Photos drift right to left. |
-| 3. Services | Same directory as `/services`, on Ivory. Centered titles **Massage**, **Gội đầu dưỡng sinh**, **Combo**. No jump nav and no word “dịch vụ” in those titles. Cards below. |
+| 3. Services | Same directory as `/services`. On Home: **dark moss jade** solid **`bg-jade-band`** plus **tiled** owner **velvet** texture (`home-services-moss.jpg`, **520px** repeat, **40%** soft-light) — **not** full-bleed `cover` (portrait asset would zoom ugly on desktop). **Ivory** band type (`text-cream`): **`h2` Dịch vụ`, `border-cream/40`, subsection **`decoration-cream/75`**. **Offer cards**: Ivory fill, Forest copy, **`border-sage/45`**. `/services` and service branches use the same band. Tune depth in `globals.css` `--color-jade-band`. Each title and each card fades in once as that row enters. The long float stays on the house band only. |
 | 4. Banner | Short full-bleed photo with **Từ gỗ, cây và nước.** Picture is a layout stand-in (`soaking-hall`) until the owner picks another. |
 | 5. Space | Three frames linking to Gallery, under **Thư viện ảnh**. |
 | 6. Visit strip | Forest `#263B32`, Ivory text. Address, 09:00–21:00, có chỗ đỗ xe, link Liên hệ. |
 
 No booking button. No fake reviews on Home.
 
-The opener is visual. The `h1`, service names, and prices stay in the HTML under it. Scroll reveals the next bands with one fade. The fade does not hide them from a browser with JavaScript off, and it does not hide a block taller than the phone (the observer uses threshold 0). Do not wrap the whole directory in a rule that requires a large fraction of it to be visible.
+The opener is visual. The `h1`, service names, and prices stay in the HTML under it. The house band keeps one delayed float. Later bands fade once. Each home service card fades on its own as it enters, so a tall directory is not one animation. The fade does not hide them from a browser with JavaScript off, and it does not hide a block taller than the phone (the observer uses threshold 0). Do not wrap the whole directory in a rule that requires a large fraction of it to be visible.
 
 ### Offer cards
 
-Used on Home and on `/services`. Photo on top, aspect 3/2, flush with a 1px border. Under it: an optional minute kicker, the title, a two-line **Đoạn mẫu** (`sampleBlurb`), and **Xem chi tiết**. Radius 4px. One column on a phone, two from `sm`, three from `lg`. The whole card is the link.
+Used on Home and on `/services`. Photo on top, aspect 3/2, flush with a 1px border. The text block uses **tiled owner beige** (`offer-card-beige.jpg`, **320px** repeat, Sand fallback) via **`.offer-card-body`**. Under the photo: optional minute kicker, title, two-line **Đoạn mẫu** (`sampleBlurb`), **Xem chi tiết** in Forest on beige. Top-left and top-right match the house sheet: **28px**, **40px** from `md`. Bottom corners stay **4px**. One column on a phone, two from `sm`, three from `lg`. The whole card is the link. Intent tier rows on massage pages use the same **`.offer-card-body`** panel.
 
 Massage cards are the three intents, not the eleven groups. Gội cards are one per minute and open that tier. Combo cards are the gói pages, plus the 150-minute sleep ritual.
 
@@ -161,9 +162,9 @@ Owner menu is the Canva file “MEMU TỔNG JADE” (2026-11-02). The site uses 
 
 **How a guest moves.** There is no “Nhóm dịch vụ” jump bar.
 
-1. `/services` is the `h1` **Dịch vụ**, then the same three sections as Home. A category URL (`/services/massage`, `/services/cham-soc-toc`, `/services/combo`) shows that category name, `category.description` from `lib/menu.ts`, and only that section.
-2. A massage card opens `/services/massage/nhom/thu-gian`, `phuc-hoi`, or `tri-lieu`. The `h1` is the intent name, centered. No eyebrow and no second nav. Thư giãn lists the 40- and 60-minute tiers. Phục hồi lists the 90-minute tiers. Trị liệu lists the 120-minute tiers. Lưng – eo has no 120, so it is absent there. Each row is one tier, titled with that tier’s menu name, not the shared group name. The price is exact. A clock and the minutes sit under the price. One labeled sample line sits under the title. The whole row links to `?phut=` for that minute.
-3. Rows alternate: photo left, then right, then left. Radius **16px**. The photo is flush with the border. On a phone the row stacks.
+1. `/services` is the `h1` **Dịch vụ**, then a full-width **horizontal rule** (`border-line`, not text underline), then the same three sections as Home with the usual vertical gap. Section titles (**Massage**, **Gội đầu dưỡng sinh**, **Combo**) use **text underline** as on Home. No rules between those sections. A category URL (`/services/massage`, `/services/cham-soc-toc`, `/services/combo`) shows that category name, `category.description` from `lib/menu.ts`, and only that section; the section title still uses the underline pattern (one section visible).
+2. A massage card opens `/services/massage/nhom/thu-gian`, `phuc-hoi`, or `tri-lieu`. The `h1` is the intent name, centered, with a **text underline** (`underline`, offset so it clears diacritics). No eyebrow and no second nav. Thư giãn lists the 40- and 60-minute tiers. Phục hồi lists the 90-minute tiers. Trị liệu lists the 120-minute tiers. Lưng – eo has no 120, so it is absent there. Each row is one tier, titled with that tier’s menu name, not the shared group name. The price is exact. A clock and the minutes sit under the price. One labeled sample line sits under the title. The whole row links to `?phut=` for that minute.
+3. From `md`, rows alternate: photo left, then right, then left. Radius **16px**. The photo is flush with the border. On a phone the photo sits on top, full width, aspect 3/2, with the offer-card top radius (**28px**, bottom **4px**). Title stays left, price and clock stay right. The sample line stays under the title. Do not add inclusion rows from a reference card.
 4. A gội card skips the list and opens the detail with `?phut=`, because that group has one line per minute.
 5. A combo card opens the gói page. The 150-minute sleep ritual is a combo card and opens with `?phut=150`. Its 60, 90, and 120 tiers stay in the massage intents.
 

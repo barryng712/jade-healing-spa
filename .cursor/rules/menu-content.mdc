@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Menu & content
 
-- Live menu source: `lib/menu.ts` (Canva MEMU TỔNG JADE). Do not restore obsolete four-sample menus.
+- Live menu source: `lib/menu.ts` (Canva MEMU TỔNG JADE). Ritual steps: `lib/menu-rituals.ts` (one array per `tier.id`). Do not restore obsolete four-sample menus.
 - Confirmed marketing/contact copy: `docs/confirmed-content.md`.
 - Ritual steps remain labeled samples until the owner supplies real lines.
 - Never invent prices, minutes, addresses, phones, Zalo URLs, or medical claims.

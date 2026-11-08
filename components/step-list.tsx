@@ -3,15 +3,15 @@ export function StepList({
   columns = true,
   plain = false,
 }: {
-  steps: string[];
+  steps: string[] | null;
   columns?: boolean;
   plain?: boolean;
 }) {
-  const wide = !plain && columns && steps.length > 8;
+  const wide = !plain && columns && steps && steps.length > 8;
 
   return (
     <ol className={wide ? "columns-1 gap-x-10 md:columns-2" : plain ? "space-y-3" : ""}>
-      {steps.map((step, index) => (
+      {steps && steps.length > 0 && steps.map((step, index) => (
         <li
           key={`${index}-${step}`}
           className={

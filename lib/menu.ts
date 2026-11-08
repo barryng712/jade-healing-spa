@@ -1,15 +1,17 @@
 /**
  * Owner menu, Canva “MEMU TỔNG JADE” (2026-11-02).
  * Vietnamese page only. Names, minutes, and prices are from that file.
- * `steps` stays null until the owner sends the ritual sequence for each tier.
- * Jade Emperor Therapy has no Vietnamese name on the Vietnamese page.
+ * Ritual steps: `lib/menu-rituals.ts` (key = tier `id`). Jade Emperor: no VN name on Canva VN page.
  */
+
+import { ritualStepsForTier } from "@/lib/menu-rituals";
 
 export type MenuTier = {
   id: string;
   minutes: number;
   name: string;
   priceVnd: number;
+  /** Filled from `menu-rituals.ts` when building each tier. */
   steps: string[] | null;
 };
 
@@ -54,13 +56,14 @@ export const serviceCategories: ServiceCategory[] = [
   },
 ];
 
-function tier(
-  id: string,
-  minutes: number,
-  name: string,
-  priceVnd: number,
-): MenuTier {
-  return { id, minutes, name, priceVnd, steps: null };
+function tier(id: string, minutes: number, name: string, priceVnd: number): MenuTier {
+  return {
+    id,
+    minutes,
+    name,
+    priceVnd,
+    steps: ritualStepsForTier(id),
+  };
 }
 
 export const menuGroups: MenuGroup[] = [
