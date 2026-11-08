@@ -39,14 +39,16 @@ export function HeroStage({
     let current = 0;
     let frameId = 0;
     let running = false;
+    let scrollCap = 0;
 
-    /** Scroll distance while sticky holds — ~24svh — not full viewport (Chrome toolbar skews innerHeight). */
-    const parallaxCap = () => {
-      if (!section || !sticky) {
-        const h = window.visualViewport?.height ?? window.innerHeight;
-        return Math.round(h * 0.24);
+    /** Measured on mount/resize only — avoids layout reads during scroll (see scroll-jump audit). */
+    const measureCap = () => {
+      if (section && sticky) {
+        scrollCap = Math.max(0, section.offsetHeight - sticky.offsetHeight);
+        return;
       }
-      return Math.max(0, section.offsetHeight - sticky.offsetHeight);
+      const h = window.visualViewport?.height ?? window.innerHeight;
+      scrollCap = Math.round(h * 0.24);
     };
 
     const step = () => {
@@ -58,26 +60,28 @@ export function HeroStage({
     };
 
     const onScroll = () => {
-      target = Math.min(window.scrollY, parallaxCap());
+      target = Math.min(window.scrollY, scrollCap);
       if (!running) {
         running = true;
         frameId = requestAnimationFrame(step);
       }
     };
 
-    const onViewportResize = () => {
-      target = Math.min(window.scrollY, parallaxCap());
+    const onResize = () => {
+      measureCap();
+      target = Math.min(window.scrollY, scrollCap);
     };
 
+    measureCap();
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.visualViewport?.addEventListener("resize", onViewportResize);
-    window.visualViewport?.addEventListener("scroll", onViewportResize);
+    window.addEventListener("resize", onResize);
+    window.visualViewport?.addEventListener("resize", onResize);
     return () => {
       cancelAnimationFrame(frameId);
       window.removeEventListener("scroll", onScroll);
-      window.visualViewport?.removeEventListener("resize", onViewportResize);
-      window.visualViewport?.removeEventListener("scroll", onViewportResize);
+      window.removeEventListener("resize", onResize);
+      window.visualViewport?.removeEventListener("resize", onResize);
     };
   }, []);
 

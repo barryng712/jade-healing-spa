@@ -12,6 +12,7 @@ import { ServiceDirectory } from "@/components/service-directory";
 import { ServicesMossBand } from "@/components/services-moss-band";
 import { Wrap } from "@/components/wrap";
 import { heroPhoto, heroVideoSrc, homeGalleryPhotos, homeNatureBanner, homeReelPhotos } from "@/lib/photos";
+import { HomeScrollDiagnosticsGate } from "@/components/dev/home-scroll-diagnostics-gate";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -150,6 +151,7 @@ export default function HomePage() {
           </Reveal>
         </Wrap>
       </section>
+      {process.env.NODE_ENV === "development" ? <HomeScrollDiagnosticsGate /> : null}
     </>
   );
 }
