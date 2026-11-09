@@ -7,7 +7,7 @@ import {
 import { servicePhotos, type SpaPhoto } from "@/lib/photos";
 import { groupSummary, intentSummary, tierSummary } from "@/lib/service-summaries";
 
-export type MassageIntentId = "thu-gian" | "phuc-hoi" | "tri-lieu";
+export type MassageIntentId = "thu-gian-toan-than" | "tri-lieu-chuyen-sau" | "an-than-giac-ngu";
 
 export type OfferCard = {
   id: string;
@@ -22,23 +22,39 @@ export type OfferCard = {
   photo: SpaPhoto;
 };
 
-const massageIntentDefs: { id: MassageIntentId; name: string; minutes: number[]; photoSlug: string }[] = [
-  { id: "thu-gian", name: "Thư giãn", minutes: [40, 60], photoSlug: "thu-gian-toan-than" },
-  { id: "phuc-hoi", name: "Phục hồi", minutes: [90], photoSlug: "lung-eo" },
-  { id: "tri-lieu", name: "Trị liệu", minutes: [120], photoSlug: "lung-hong-chan" },
+const massageIntentDefs: { id: MassageIntentId; name: string; slugs: string[]; photoSlug: string }[] = [
+  { id: "thu-gian-toan-than", name: "Thư giãn toàn thân", slugs: ["thu-gian-toan-than"], photoSlug: "thu-gian-toan-than" },
+  {
+    id: "tri-lieu-chuyen-sau",
+    name: "Trị liệu chuyên sâu",
+    slugs: ["co-vai-gay", "lung-eo", "lung-hong-chan"],
+    photoSlug: "co-vai-gay",
+  },
+  { id: "an-than-giac-ngu", name: "An thần & giấc ngủ", slugs: ["an-than-giac-ngu"], photoSlug: "an-than-giac-ngu" },
 ];
+
+function pricesAndMinutes(slugs: string[]) {
+  const prices: number[] = [];
+  const minutes: number[] = [];
+  for (const slug of slugs) {
+    const group = getMenuGroup(slug);
+    if (!group) continue;
+    for (const tier of group.tiers) {
+      prices.push(tier.priceVnd);
+      minutes.push(tier.minutes);
+    }
+  }
+  return { prices, minutes };
+}
 
 export function massageIntents(): OfferCard[] {
   return massageIntentDefs.map((intent) => {
-    const allowed = new Set(intent.minutes);
-    const prices = groupsInCategory("massage").flatMap((group) =>
-      group.tiers.filter((tier) => allowed.has(tier.minutes)).map((tier) => tier.priceVnd),
-    );
+    const { prices, minutes } = pricesAndMinutes(intent.slugs);
     return {
       id: intent.id,
       href: intentPath(intent.id),
       title: intent.name,
-      kicker: minuteLabel(intent.minutes),
+      kicker: minuteLabel(minutes),
       priceLabel: priceLabel(prices),
       description: intentSummary(intent.id),
       photo: servicePhotos[intent.photoSlug],
@@ -57,30 +73,59 @@ export function getMassageIntent(id: string) {
 export type IntentRow = {
   id: string;
   title: string;
-  minutes: number;
+  /** Shown next to the clock. Exact mark, or “Từ …” when the row covers a group. */
+  timeLabel: string;
   price: string;
   note: string;
-  href: string;
+  /** Missing means display only — the row is not a link. */
+  href?: string;
   photo?: SpaPhoto;
 };
 
+function tierRows(slug: string): IntentRow[] {
+  const group = getMenuGroup(slug);
+  if (!group) return [];
+  return group.tiers.map((tier) => ({
+    id: tier.id,
+    title: tier.name,
+    timeLabel: `${tier.minutes} phút`,
+    price: formatPrice(tier.priceVnd),
+    note: tierSummary(tier.id),
+    href: `${servicePath(group)}?phut=${tier.minutes}`,
+    photo: servicePhotos[group.slug],
+  }));
+}
+
+/** One card for a whole menu group. `linked` opens the group detail (all tiers). */
+function groupRow(slug: string, linked: boolean): IntentRow | null {
+  const group = getMenuGroup(slug);
+  if (!group || group.tiers.length === 0) return null;
+  const prices = group.tiers.map((tier) => tier.priceVnd);
+  const minutes = group.tiers.map((tier) => tier.minutes);
+  const minMinutes = Math.min(...minutes);
+  return {
+    id: group.slug,
+    title: group.name,
+    timeLabel: `Từ ${minMinutes} phút`,
+    price: priceLabel(prices),
+    note: groupSummary(group.slug),
+    href: linked ? servicePath(group) : undefined,
+    photo: servicePhotos[group.slug],
+  };
+}
+
 export function rowsForMassageIntent(id: MassageIntentId): IntentRow[] {
-  const intent = getMassageIntent(id);
-  if (!intent) return [];
-  const allowed = new Set(intent.minutes);
-  return groupsInCategory("massage").flatMap((group) =>
-    group.tiers
-      .filter((tier) => allowed.has(tier.minutes))
-      .map((tier) => ({
-        id: tier.id,
-        title: tier.name,
-        minutes: tier.minutes,
-        price: formatPrice(tier.priceVnd),
-        note: tierSummary(tier.id),
-        href: `${servicePath(group)}?phut=${tier.minutes}`,
-        photo: servicePhotos[group.slug],
-      })),
-  );
+  if (id === "thu-gian-toan-than") {
+    const extra = groupRow("cham-soc-theo-nhu-cau", false);
+    return [...tierRows("thu-gian-toan-than"), ...(extra ? [extra] : [])];
+  }
+  if (id === "tri-lieu-chuyen-sau") {
+    return ["co-vai-gay", "lung-eo", "lung-hong-chan"]
+      .map((slug) => groupRow(slug, true))
+      .filter((row): row is IntentRow => row !== null);
+  }
+  if (id === "an-than-giac-ngu") return tierRows("an-than-giac-ngu");
+  return [];
 }
 
 export function goiOffers(): OfferCard[] {
@@ -99,7 +144,9 @@ export function goiOffers(): OfferCard[] {
 }
 
 export function comboOffers(): OfferCard[] {
-  const packages = groupsInCategory("combo").map((group) => ({
+  const packages = groupsInCategory("combo")
+    .filter((group) => group.slug !== "cham-soc-theo-nhu-cau" && group.slug !== "jade-emperor")
+    .map((group) => ({
     id: group.slug,
     href: servicePath(group),
     title: group.name,
@@ -109,19 +156,6 @@ export function comboOffers(): OfferCard[] {
       group.tiers.length === 1 ? tierSummary(group.tiers[0].id) : groupSummary(group.slug),
     photo: servicePhotos[group.slug],
   }));
-  const sleep = getMenuGroup("an-than-giac-ngu");
-  const deep = sleep?.tiers.find((tier) => tier.minutes === 150);
-  if (sleep && deep) {
-    packages.push({
-      id: deep.id,
-      href: `${servicePath(sleep)}?phut=150`,
-      title: deep.name,
-      kicker: "150 phút",
-      priceLabel: formatPrice(deep.priceVnd),
-      description: tierSummary(deep.id),
-      photo: servicePhotos[sleep.slug],
-    });
-  }
   return packages;
 }
 

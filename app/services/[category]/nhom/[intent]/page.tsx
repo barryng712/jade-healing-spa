@@ -13,7 +13,7 @@ type Props = {
   params: Promise<{ category: string; intent: string }>;
 };
 
-const intents: MassageIntentId[] = ["thu-gian", "phuc-hoi", "tri-lieu"];
+const intents: MassageIntentId[] = ["thu-gian-toan-than", "tri-lieu-chuyen-sau", "an-than-giac-ngu"];
 
 export function generateStaticParams() {
   return intents.map((intent) => ({ category: "massage", intent }));

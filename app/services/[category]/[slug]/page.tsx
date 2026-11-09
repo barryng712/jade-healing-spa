@@ -45,7 +45,9 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
   const minutes = Number(phut);
   const initialTierId = group.tiers.find((item) => item.minutes === minutes)?.id;
   const photo = servicePhotos[group.slug];
-  const others = groupsInCategory(group.category).filter((item) => item.slug !== group.slug);
+  const others = groupsInCategory(group.category).filter(
+    (item) => item.slug !== group.slug && item.slug !== "jade-emperor" && item.slug !== "cham-soc-theo-nhu-cau",
+  );
 
   return (
     <article className="bg-sand py-8 text-ink md:py-10 md:pb-16">

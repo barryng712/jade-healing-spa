@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 import { ClockIcon } from "@/components/clock-icon";
 import { ContactActions } from "@/components/contact-actions";
 import { StepList } from "@/components/step-list";
-import { formatPrice, type MenuGroup } from "@/lib/menu";
+import { formatPrice, servicePath, type MenuGroup } from "@/lib/menu";
 import { tierSummary } from "@/lib/service-summaries";
 
 export function ServiceRitual({
@@ -22,6 +23,29 @@ export function ServiceRitual({
 
   return (
     <div>
+      {group.tiers.length > 1 ? (
+        <ul className="mt-6 flex flex-col gap-2">
+          {group.tiers.map((item) => {
+            const current = item.id === tier.id;
+            return (
+              <li key={item.id}>
+                <Link
+                  href={`${servicePath(group)}?phut=${item.minutes}`}
+                  aria-current={current ? "true" : undefined}
+                  className={`flex items-center justify-between gap-3 rounded border px-3 py-2 text-sm no-underline ${
+                    current ? "border-wood bg-paper" : "border-line"
+                  }`}
+                >
+                  <span>{item.name}</span>
+                  <span className="shrink-0">
+                    {formatPrice(item.priceVnd)} · {item.minutes} phút
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      ) : null}
       <h1 className="mt-4 text-center font-display text-[32px] leading-10 font-medium md:text-[44px] md:leading-[52px]">
         {tier.name}
       </h1>

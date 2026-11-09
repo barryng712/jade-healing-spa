@@ -61,12 +61,10 @@ export const tierSummaries: Record<string, string> = {
 
 /** Browse cards that group several tiers. Not a single menu price. */
 export const intentSummaries = {
-  "thu-gian":
-    "Các liệu trình 40 hoặc 60 phút. Buổi ngắn hơn hai nhóm kia, mỗi tên trên menu là một vùng hoặc một vòng riêng.",
-  "phuc-hoi":
-    "Chỉ các liệu trình 90 phút. Dài hơn thư giãn; cùng một vùng trên menu sẽ có thêm bước so với mốc 60 phút.",
-  "tri-lieu":
-    "Chỉ các liệu trình 120 phút, mốc dài nhất trong ba nhóm, với những bước ấm hoặc đá khi slide của liệu trình có ghi.",
+  "thu-gian-toan-than": "Ba mốc toàn thân trên menu: 60, 90 và 120 phút.",
+  "tri-lieu-chuyen-sau":
+    "Ba vùng trên menu: cổ vai gáy, lưng – eo, và lưng – hông – chân. Mỗi thẻ mở trang của đúng vùng đó.",
+  "an-than-giac-ngu": "Bốn mốc giấc ngủ trên menu: 60, 90, 120 và 150 phút.",
 } as const;
 
 /** Cards that open a group with more than one tier. */

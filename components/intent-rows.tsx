@@ -12,16 +12,11 @@ export function IntentRows({ rows, homeBand = false }: { rows: IntentRow[]; home
     <ul className="mt-8 flex flex-col gap-4 md:mt-10">
       {rows.map((row, index) => {
         const photoRight = index % 2 === 1;
-        return (
-        <li key={row.id} className={itemClass}>
-          <Link
-            href={row.href}
-            className={`flex h-full flex-col overflow-hidden rounded-t-[28px] rounded-b-[4px] ${rowBorder} text-ink no-underline md:grid md:rounded-2xl ${
-              photoRight
-                ? "md:grid-cols-[minmax(0,1fr)_15rem]"
-                : "md:grid-cols-[15rem_minmax(0,1fr)]"
-            }`}
-          >
+        const shell = `flex h-full flex-col overflow-hidden rounded-t-[28px] rounded-b-[4px] ${rowBorder} text-ink md:grid md:rounded-2xl ${
+          photoRight ? "md:grid-cols-[minmax(0,1fr)_15rem]" : "md:grid-cols-[15rem_minmax(0,1fr)]"
+        }`;
+        const body = (
+          <>
             {row.photo ? (
               <PhotoFrame
                 src={row.photo.src}
@@ -49,22 +44,30 @@ export function IntentRows({ rows, homeBand = false }: { rows: IntentRow[]; home
                   {row.title}
                 </h2>
                 <div className="shrink-0 text-right">
-                <p className="font-display text-[18px] leading-7 font-medium whitespace-nowrap md:text-[22px] md:leading-8">
-                  {row.price}
-                </p>
-                <p className="mt-1 flex items-center justify-end gap-1.5 text-sm leading-5 whitespace-nowrap">
-                  <ClockIcon className="size-4 shrink-0" />
-                  <span>{row.minutes} phút</span>
-                </p>
+                  <p className="font-display text-[18px] leading-7 font-medium whitespace-nowrap md:text-[22px] md:leading-8">
+                    {row.price}
+                  </p>
+                  <p className="mt-1 flex items-center justify-end gap-1.5 text-sm leading-5 whitespace-nowrap">
+                    <ClockIcon className="size-4 shrink-0" />
+                    <span>{row.timeLabel}</span>
+                  </p>
                 </div>
               </div>
-              {row.note ? (
-                <p className="text-[15px] leading-6 md:max-w-[26ch]">
-                  {row.note}
-                </p>
-              ) : null}
+              {row.note ? <p className="text-[15px] leading-6 md:max-w-[26ch]">{row.note}</p> : null}
             </div>
+          </>
+        );
+        return (
+        <li key={row.id} className={itemClass}>
+          {row.href ? (
+          <Link href={row.href} className={`${shell} no-underline`}>
+            {body}
           </Link>
+          ) : (
+          <div className={shell} aria-disabled="true">
+            {body}
+          </div>
+          )}
         </li>
         );
       })}

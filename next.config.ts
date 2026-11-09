@@ -14,11 +14,23 @@ const nextConfig: NextConfig = {
       "cham-soc-theo-nhu-cau": "/services/combo/cham-soc-theo-nhu-cau",
       "dich-vu-bo-tro": "/services/combo",
     };
-    return Object.entries(moved).map(([slug, destination]) => ({
-      source: `/services/${slug}`,
-      destination,
-      permanent: false,
-    }));
+    const intentMoved: Record<string, string> = {
+      "thu-gian": "/services/massage/nhom/thu-gian-toan-than",
+      "phuc-hoi": "/services/massage/nhom/tri-lieu-chuyen-sau",
+      "tri-lieu": "/services/massage/nhom/an-than-giac-ngu",
+    };
+    return [
+      ...Object.entries(moved).map(([slug, destination]) => ({
+        source: `/services/${slug}`,
+        destination,
+        permanent: false,
+      })),
+      ...Object.entries(intentMoved).map(([slug, destination]) => ({
+        source: `/services/massage/nhom/${slug}`,
+        destination,
+        permanent: true,
+      })),
+    ];
   },
 };
 

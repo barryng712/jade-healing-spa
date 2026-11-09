@@ -24,13 +24,13 @@ Short confirmed line + Contact. Full story waits for owner text. The page opens 
 
 ## Journey 3 — Choose a treatment
 
-Hover **Dịch vụ**. Three columns: massage intents (Thư giãn, Phục hồi, Trị liệu), the three gội tier names, and the combo gói names including the 150-minute sleep ritual.
+Hover **Dịch vụ**. Three columns: massage intents (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), the three gội tier names, and the combo gói names. Chăm sóc theo nhu cầu and the 150-minute sleep ritual are not combo cards.
 
 On `/services` or Home, the same three sections are cards: photo, short labeled sample, **Xem chi tiết**. There is no “Nhóm dịch vụ” bar.
 
-- Massage card → `/services/massage/nhom/thu-gian`, `phuc-hoi`, or `tri-lieu`. One row per matching tier, using that tier’s menu name, exact price, clock, and minutes. Thư giãn is 40 and 60. Phục hồi is 90. Trị liệu is 120. Lưng – eo has no 120-minute tier.
+- Massage card → `/services/massage/nhom/thu-gian-toan-than`, `tri-lieu-chuyen-sau`, or `an-than-giac-ngu`. Thư giãn lists than-60/90/120 (each opens `?phut=`) plus a non-link card for chăm sóc theo nhu cầu (Từ 890.000 Vnđ, Từ 90 phút). Trị liệu lists three group cards (cổ vai gáy, lưng – eo, lưng – hông – chân), each “Từ” the minimum price and minutes of that slug, opening that slug’s detail. An thần lists ngu-60/90/120/150.
 - Gội card → the detail page for that minute (`?phut=`).
-- Combo card → the gói page. The 150-minute sleep ritual is in this section.
+- Combo card → the gói page. Chăm sóc theo nhu cầu and the 150-minute sleep ritual are not in this section.
 
 The detail page shows only the chosen minute: tier name, one labeled sample line, price beside the clock, photo, **Quy trình**, twelve labeled **Bước mẫu** lines, contact, related services. No minute switcher. Step text is still empty. See `docs/design-guidelines.md`.
 

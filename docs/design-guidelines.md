@@ -156,17 +156,17 @@ Owner menu is the Canva file “MEMU TỔNG JADE” (2026-11-02). The site uses 
 
 - Massage groups: Cổ vai gáy, Thư giãn toàn thân, Chăm sóc lưng – eo, Chăm sóc lưng – hông – chân, An thần & giấc ngủ. The guest does not land on a group list. They land on Thư giãn (40 and 60), Phục hồi (90), or Trị liệu (120).
 - Chăm sóc tóc: Gội dưỡng sinh only. Three cards, one per minute. Do not invent more hair services.
-- Combo: Nghi Thức Thải Độc Ấm Tử Cung, Dưỡng Sinh Nhuận Tràng Thải Độc Vùng Bụng, Đả Thông Kinh Lạc Nâng Cơ Mặt, Jade Emperor Therapy, Chăm sóc theo nhu cầu, plus **Đại Nghi Thức Ngủ Sâu Toàn Thân** (150 phút). The 60, 90, and 120 sleep tiers stay in the massage intents.
+- Combo: Nghi Thức Thải Độc Ấm Tử Cung, Dưỡng Sinh Nhuận Tràng Thải Độc Vùng Bụng, Đả Thông Kinh Lạc Nâng Cơ Mặt. Jade Emperor Therapy is not a combo card. Chăm sóc theo nhu cầu is a display-only row on the thư giãn intent. All four sleep tiers live on the an thần intent.
 
 **Rule.** `?phut=` selects one tier. The page shows that tier’s name, price, minutes, and steps. It does not offer a second minute on the same screen. Minutes stay the real marks: cổ vai gáy includes 40; giấc ngủ includes 150; Jade Emperor is 150; lưng – eo is 60/90; chăm sóc theo nhu cầu is 90/120. The room photo is the space, not a confirmed photo of that ritual.
 
 **How a guest moves.** There is no “Nhóm dịch vụ” jump bar.
 
 1. `/services` is the `h1` **Dịch vụ**, then a full-width **horizontal rule** (`border-line`, not text underline), then the same three sections as Home with the usual vertical gap. Section titles (**Massage**, **Gội đầu dưỡng sinh**, **Combo**) use **text underline** as on Home. No rules between those sections. A category URL (`/services/massage`, `/services/cham-soc-toc`, `/services/combo`) shows that category name, `category.description` from `lib/menu.ts`, and only that section; the section title still uses the underline pattern (one section visible).
-2. A massage card opens `/services/massage/nhom/thu-gian`, `phuc-hoi`, or `tri-lieu`. The `h1` is the intent name, centered, with a **text underline** (`underline`, offset so it clears diacritics). No eyebrow and no second nav. Thư giãn lists the 40- and 60-minute tiers. Phục hồi lists the 90-minute tiers. Trị liệu lists the 120-minute tiers. Lưng – eo has no 120, so it is absent there. Each row is one tier, titled with that tier’s menu name, not the shared group name. The price is exact. A clock and the minutes sit under the price. One labeled sample line sits under the title. The whole row links to `?phut=` for that minute.
+2. A massage card opens `/services/massage/nhom/thu-gian-toan-than`, `tri-lieu-chuyen-sau`, or `an-than-giac-ngu`. The `h1` is the intent name. Thư giãn lists than-60/90/120 (linked `?phut=`) and a non-link row for chăm sóc theo nhu cầu (Từ the menu minimum). Trị liệu lists one row per slug (cổ vai gáy, lưng – eo, lưng – hông – chân) with Từ the minimum price and minutes, linking to that slug. An thần lists ngu-60/90/120/150, each linked with `?phut=`.
 3. From `md`, rows alternate: photo left, then right, then left. Radius **16px**. The photo is flush with the border. On a phone the photo sits on top, full width, aspect 3/2, with the offer-card top radius (**28px**, bottom **4px**). Title stays left, price and clock stay right. The sample line stays under the title. Do not add inclusion rows from a reference card.
 4. A gội card skips the list and opens the detail with `?phut=`, because that group has one line per minute.
-5. A combo card opens the gói page. The 150-minute sleep ritual is a combo card and opens with `?phut=150`. Its 60, 90, and 120 tiers stay in the massage intents.
+5. A combo card opens the gói page. The sleep ritual is not a combo card. Chăm sóc theo nhu cầu is not a combo card.
 
 **Intent row.** Bordered block. Photo merged to the border. Title, then the same tier summary as the detail page. Price on the right, clock under the price. No separate “Xem chi tiết” line.
 

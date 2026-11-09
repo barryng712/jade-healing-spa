@@ -15,9 +15,9 @@
 /services/massage                          Chỉ mục massage
 /services/cham-soc-toc                     Chỉ mục gội
 /services/combo                            Chỉ mục combo
-/services/massage/nhom/thu-gian            Tầng 40 và 60 phút
-/services/massage/nhom/phuc-hoi            Tầng 90 phút
-/services/massage/nhom/tri-lieu            Tầng 120 phút
+/services/massage/nhom/thu-gian-toan-than  Thư giãn toàn thân (than-60/90/120 + chăm sóc theo nhu cầu, chỉ hiện)
+/services/massage/nhom/tri-lieu-chuyen-sau Trị liệu chuyên sâu (cổ vai gáy, lưng eo, lưng hông chân)
+/services/massage/nhom/an-than-giac-ngu    An thần & giấc ngủ (ngu-60/90/120/150)
 /services/[category]/[slug]                Chi tiết một nhóm
 /services/[category]/[slug]?phut=          Đúng một mốc phút
 /gallery                                   Thư viện ảnh
