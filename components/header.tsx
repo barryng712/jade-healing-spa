@@ -7,10 +7,6 @@ import { comboOffers, goiOffers, massageIntents } from "@/lib/service-journeys";
 import { LogoLockup } from "@/components/logo";
 import { nav, site } from "@/lib/site";
 
-function sceneAtTop(pathname: string) {
-  return pathname.length > 0;
-}
-
 function isCurrent(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -24,10 +20,16 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (pathname !== menuPath) {
+    setMenuPath(pathname);
+    setMenuOpen(false);
+    setServicesOpen(false);
+  }
   const servicesRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
-  const scene = sceneAtTop(pathname);
-  const overlay = scene && !scrolled && !menuOpen && !servicesOpen;
+  // Home uses Scene; every other route uses PagePhotoBand. Overlay until the guest scrolls past that photo.
+  const overlay = !scrolled && !menuOpen && !servicesOpen;
 
   function openServices() {
     if (closeTimer.current) window.clearTimeout(closeTimer.current);
@@ -41,11 +43,6 @@ export function Header() {
       setServicesOpen(false);
     }, 160);
   }
-
-  useEffect(() => {
-    setServicesOpen(false);
-    setMenuOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen && !servicesOpen) return;
@@ -263,6 +260,18 @@ export function Header() {
                       >
                         Gội đầu dưỡng sinh
                       </Link>
+                      <ul className="mt-1 space-y-1 pl-3">
+                        {goiOffers().map((offer) => (
+                          <li key={offer.id}>
+                            <Link
+                              className="text-sm no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
+                              href={offer.href}
+                            >
+                              {offer.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </li>
                     <li>
                       <Link
@@ -271,6 +280,18 @@ export function Header() {
                       >
                         Combo
                       </Link>
+                      <ul className="mt-1 space-y-1 pl-3">
+                        {comboOffers().map((offer) => (
+                          <li key={offer.id}>
+                            <Link
+                              className="text-sm no-underline transition duration-200 hover:-translate-y-px hover:text-sage"
+                              href={offer.href}
+                            >
+                              {offer.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     </li>
                   </ul>
                 </div>

@@ -34,7 +34,7 @@ Owner mô tả ý tưởng
 | Stage | Prompt gợi ý | Subagent / skill |
 | --- | --- | --- |
 | Research | `Act as Website Researcher for …` | `.cursor/agents/website-researcher.md` · `/research-reference` |
-| BA | `Act as BA for CR-…` hoặc `/ba-analyst` | `.cursor/agents/ba-analyst.md` · skill `/ba-evaluate` |
+| BA | `Act as BA for CR-…` hoặc `/ba-evaluate` | `.cursor/agents/ba-analyst.md` · skill `/ba-evaluate` |
 | Design | `Act as Designer for CR-…` | `.cursor/agents/designer.md` · `/design-analyze` |
 | Dev | `Act as Developer for CR-…` | `.cursor/agents/developer.md` · `/implement-change` |
 | QA | `Act as QA for CR-…` | `.cursor/agents/qa-reviewer.md` · `/qa-review-change` |
@@ -48,7 +48,7 @@ Sau mỗi lần owner duyệt: `/handoff-gate` để cập nhật stage trong CR
 - Design gốc: `docs/design-guidelines.md` + site Next.js — không clone nhaspa; không vẽ lại Figma trừ khi owner bảo.
 - Menu thật: `lib/menu.ts`. Copy đã chốt: `docs/confirmed-content.md`.
 - Gap → `NEEDS OWNER INPUT`.
-- Branch: `feat/*` hoặc `design/*` / `test/*`. Không push/merge `main` không có approval.
+- Active site branch: `staging`. `feat/informational-site` is legacy. New work may use `feat/*`, `design/*`, or `test/*`. Không push/merge `main` không có approval.
 
 ## File
 

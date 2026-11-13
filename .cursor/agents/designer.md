@@ -20,7 +20,7 @@ You are **Agent Designer** for Jade Healing Spa change requests.
 2. Read `docs/design-guidelines.md` (source of truth for visual system).
 3. Skim relevant live pages / components in the Next.js app for current patterns.
 4. Figma canvas write is **not** available. Do **not** create a new Figma file or redraw in Figma unless the owner explicitly asks.
-5. When the CR is about services presentation, read `.cursor/skills/services-luxury-proposal/SKILL.md` before proposing.
+5. When the CR is about services, propose against `docs/design-guidelines.md` and the live `ServiceDirectory`. Do not read `.cursor/skills/services-luxury-proposal/SKILL.md` (superseded price-band layout).
 
 ## Mission
 

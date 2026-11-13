@@ -8,7 +8,7 @@ The public site is a Vietnamese informational Next.js app. Online booking is not
 
 See [`docs/STATUS.md`](docs/STATUS.md).
 
-Research, BA, and design are approved. The local site is built on `feat/informational-site` and waiting for your review (progress through 2026-11-04 in [`docs/STATUS.md`](docs/STATUS.md)). QA starts after you approve it. The site is not deployed.
+Research, BA, and design are approved. The local site is on `staging` (`feat/informational-site` is legacy) and waiting for your review. See [`docs/STATUS.md`](docs/STATUS.md). The site is not deployed.
 
 ## How this project uses AI
 
@@ -39,7 +39,16 @@ npm run build
 npm run lint
 ```
 
-Open `http://127.0.0.1:3000`. Playwright research scripts are still available: `npm run verify:playwright` and `npm run research:nhaspa`.
+Open `http://127.0.0.1:3000`.
+
+| Script | What it hits |
+| --- | --- |
+| `npm run smoke:local` | Local site at `http://127.0.0.1:3000`. Start `npm run dev` first |
+| `npm test` | Research Playwright files only (nhaspa). Not the local site |
+| `npm run research:nhaspa` | Reference site https://nhaspa.com.vn |
+| `npm run research:nhaspa:followup` | Same reference, follow-up pass |
+| `npm run research:scroll` | Same reference, scroll capture |
+| `npm run research:verify` | Chromium can open nhaspa. Alias: `npm run verify:playwright` |
 
 ## Figma
 
@@ -49,7 +58,7 @@ Figma MCP is connected. Canvas write is not available, so the design stays in `d
 
 Photos are already in `assets/spa/` and on the site. The header logo is the script mark cut from those photos.
 
-Still needed: ritual steps for each minute mark, a Vietnamese name for Jade Emperor Therapy, the Zalo URL, a Google Maps place URL, the About story, and a hosting choice. A separate vector logo is optional. See [`docs/unresolved-questions.md`](docs/unresolved-questions.md). Do not expect the agent to invent them.
+Still needed: a Vietnamese name and steps for Jade Emperor Therapy, the Zalo URL, a Google Maps place URL, the About story, and a hosting choice. A separate vector logo is optional. Other ritual steps already come from `lib/menu-rituals.ts`. See [`docs/unresolved-questions.md`](docs/unresolved-questions.md). Do not expect the agent to invent them.
 
 ## License / content
 

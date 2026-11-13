@@ -1,14 +1,14 @@
 # Next agent
 
-The informational site is on `feat/informational-site`. Current layout: `docs/design-guidelines.md` (2026-11-07).
+The informational site is on `staging`. `feat/informational-site` is legacy. Current layout: `docs/design-guidelines.md` and `docs/STATUS.md`.
 
 ## A. Next change
 
-Read `docs/STATUS.md` (“Next chat”). Do not restore the sand services band, the price bands, or the minute chips. Menu = `lib/menu.ts`. Ritual steps stay “Bước mẫu”. The 2026-11-06 QA draft is an earlier build.
+Read `docs/STATUS.md` (“Next chat”). Do not restore the sand services band, the price bands, the minute chips, the “Nhóm dịch vụ” bar, or the old service-catalog grid. Menu = `lib/menu.ts`. Ritual steps = `lib/menu-rituals.ts` when that tier has an array. Do not restore “Bước mẫu” filler. The 2026-11-06 QA draft is an earlier build.
 
 ## B. Ongoing product changes
 
-For UI / feature / page / journey work: `/product-change` → BA → Design → Dev → QA with owner gates. See `docs/change-requests/README.md` and `AGENTS.md` section B.
+For UI / feature / page / journey work: `/product-change` → BA (`/ba-evaluate`) → Design → Dev → QA with owner gates. See `docs/change-requests/README.md` and `AGENTS.md` section B.
 
 ## Do not redo
 

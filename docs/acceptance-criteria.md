@@ -1,6 +1,6 @@
 # Acceptance criteria — Jade Healing Spa MVP
 
-**Status:** local site, 2026-11-07. The 2026-11-06 QA draft checked an earlier layout. These rows match the site now. A new QA pass has not been requested.  
+**Status:** local site on `staging`, 2026-11-13. The 2026-11-06 QA draft checked an earlier layout. These rows match the site now. A new QA pass has not been requested.  
 **Copy source:** `docs/confirmed-content.md`
 
 Viewports: 1440×1000, ~768px, 390×844.
@@ -25,7 +25,7 @@ Viewports: 1440×1000, ~768px, 390×844.
 | ID | Criterion |
 | --- | --- |
 | H1 | The first screen is the moving photo, the script logo, and **Chăm sóc · An yên · Chữa lành**. The page `h1` is in the HTML below that screen. No medical claims |
-| H2 | Home services are three sections: Massage (Thư giãn, Phục hồi, Trị liệu), Gội đầu dưỡng sinh (three tiers), Combo (gói cards plus the 150-minute sleep ritual). Sample lines stay labeled |
+| H2 | Home services are three sections: Massage (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), Gội đầu dưỡng sinh (three tiers), Combo (the three gói only). Jade Emperor Therapy and the 150-minute sleep ritual are not combo cards. Short lines come from `lib/service-summaries.ts` |
 | H3 | No fake photos or fake quotes |
 | H4 | No booking widget |
 
@@ -41,8 +41,8 @@ Viewports: 1440×1000, ~768px, 390×844.
 
 | ID | Criterion |
 | --- | --- |
-| V1 | Only Canva menu treatments. Detail steps are labeled “Bước mẫu” until real steps arrive. There is no minute switcher on the detail page |
-| V5 | `/services` shows the three card sections, not eleven price bands. A massage intent lists one row per matching tier, with that tier’s name and exact price. `?phut=` opens that tier only |
+| V1 | Only Canva menu treatments. Where `lib/menu-rituals.ts` has steps, the detail page shows them under Quy trình. Jade Emperor Therapy has no array and omits Quy trình. Do not restore “Bước mẫu” filler. A multi-tier group lists its tiers as links to `?phut=` (not the retired minute chips) |
+| V5 | `/services` shows the three card sections, not eleven price bands. Thư giãn and An thần list one row per tier, with that tier’s name and exact price. Trị liệu lists one row per group (Từ the minimum). Gội cards open `?phut=`. Combo cards are the three gói only |
 | V2–V4 | Real slugs only; no invented VND |
 
 ## Gallery

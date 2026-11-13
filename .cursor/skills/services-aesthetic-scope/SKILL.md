@@ -1,12 +1,14 @@
 ---
 name: services-aesthetic-scope
 description: >-
-  Folds only new facts from an updated services research note into an existing
-  Jade Healing Spa services change request, without cloning that business and
-  without designing the page. Use when a nangsen or other spa services note
-  changes, or when the owner mentions services, luxury, aesthetic, a reference
-  note, BA, or a change request about services presentation.
+  SUPERSEDED. Do not use. Live services UI is ServiceDirectory. This skill
+  locked the retired minute-chip / price-band scan.
+disable-model-invocation: true
 ---
+
+# SUPERSEDED — live UI is ServiceDirectory
+
+Do not apply this skill. The live browse model is `components/service-directory.tsx`, massage intents at `/services/massage/nhom/…`, and detail `?phut=`. See `docs/STATUS.md`. The notes below are a historical record. For a new services CR, use `/ba-evaluate` and `.cursor/skills/reference-intake/SKILL.md`.
 
 # Services aesthetic scope
 

@@ -1,11 +1,14 @@
 ---
 name: services-luxury-proposal
 description: >-
-  Turns a services-page rhythm into an original Jade Healing Spa design
-  proposal using existing tokens, photos, and menu figures. Use when the
-  owner mentions services, luxury, aesthetic, nangsen, a design proposal,
-  or Journey 3.
+  SUPERSEDED. Do not use. Live services UI is ServiceDirectory, not the
+  retired price-band / service-catalog layout.
+disable-model-invocation: true
 ---
+
+# SUPERSEDED — live UI is ServiceDirectory
+
+Do not apply this skill. The live browse model is `components/service-directory.tsx`, massage intents at `/services/massage/nhom/…`, and detail `?phut=`. See `docs/STATUS.md`. The notes below are a historical record of the retired price-band proposal.
 
 # Services luxury proposal
 

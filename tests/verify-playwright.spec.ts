@@ -1,3 +1,7 @@
+/**
+ * RESEARCH — opens https://nhaspa.com.vn to confirm Chromium.
+ * Not a check of the local Jade site. Local smoke: `npm run smoke:local` (http://127.0.0.1:3000).
+ */
 import { test, expect } from "@playwright/test";
 import path from "node:path";
 

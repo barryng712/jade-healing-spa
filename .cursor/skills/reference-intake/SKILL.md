@@ -30,7 +30,7 @@ Use when a `research/*.md` note exists and a CR needs scope. Stop when the BA se
 
 - Map a pattern only onto a route the site already has: `/`, `/about`, `/services`, `/services/[category]`, `/services/[category]/[slug]`, `/gallery`, `/reviews`, `/contact`. A new route, booking flow, payment, account, or backend is out of MVP.
 - Names, minutes, prices, and category descriptions come from `lib/menu.ts`. Photos come from files already on the site. If a figure is missing, write `NEEDS OWNER INPUT` and leave the slot empty.
-- Sample ritual lines stay labeled `Bước mẫu`. Room type, snacks, medical claims, reviews, and awards need owner text before they appear.
+- Ritual steps come from `lib/menu-rituals.ts`. Do not invent steps or restore “Bước mẫu” filler. Tiers with no array omit Quy trình. Room type, snacks, medical claims, reviews, and awards need owner text before they appear.
 - A home band or other journey the owner named as its own CR stays out.
 - When the note skipped a viewport (often mobile), record that limit. Designer uses Jade's existing breakpoints. Do not invent the missing reference layout.
 

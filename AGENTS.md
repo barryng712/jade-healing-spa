@@ -4,11 +4,11 @@ Read this file and `PROJECT_BRIEF.md` before any work.
 
 This is a **local, human-gated workflow**. Roles below are prompts and handoff documents. Do not run Cloud Agents, Automations, or parallel agents on the same files unless the owner explicitly asks.
 
-## Current phase (2026-11-07)
+## Current phase (2026-11-13)
 
-The informational site is **built locally** on `feat/informational-site`. It is not deployed. Layout source of truth: `docs/design-guidelines.md` and `docs/user-journeys.md`.
+The informational site is **built locally** on `staging`. It is not deployed. `feat/informational-site` is a legacy branch. Layout source of truth: `docs/design-guidelines.md`, `docs/user-journeys.md`, and `docs/STATUS.md`.
 
-Do not rebuild the site, restore the sand services band, the eleven price bands, the minute chips, or the “Nhóm dịch vụ” bar. The live menu is `lib/menu.ts`. Ritual steps stay labeled “Bước mẫu”. Full progress is in `docs/STATUS.md`.
+Do not rebuild the site, restore the sand services band, the eleven price bands, the minute chips, the “Nhóm dịch vụ” bar, or the old service-catalog grid. Browse model: `ServiceDirectory`, massage `/services/massage/nhom/…`, detail `?phut=`. Menu: `lib/menu.ts`. Ritual steps: `lib/menu-rituals.ts` when that tier has an array. Tiers with no array (Jade Emperor Therapy) omit Quy trình. Do not restore “Bước mẫu” filler.
 
 ## Current environment
 
@@ -60,7 +60,8 @@ Rules:
 - Do not commit secrets.
 - Do not push to `main`.
 - Do not merge or deploy without owner approval.
-- Use branches: `research/*`, `design/*`, `feat/*`, `test/*`, `chore/*`.
+- Active site work is on `staging`. `feat/informational-site` is legacy.
+- New work may use `research/*`, `design/*`, `feat/*`, `test/*`, `chore/*`.
 
 ## Role cards
 
@@ -106,12 +107,12 @@ Prerequisites: BA docs approved for initial design (**owner-approved** 2026-11-0
 
 ### Agent 4 — Developer
 
-Prerequisites: approved design (initial MVP **met** — site on `feat/informational-site`), **or** CR Design gate approved.
+Prerequisites: approved design (initial MVP **met** — site on `staging`), **or** CR Design gate approved.
 
 - Subagent file: `.cursor/agents/developer.md` · skill `/implement-change`.
 - Change the existing site when the owner asks. Do not start a second app.
 - Informational site only. No booking.
-- Do not invent business facts. Ritual steps stay labeled samples until the owner sends the real lines.
+- Do not invent business facts. Ritual steps come from `lib/menu-rituals.ts`. Do not invent steps or restore “Bước mẫu” filler.
 - Accessibility, SEO basics, responsive layout.
 - Live menu: `lib/menu.ts`.
 

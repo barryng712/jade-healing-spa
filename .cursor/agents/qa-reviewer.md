@@ -23,7 +23,7 @@ You are **Agent QA** for Jade Healing Spa.
 ## Mission
 
 - Check navigation, links, layout, content honesty, responsiveness (1440×1000, ~768, 390×844), accessibility basics, console errors.
-- Use project Playwright (`@playwright/test` + Chromium) when helpful.
+- Check `http://127.0.0.1:3000` when `npm run dev` is up (`npm run smoke:local` or `/local-smoke`). `npm test` and `npm run research:*` open nhaspa. They are not the local site.
 - File bugs clearly; do not “fix” product by inventing content.
 - Re-test only after Dev claims fixes (owner may open a new Dev pass).
 

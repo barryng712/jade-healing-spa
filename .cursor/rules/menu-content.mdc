@@ -6,8 +6,8 @@ alwaysApply: false
 
 # Menu & content
 
-- Live menu source: `lib/menu.ts` (Canva MEMU TỔNG JADE). Ritual steps: `lib/menu-rituals.ts` (one array per `tier.id`). Do not restore obsolete four-sample menus.
+- Live menu source: `lib/menu.ts` (Canva MEMU TỔNG JADE). Ritual steps: `lib/menu-rituals.ts` (one array per `tier.id`). Do not restore obsolete four-sample menus or “Bước mẫu” filler.
 - Confirmed marketing/contact copy: `docs/confirmed-content.md`.
-- Ritual steps remain labeled samples until the owner supplies real lines.
+- When `lib/menu-rituals.ts` has an array for that tier, the detail page shows those lines. Tiers with no array (Jade Emperor Therapy / `bo-tro-jade`) omit Quy trình. Do not invent steps.
 - Never invent prices, minutes, addresses, phones, Zalo URLs, or medical claims.
 - Change requests that touch services must call out menu/doc updates in the BA section.

@@ -26,8 +26,8 @@ Owner answers recorded **2026-11-01**. Confirmed values live in `docs/confirmed-
 ## Still open (blocks honest pages or launch)
 
 - [ ] **C6b** Zalo URL (or confirm Zalo chat = 0357050796). CTA includes Zalo but no link was given.
-- [ ] **S1 / S5** Names, minutes, and prices arrived 2026-11-02 (Canva menu). **Ritual steps for each minute mark are still missing.** Jade Emperor Therapy still has no Vietnamese name. Do not write the steps.
-- [ ] **S8** Live placement, owner-directed 2026-11-07: An thần 60/90/120 stays in the massage intents; the 150-minute ritual is a Combo card. Chăm sóc theo nhu cầu stays under Combo. Say if that split should change.
+- [ ] **S1 / S5** Names, minutes, and prices arrived 2026-11-02 (Canva menu). Ritual steps for tiers that have an array are in `lib/menu-rituals.ts` (read 2026-11-08). **Jade Emperor Therapy** (`bo-tro-jade`) still has no Vietnamese name and no steps. The detail page omits Quy trình. Do not invent either. `NEEDS OWNER INPUT`.
+- [ ] **S8** Live on `staging` (CR-20261109, Dev gate still pending): ngu-60/90/120/150 stay on An thần & giấc ngủ. Chăm sóc theo nhu cầu is a non-link row on Thư giãn toàn thân, not a Combo card. Jade Emperor Therapy is not a combo card. Say if that split should change. `NEEDS OWNER INPUT` until the Dev gate is approved.
 - [x] **B1–B7 photos** Owner photos are in `assets/spa/` and on the site via `public/spa/`. `Unknown-9.jpg` stays unused.
 - [x] **Wordmark** The header and home hero use the script mark cut from those photos (`public/spa/logo-mark.png`), 2026-11-04.
 - [ ] **Vector logo** A separate clean master file is still open if the photo cut should be replaced.

@@ -183,10 +183,6 @@ export function servicePath(group: MenuGroup) {
   return `/services/${group.category}/${group.slug}`;
 }
 
-export function minuteMarks(group: MenuGroup) {
-  return group.tiers.map((item) => `${item.minutes} phút`).join(" · ");
-}
-
 export function formatPrice(priceVnd: number) {
   return `${new Intl.NumberFormat("vi-VN").format(priceVnd)} Vnđ`;
 }

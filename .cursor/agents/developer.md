@@ -26,12 +26,12 @@ You are **Agent Developer** for Jade Healing Spa change requests.
 - Informational site only: no booking, payments, accounts.
 - Vietnamese only unless owner says otherwise.
 - Accessibility, SEO basics, responsive layout.
-- Label placeholders (`NEEDS OWNER INPUT` / sample ritual steps) — never invent live business facts.
+- Label gaps `NEEDS OWNER INPUT`. Ritual steps come from `lib/menu-rituals.ts`. Do not invent steps or restore “Bước mẫu” filler.
 - Prefer matching existing patterns in `app/`, components, and tokens already in the codebase.
 
 ## Git
 
-- Use / stay on a `feat/*` (or `design/*`) branch named in the CR.
+- Stay on the branch the owner named. Current site work is `staging`. `feat/informational-site` is legacy.
 - Do not push `main`, merge, or deploy without explicit owner approval.
 - Do not commit secrets.
 

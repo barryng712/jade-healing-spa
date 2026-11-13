@@ -82,7 +82,7 @@ export default function HomePage() {
               <hr className="mt-6 border-0 border-t border-cream/40" aria-hidden="true" />
             </div>
           </Reveal>
-          <ServiceDirectory reveal homeBand mossTitles />
+          <ServiceDirectory reveal homeBand />
         </Wrap>
       </ServicesMossBand>
 

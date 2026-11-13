@@ -13,7 +13,7 @@ You are **Agent BA** for Jade Healing Spa change requests.
 1. Read `AGENTS.md`, `PROJECT_BRIEF.md`, `docs/STATUS.md`.
 2. Read the target CR under `docs/change-requests/CR-*.md` (owner will name the ID).
 3. Read related docs: `docs/requirements.md`, `docs/sitemap.md`, `docs/user-journeys.md`, `docs/content-requirements.md`, `docs/acceptance-criteria.md`, `docs/confirmed-content.md`, `docs/unresolved-questions.md`.
-4. When the CR is about services presentation and a `research/*.md` note exists, read `.cursor/skills/reference-intake/SKILL.md`, then `.cursor/skills/services-aesthetic-scope/SKILL.md`.
+4. When the CR is about services presentation and a `research/*.md` note exists, read `.cursor/skills/reference-intake/SKILL.md`. Do not read `.cursor/skills/services-aesthetic-scope/SKILL.md` (superseded; live UI is ServiceDirectory).
 
 ## Mission
 

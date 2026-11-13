@@ -1,6 +1,6 @@
 # Change request index
 
-Last updated: 2026-11-09. Current layout: `docs/design-guidelines.md`.
+Last updated: 2026-11-13. Active work branch: `staging`. Current layout: `docs/design-guidelines.md` and the Next.js site. `feat/informational-site` is legacy. November 6 rows are superseded records; do not rebuild them.
 
 | ID | Title | Status | Stage gate waiting on | Branch |
 | --- | --- | --- | --- | --- |

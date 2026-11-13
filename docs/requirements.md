@@ -45,8 +45,8 @@ Guests in Hanoi looking for a wellness spa (Facebook service area).
 | --- | --- | --- |
 | Home | Full-screen moving photo, logo, I3 line, services directory, visit strip | Banner photo is a stand-in. Optional film path is empty |
 | About | Name, I3 line, one space photo | Story, team, facilities |
-| Services | Massage intents, three gội tiers, combo gói plus the 150-minute sleep ritual | Card blurbs are labeled samples |
-| Service detail | One tier from `?phut=`: name, price, minutes, room photo | Real ritual steps; twelve “Bước mẫu” lines are layout only |
+| Services | Massage intents (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), three gội tiers, three combo gói | Short lines are in `lib/service-summaries.ts` |
+| Service detail | One tier from `?phut=`: name, price, minutes, room photo, steps from `lib/menu-rituals.ts` when present | Jade Emperor Therapy has no steps (`NEEDS OWNER INPUT`) |
 | Gallery | Owner photos from `assets/spa/` | `Unknown-9.jpg` stays unused |
 | Reviews | Maps pin link; no quotes | Google place URL / quotes |
 | Contact | Confirmed address, hours, phone, email, Facebook, parking, map | Zalo URL |

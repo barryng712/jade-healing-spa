@@ -21,8 +21,9 @@ Check diffs and live copy against `docs/confirmed-content.md` and `lib/menu.ts`.
 ## Allowed
 
 - Copy already in `docs/confirmed-content.md`
-- Menu data from `lib/menu.ts`
-- Explicitly labeled samples (`Bước mẫu`, `NEEDS OWNER INPUT`)
+- Menu data from `lib/menu.ts` and ritual lines already in `lib/menu-rituals.ts`
+- Explicitly labeled gaps (`NEEDS OWNER INPUT`)
+- Flag “Bước mẫu” filler if it returns on a tier that already has steps in `lib/menu-rituals.ts`
 
 ## Output
 

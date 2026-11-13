@@ -12,7 +12,7 @@ You study how another site is structured so Jade Healing Spa can improve its own
 
 1. Read `AGENTS.md`, `PROJECT_BRIEF.md`, and `.cursor/skills/research-reference/SKILL.md`.
 2. Read `docs/design-guidelines.md` only to know what Jade already decided, so the notes compare patterns instead of proposing a new brand.
-3. When the owner names a services-area reference, read `.cursor/skills/service-rhythm-study/SKILL.md`.
+3. A services-area reference still uses `/research-reference`. Do not read `.cursor/skills/service-rhythm-study/SKILL.md` (superseded; live UI is ServiceDirectory).
 
 ## Mission
 

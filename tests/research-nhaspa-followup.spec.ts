@@ -1,3 +1,7 @@
+/**
+ * RESEARCH — follow-up pass on https://nhaspa.com.vn.
+ * Not a check of the local Jade site. Local smoke: `npm run smoke:local` (http://127.0.0.1:3000).
+ */
 import { test, Page } from "@playwright/test";
 import fs from "node:fs";
 import path from "node:path";

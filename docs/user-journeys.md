@@ -1,6 +1,6 @@
 # User journeys — Jade Healing Spa
 
-**Status:** local site, 2026-11-07. Contact facts from 2026-11-01.  
+**Status:** local site on `staging`, 2026-11-13. Contact facts from 2026-11-01.  
 Ends in **call, Facebook, Zalo, or visit**. No online booking.  
 Layout detail: `docs/design-guidelines.md`.
 
@@ -26,13 +26,13 @@ Short confirmed line + Contact. Full story waits for owner text. The page opens 
 
 Hover **Dịch vụ**. Three columns: massage intents (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), the three gội tier names, and the combo gói names. Chăm sóc theo nhu cầu and the 150-minute sleep ritual are not combo cards.
 
-On `/services` or Home, the same three sections are cards: photo, short labeled sample, **Xem chi tiết**. There is no “Nhóm dịch vụ” bar.
+On `/services` or Home, the same three sections are cards: photo, the short line from `lib/service-summaries.ts`, **Xem chi tiết**. There is no “Nhóm dịch vụ” bar.
 
 - Massage card → `/services/massage/nhom/thu-gian-toan-than`, `tri-lieu-chuyen-sau`, or `an-than-giac-ngu`. Thư giãn lists than-60/90/120 (each opens `?phut=`) plus a non-link card for chăm sóc theo nhu cầu (Từ 890.000 Vnđ, Từ 90 phút). Trị liệu lists three group cards (cổ vai gáy, lưng – eo, lưng – hông – chân), each “Từ” the minimum price and minutes of that slug, opening that slug’s detail. An thần lists ngu-60/90/120/150.
 - Gội card → the detail page for that minute (`?phut=`).
 - Combo card → the gói page. Chăm sóc theo nhu cầu and the 150-minute sleep ritual are not in this section.
 
-The detail page shows only the chosen minute: tier name, one labeled sample line, price beside the clock, photo, **Quy trình**, twelve labeled **Bước mẫu** lines, contact, related services. No minute switcher. Step text is still empty. See `docs/design-guidelines.md`.
+The detail page shows the minute in `?phut=`: tier name, the short line from `lib/service-summaries.ts`, price beside the clock, photo, then **Quy trình** when `lib/menu-rituals.ts` has steps for that tier. Jade Emperor Therapy has no array and omits Quy trình. A group with more than one tier also lists those tiers as links to `?phut=` (not the retired minute chips). Then contact and related services. See `docs/design-guidelines.md`.
 
 ## Journey 4 — Gallery
 

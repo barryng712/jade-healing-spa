@@ -1,3 +1,7 @@
+/**
+ * RESEARCH — scroll capture on https://nhaspa.com.vn.
+ * Not a check of the local Jade site. Local smoke: `npm run smoke:local` (http://127.0.0.1:3000).
+ */
 import { test, Page } from "@playwright/test";
 import path from "node:path";
 import fs from "node:fs";

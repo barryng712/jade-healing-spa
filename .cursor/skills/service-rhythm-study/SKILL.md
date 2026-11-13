@@ -1,11 +1,14 @@
 ---
 name: service-rhythm-study
 description: >-
-  Observes a reference site's services area at desktop about 1440 and phone
-  about 390, and writes a rhythm note without cloning the reference. Use when
-  the owner names nangsen, a services page, layout rhythm, or a reference
-  site, or when the website researcher studies how offerings are scanned.
+  SUPERSEDED. Do not use. Live services UI is ServiceDirectory. Reference
+  studies use /research-reference instead.
+disable-model-invocation: true
 ---
+
+# SUPERSEDED — live UI is ServiceDirectory
+
+Do not apply this skill. The live browse model is `components/service-directory.tsx`, massage intents at `/services/massage/nhom/…`, and detail `?phut=`. See `docs/STATUS.md`. A new reference pass uses `/research-reference`. The notes below are a historical record.
 
 # Skill — Service rhythm study
 

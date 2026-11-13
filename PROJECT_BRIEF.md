@@ -25,28 +25,28 @@ Study **https://nhaspa.com.vn/** for:
 
 Do **not** copy its branding, text, images, or source code.
 
-## Where the site is (2026-11-07)
+## Where the site is (2026-11-13)
 
-A local Next.js site exists on `feat/informational-site`. It is not deployed. The 2026-11-06 QA draft describes an earlier layout.
+A local Next.js site exists on `staging`. `feat/informational-site` is legacy. It is not deployed. The 2026-11-06 QA draft describes an earlier layout.
 
 Built:
 
 - Home, About, Services, Gallery, Reviews, Contact
-- Menu from the Canva “MEMU TỔNG JADE” Vietnamese page
-- Home opens on a full-screen moving photo. Services are Massage (Thư giãn, Phục hồi, Trị liệu), Gội đầu dưỡng sinh, and Combo
-- A massage intent lists one tier per row. Detail shows only the minute in `?phut=`
+- Menu from the Canva “MEMU TỔNG JADE” Vietnamese page (`lib/menu.ts`)
+- Home opens on a full-screen moving photo. Services are Massage (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), Gội đầu dưỡng sinh, and Combo (three gói)
+- Massage intents: thư giãn lists than-60/90/120 plus a non-link row for Chăm sóc theo nhu cầu; trị liệu lists cổ vai gáy, lưng – eo, and lưng – hông – chân; an thần lists ngu-60/90/120/150. Detail uses `?phut=`
+- Ritual steps on the detail page come from `lib/menu-rituals.ts` when that tier has them. Jade Emperor Therapy has no array and omits Quy trình
 - Owner photos from `assets/spa/` (copied for the site under `public/spa/`)
 - Header and home hero use the script logo cut from those photos (`public/spa/logo-mark.png`)
 
 Still labeled, not invented:
 
-- Ritual steps are twelve “Bước mẫu” lines until the owner sends the real steps
-- Card descriptions are labeled samples
 - About story is still a gap
 - Reviews have no quotes
 - Zalo has no URL
 - The nature banner photo is a stand-in (`soaking-hall`)
 - `heroVideoSrc` is empty until the owner supplies a film
+- Jade Emperor Therapy still has no Vietnamese name and no steps on the Vietnamese Canva page
 
 ## Our site must use
 
@@ -83,9 +83,8 @@ Already confirmed: display name, legal name, address, phone, hours, email, Faceb
 
 Still open. Do not invent these:
 
-- Ritual steps for each minute mark
-- Vietnamese name for Jade Emperor Therapy
-- Whether An thần & giấc ngủ stays under Massage, and Chăm sóc theo nhu cầu stays under Combo (assumption S8)
+- Vietnamese name and ritual steps for Jade Emperor Therapy (`NEEDS OWNER INPUT`; the detail page omits Quy trình)
+- Confirm the 2026-11-09 placement still stands: all four sleep tiers on An thần & giấc ngủ; Chăm sóc theo nhu cầu is a non-link row on Thư giãn toàn thân; neither is a Combo card. CR-20261109 Dev gate is still pending
 - Zalo URL
 - Google Maps place URL (reviews stay empty until then)
 - About story, facilities, and team

@@ -16,5 +16,5 @@ Guest lines use step titles already on the Canva slides. They do not add a resul
 ## How a card and a detail page match
 
 - A card that is one tier uses that tier’s sentence. The detail page repeats it, then shows price, minutes, and the step list.
-- Massage cards Thư giãn / Phục hồi / Trị liệu are groups of tiers. Their sentences only describe the minute band. Each row and each detail page uses the tier sentence.
-- “Chăm sóc theo nhu cầu” is one card for two tiers. The card sentence covers both. Each detail page uses its own tier sentence.
+- Massage cards are Thư giãn toàn thân, Trị liệu chuyên sâu, and An thần & giấc ngủ (2026-11-09). Intent sentences live in `intentSummaries`. Each tier row and each detail page uses the tier sentence.
+- “Chăm sóc theo nhu cầu” is a non-link row on Thư giãn toàn thân, not a Combo card. Each detail page uses its own tier sentence.

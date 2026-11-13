@@ -12,15 +12,12 @@ export function ServiceDirectory({
   only,
   reveal = false,
   homeBand = false,
-  mossTitles = false,
 }: {
   only?: (typeof sections)[number]["id"];
   /** Home only: each title and each card rises once as it enters. */
   reveal?: boolean;
   /** Home services texture band — Sage card borders, Ivory fill. */
   homeBand?: boolean;
-  /** Dark moss band — cream section titles (no underline). */
-  mossTitles?: boolean;
 }) {
   const visible = only ? sections.filter((section) => section.id === only) : sections;
   return (

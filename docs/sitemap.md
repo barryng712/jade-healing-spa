@@ -1,6 +1,6 @@
 # Sitemap — Jade Healing Spa
 
-**Status:** these routes are on the local site, 2026-11-07.  
+**Status:** these routes are on the local site (`staging`), 2026-11-13.  
 **Language:** Vietnamese  
 **Not** a reference-site sitemap.
 
@@ -40,7 +40,7 @@
 | Đánh giá | `/reviews` |
 | Liên hệ | `/contact` |
 
-**Dịch vụ menu:** Massage → Thư giãn, Phục hồi, Trị liệu. Gội đầu dưỡng sinh → the three tier names. Combo → each gói, plus Đại Nghi Thức Ngủ Sâu Toàn Thân.
+**Dịch vụ menu:** Massage → Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ. Gội đầu dưỡng sinh → the three tier names. Combo → the three gói (thải độc ấm tử cung, nhuận tràng, nâng cơ mặt). Jade Emperor Therapy and Chăm sóc theo nhu cầu are not in that menu. Old intent URLs `thu-gian`, `phuc-hoi`, and `tri-lieu` redirect.
 
 **Header utilities:** Facebook (https://www.facebook.com/jadehealingspa/) and Zalo (URL **NEEDS OWNER INPUT**). Also `tel:+84357050796`.
 
@@ -54,7 +54,7 @@
 
 **About.** Minimal: name, line, link to Contact. No invented story.
 
-**Services.** Three card sections. Massage intents open a tier list. Gội and the 150-minute sleep ritual open `?phut=`. Other combo cards open the gói page. Steps stay on the detail page, for the selected minute only.
+**Services.** Three card sections. Thư giãn and An thần open a tier list (`?phut=`). Trị liệu opens one row per group. Gội cards open `?phut=`. Combo cards are the three gói pages. The 150-minute sleep ritual is ngu-150 on An thần, not a combo card. Steps stay on the detail page, for the selected minute, from `lib/menu-rituals.ts` when that tier has them.
 
 **Gallery.** Owner photos from `assets/spa/` only. `Unknown-9.jpg` stays unused.
 

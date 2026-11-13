@@ -1,6 +1,6 @@
 # Design — theo user journey
 
-**Status:** foundation palette and type scale owner approved 2026-11-06. The live journeys below match the local site on 2026-11-07. `docs/design-preview.html` is an older drawing (sand band, old type). The Next.js site is the source of truth.  
+**Status:** foundation palette and type scale owner approved 2026-11-06. The live journeys below match the local site on `staging` (2026-11-13). `docs/design-preview.html` is an older drawing (sand band, old type). The Next.js site is the source of truth.  
 **Not Figma.** Starter plan cannot have the agent draw on canvas.  
 **Not a clone** of nhaspa.com.vn, kimhealingspa.vn, or H3 Group.
 
@@ -101,9 +101,9 @@ Photos: real spa files from `assets/spa/`, published from `public/spa/`. `Unknow
 
 ## Chrome (every page)
 
-**Header.** Left: the script mark cut from the logo already on the spa photos (`public/spa/logo-mark.png`). Ivory while it sits on a photo, Forest `#263B32` after scroll. Home keeps the overlay until the guest has scrolled most of the first screen. Other pages open with a living photo under the header (`PagePhotoBand`). Service routes use a taller cover on desktop (about 48svh, between 380px and 520px) and a shorter one on a phone. Detail routes only draw the word **Dịch vụ** on that cover. The cover is decorative (`aria-hidden`). Center/right links: Trang chủ, Về spa, Dịch vụ, Thư viện ảnh, Đánh giá, Liên hệ. Hovering Dịch vụ opens three columns: **Massage** (Thư giãn, Phục hồi, Trị liệu), **Gội đầu dưỡng sinh** (the three tier names), **Combo** (each gói, plus the 150-minute sleep ritual). The first click still goes to the link. Utilities: Gọi `0357050796`, Facebook. Zalo only after a URL exists.
+**Header.** Left: the script mark cut from the logo already on the spa photos (`public/spa/logo-mark.png`). Ivory while it sits on a photo, Forest `#263B32` after scroll. Home keeps the overlay until the guest has scrolled most of the first screen. Other pages open with a living photo under the header (`PagePhotoBand`). Service routes use a taller cover on desktop (about 48svh, between 380px and 520px) and a shorter one on a phone. Detail routes draw the group name on that cover. The cover is decorative (`aria-hidden`). Center/right links: Trang chủ, Về spa, Dịch vụ, Thư viện ảnh, Đánh giá, Liên hệ. Hovering Dịch vụ opens three columns: **Massage** (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), **Gội đầu dưỡng sinh** (the three tier names), **Combo** (the three gói). Jade Emperor Therapy, Chăm sóc theo nhu cầu, and the 150-minute sleep ritual are not in that Combo column. The first click still goes to the link. Utilities: Gọi `0357050796`, Facebook. Zalo only after a URL exists.
 
-**Mobile.** Same links in a menu that opens and closes. Under Dịch vụ: Massage and the three intents, then the gội tiers, then Combo. Phone is a large tap target.
+**Mobile.** Same links in a menu that opens and closes. Under Dịch vụ: Massage and the three intents, then the three gội tier names, then the three combo gói names. Phone is a large tap target.
 
 **Footer.** Legal name CÔNG TY TNHH JADE NATURE CARE, address, hours, phone, email, Facebook, nav. No booking.
 
@@ -130,7 +130,7 @@ The opener is visual. The `h1`, service names, and prices stay in the HTML under
 
 Used on Home and on `/services`. Photo on top, aspect 3/2, flush with a 1px border. The text block uses solid **Sand** via **`.offer-card-body`** on light surfaces; on the moss band, **ivory–sand mix** (`.offer-card-on-moss`) so the panel reads with `text-cream` headings. Depth: **`.offer-card-lift--moss`** on the list item — forest-tinted shadow (not clipped by the card’s `overflow-hidden`); hover/focus lifts ~5px with a stronger shadow (`prefers-reduced-motion` skips lift). Under the photo: title, a short line from `lib/service-summaries.ts` (same sentence as the detail intro for that tier), then price and duration together, then **Xem chi tiết**. No guest-facing sample blurb. The line stays within about four lines so the photo remains the largest part of the card. Top-left and top-right match the house sheet: **28px**, **40px** from `md`. Bottom corners stay **4px**. One column on a phone, two from `sm`, three from `lg`. The whole card is the link. Intent tier rows on massage pages use the same **`.offer-card-body`** panel.
 
-Massage cards are the three intents, not the eleven groups. Gội cards are one per minute and open that tier. Combo cards are the gói pages, plus the 150-minute sleep ritual.
+Massage cards are the three intents, not the eleven groups. Gội cards are one per minute and open that tier. Combo cards are the three gói pages. The 150-minute sleep ritual is ngu-150 on An thần, not a combo card.
 
 ---
 
@@ -154,7 +154,7 @@ Owner menu is the Canva file “MEMU TỔNG JADE” (2026-11-02). The site uses 
 
 **Menu groups (owner, 2026-11-03, placement updated 2026-11-07).**
 
-- Massage groups: Cổ vai gáy, Thư giãn toàn thân, Chăm sóc lưng – eo, Chăm sóc lưng – hông – chân, An thần & giấc ngủ. The guest does not land on a group list. They land on Thư giãn (40 and 60), Phục hồi (90), or Trị liệu (120).
+- Massage groups: Cổ vai gáy, Thư giãn toàn thân, Chăm sóc lưng – eo, Chăm sóc lưng – hông – chân, An thần & giấc ngủ. The guest does not land on an eleven-group list. Massage cards open Thư giãn toàn thân, Trị liệu chuyên sâu, or An thần & giấc ngủ.
 - Chăm sóc tóc: Gội dưỡng sinh only. Three cards, one per minute. Do not invent more hair services.
 - Combo: Nghi Thức Thải Độc Ấm Tử Cung, Dưỡng Sinh Nhuận Tràng Thải Độc Vùng Bụng, Đả Thông Kinh Lạc Nâng Cơ Mặt. Jade Emperor Therapy is not a combo card. Chăm sóc theo nhu cầu is a display-only row on the thư giãn intent. All four sleep tiers live on the an thần intent.
 
@@ -164,13 +164,13 @@ Owner menu is the Canva file “MEMU TỔNG JADE” (2026-11-02). The site uses 
 
 1. `/services` is the `h1` **Dịch vụ**, then a full-width **horizontal rule** (`border-line`, not text underline), then the same three sections as Home with the usual vertical gap. Section titles (**Massage**, **Gội đầu dưỡng sinh**, **Combo**) use **text underline** as on Home. No rules between those sections. A category URL (`/services/massage`, `/services/cham-soc-toc`, `/services/combo`) shows that category name, `category.description` from `lib/menu.ts`, and only that section; the section title still uses the underline pattern (one section visible).
 2. A massage card opens `/services/massage/nhom/thu-gian-toan-than`, `tri-lieu-chuyen-sau`, or `an-than-giac-ngu`. The `h1` is the intent name. Thư giãn lists than-60/90/120 (linked `?phut=`) and a non-link row for chăm sóc theo nhu cầu (Từ the menu minimum). Trị liệu lists one row per slug (cổ vai gáy, lưng – eo, lưng – hông – chân) with Từ the minimum price and minutes, linking to that slug. An thần lists ngu-60/90/120/150, each linked with `?phut=`.
-3. From `md`, rows alternate: photo left, then right, then left. Radius **16px**. The photo is flush with the border. On a phone the photo sits on top, full width, aspect 3/2, with the offer-card top radius (**28px**, bottom **4px**). Title stays left, price and clock stay right. The sample line stays under the title. Do not add inclusion rows from a reference card.
+3. From `md`, rows alternate: photo left, then right, then left. Radius **16px**. The photo is flush with the border. On a phone the photo sits on top, full width, aspect 3/2, with the offer-card top radius (**28px**, bottom **4px**). Title stays left, price and clock stay right. The short line from `lib/service-summaries.ts` stays under the title. Do not add inclusion rows from a reference card.
 4. A gội card skips the list and opens the detail with `?phut=`, because that group has one line per minute.
 5. A combo card opens the gói page. The sleep ritual is not a combo card. Chăm sóc theo nhu cầu is not a combo card.
 
 **Intent row.** Bordered block. Photo merged to the border. Title, then the same tier summary as the detail page. Price on the right, clock under the price. No separate “Xem chi tiết” line.
 
-**Detail.** Breadcrumb centered. The last crumb is the group name. The visible `h1` is the tier selected by `?phut=` (or the first tier if the query is missing). One labeled sample line, centered. Price and clock on one centered line. Rounded photo (6px), then **Quy trình**, then the steps, then contact, then related groups. Related links open the group URL without `?phut=`, so they show that group’s first tier. The document title is still the group name. There is no minute switcher on the page.
+**Detail.** Breadcrumb centered. The last crumb is the group name. The visible `h1` is the tier selected by `?phut=` (or the first tier if the query is missing). The short line from `lib/service-summaries.ts` is centered. Price and clock on one centered line. Rounded photo (6px), then **Quy trình** and the steps when `lib/menu-rituals.ts` has an array for that tier, then contact, then related groups. Related links open the group URL without `?phut=`, so they show that group’s first tier. The document title is still the group name. When the group has more than one tier, a list of those tiers links to `?phut=`. That list is not the retired minute-chip row.
 
 Ritual lines on the detail page come from `lib/menu-rituals.ts` (Canva detail slides). Tiers with no array (Jade Emperor Therapy) omit **Quy trình** rather than showing layout filler. Do not invent steps. Jade Emperor Therapy has no Vietnamese name on the Vietnamese Canva page.
 

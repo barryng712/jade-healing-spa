@@ -8,8 +8,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "verify:playwright": "PLAYWRIGHT_BROWSERS_PATH=\"${HOME}/Library/Caches/ms-playwright\" playwright test tests/verify-playwright.spec.ts --project=chromium",
+    "smoke:local": "LOCAL_SMOKE=1 PLAYWRIGHT_BROWSERS_PATH=\"${HOME}/Library/Caches/ms-playwright\" playwright test tests/local-smoke.spec.ts --project=chromium",
+    "research:verify": "PLAYWRIGHT_BROWSERS_PATH=\"${HOME}/Library/Caches/ms-playwright\" playwright test tests/verify-playwright.spec.ts --project=chromium",
+    "verify:playwright": "npm run research:verify",
     "research:nhaspa": "PLAYWRIGHT_BROWSERS_PATH=\"${HOME}/Library/Caches/ms-playwright\" playwright test tests/research-nhaspa.spec.ts --project=chromium",
+    "research:nhaspa:followup": "PLAYWRIGHT_BROWSERS_PATH=\"${HOME}/Library/Caches/ms-playwright\" playwright test tests/research-nhaspa-followup.spec.ts --project=chromium",
+    "research:scroll": "PLAYWRIGHT_BROWSERS_PATH=\"${HOME}/Library/Caches/ms-playwright\" playwright test tests/research-scroll-capture.spec.ts --project=chromium",
     "test": "PLAYWRIGHT_BROWSERS_PATH=\"${HOME}/Library/Caches/ms-playwright\" playwright test"
   },
   "devDependencies": {

@@ -31,7 +31,7 @@ Do not copy web photos into `assets/`. Do not publish look-alike brands.
 | ID | Item | Owner note |
 | --- | --- | --- |
 | C6b | Zalo link | Needed for the Zalo button |
-| S1–S3, S5, S7 | Menu names and durations | On the site from the Canva menu. Card blurbs, the detail lead, and the twelve step lines are still labeled samples. |
+| S1–S3, S5, S7 | Menu names and durations | On the site from the Canva menu. Short lines are in `lib/service-summaries.ts`. Steps are in `lib/menu-rituals.ts` except Jade Emperor Therapy (`NEEDS OWNER INPUT`). |
 | S4 | Prices | Public. Numbers are the Canva menu in `lib/menu.ts`. |
 | S6 | Health/contraindication copy | Omit unless professionally approved |
 | I5–I8 | About story, philosophy, facilities, team | Not supplied |
