@@ -3,6 +3,9 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   agentRules: false,
+  experimental: {
+    agentUpgrade: "security",
+  },
   async redirects() {
     const moved: Record<string, string> = {
       "goi-duong-sinh": "/services/cham-soc-toc/goi-duong-sinh",
