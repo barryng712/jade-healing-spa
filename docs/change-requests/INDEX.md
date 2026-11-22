@@ -1,9 +1,10 @@
 # Change request index
 
-Last updated: 2026-11-13. Active work branch: `staging`. Current layout: `docs/design-guidelines.md` and the Next.js site. `feat/informational-site` is legacy. November 6 rows are superseded records; do not rebuild them.
+Last updated: 2026-11-21. Active work branch: `staging`. Current layout: `docs/design-guidelines.md` and the Next.js site. `feat/informational-site` is legacy. November 6 rows are superseded records; do not rebuild them.
 
 | ID | Title | Status | Stage gate waiting on | Branch |
 | --- | --- | --- | --- | --- |
+| [CR-20261121-home-facilities](CR-20261121-home-facilities.md) | Section cơ sở vật chất trên trang chủ | `dev` | Owner review Dev | `improve-ui` |
 | [CR-20261109-massage-intent-regroup](CR-20261109-massage-intent-regroup.md) | Nhóm Massage: tên & intent URLs | `dev` | Owner review Dev | `staging` |
 | [CR-20261106-services-luxury](CR-20261106-services-luxury.md) | Dịch vụ editorial, luxury | `superseded` | Owner replaced the bands. Live spec is the design guidelines | `feat/informational-site` |
 | [CR-20261106-home-services-band](CR-20261106-home-services-band.md) | Dải dịch vụ trang chủ | `superseded` | Home uses the card directory, not the sand band | `feat/informational-site` |

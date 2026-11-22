@@ -50,7 +50,7 @@
 
 ## Page notes
 
-**Home.** Full-viewport moving photo, then house, services, banner, gallery, visit strip. Optional film path is `heroVideoSrc` (empty).
+**Home.** Full-viewport moving photo, then house, facilities (`#co-so`), services, banner, gallery, visit strip. Optional film path is `heroVideoSrc` (empty). Facilities body is still the labeled gap.
 
 **About.** Minimal: name, line, link to Contact. No invented story.
 

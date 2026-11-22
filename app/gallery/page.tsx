@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MarkTitle } from "@/components/mark-title";
 import { PhotoFrame } from "@/components/photo-frame";
 import { Wrap } from "@/components/wrap";
 import { galleryPhotos } from "@/lib/photos";
@@ -13,9 +14,7 @@ export default function GalleryPage() {
   return (
     <section className="py-12 md:py-7">
       <Wrap>
-        <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
-          Thư viện ảnh
-        </h1>
+        <MarkTitle as="h1">Thư viện ảnh</MarkTitle>
         <p className="mt-3 max-w-[42ch] text-[15px] leading-6 md:text-base md:leading-[26px]">
           Không gian Jade Healing Spa tại Cầu Giấy.
         </p>

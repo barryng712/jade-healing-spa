@@ -36,7 +36,7 @@ export function OfferCard({
         <h3 className="line-clamp-2 font-display text-[22px] leading-7 font-medium">{offer.title}</h3>
         <p className="mt-2 line-clamp-4 text-[15px] leading-6">{offer.description}</p>
         <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-[15px] leading-6">
-          <span className="font-medium">{offer.priceLabel}</span>
+          <span className="font-medium text-brass">{offer.priceLabel}</span>
           {offer.kicker ? (
             <span className="inline-flex items-center gap-1.5">
               <ClockIcon className="size-4 shrink-0" />

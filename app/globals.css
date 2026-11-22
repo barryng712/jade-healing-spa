@@ -8,6 +8,8 @@
   --color-sage: #78846b;
   --color-sand: #e9e2d5;
   --color-bronze: #ad9066;
+  /* Trial third color: warm brass against ivory and moss. Not for buttons or body copy. */
+  --color-brass: #8c6239;
   --color-forest-deep: #1b2c25;
   --color-line: color-mix(in srgb, #78846b 42%, #f8f6f0);
   --color-cream: #f8f6f0;
@@ -255,6 +257,17 @@ header.header-overlay nav a[aria-current="page"]:hover {
   }
 }
 
+@keyframes rise-settle {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes film-a {
   from {
     transform: scale(1.14) translate3d(-1.5%, -0.6%, 0);
@@ -377,6 +390,14 @@ header.header-overlay nav a[aria-current="page"]:hover {
     animation: rise 0.9s ease forwards;
   }
 
+  .reveal-settle.reveal-once {
+    transform: translateY(0.4rem);
+  }
+
+  .reveal-settle.reveal-once.is-in {
+    animation: rise-settle 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
   .reveal-float.is-in {
     animation: rise 1.25s cubic-bezier(0.16, 1, 0.3, 1) 0.18s forwards;
   }
@@ -422,5 +443,21 @@ header.header-overlay nav a[aria-current="page"]:hover {
   .scroll-cue,
   .hero-drift {
     animation: none;
+  }
+}
+
+/* Home facilities: width follows viewport height so the 16:9 plus two squares fit one desktop screen without cropping. */
+.home-facilities {
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-facilities {
+    gap: 2.5rem;
+  }
+
+  .home-facilities-gallery {
+    width: 54%;
+    flex: 0 0 auto;
   }
 }

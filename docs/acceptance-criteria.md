@@ -28,6 +28,7 @@ Viewports: 1440×1000, ~768px, 390×844.
 | H2 | Home services are three sections: Massage (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), Gội đầu dưỡng sinh (three tiers), Combo (the three gói only). Jade Emperor Therapy and the 150-minute sleep ritual are not combo cards. Short lines come from `lib/service-summaries.ts` |
 | H3 | No fake photos or fake quotes |
 | H4 | No booking widget |
+| HF1–HF11 | Home facilities band matches `docs/change-requests/CR-20261121-home-facilities.md`: after the house sheet, before Dịch vụ; collage then the gap sentence on a phone; heading **Cơ sở vật chất**; no promo type on the two cleaned photos |
 
 ## About
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ContactActions } from "@/components/contact-actions";
 import { LogoLockup } from "@/components/logo";
+import { MarkTitle } from "@/components/mark-title";
 import { PhotoFrame } from "@/components/photo-frame";
 import { PhotoReel } from "@/components/photo-reel";
 import { Reveal } from "@/components/reveal";
@@ -11,7 +12,16 @@ import { Scene } from "@/components/scene";
 import { ServiceDirectory } from "@/components/service-directory";
 import { ServicesMossBand } from "@/components/services-moss-band";
 import { Wrap } from "@/components/wrap";
-import { heroPhoto, heroVideoSrc, homeGalleryPhotos, homeNatureBanner, homeReelPhotos } from "@/lib/photos";
+import {
+  heroPhoto,
+  heroVideoSrc,
+  homeFacilityDoctor,
+  homeFacilityFace,
+  homeFacilityMachine,
+  homeGalleryPhotos,
+  homeNatureBanner,
+  homeReelPhotos,
+} from "@/lib/photos";
 import { HomeScrollDiagnosticsGate } from "@/components/dev/home-scroll-diagnostics-gate";
 import { HomeViewportScrollStability } from "@/components/home-viewport-scroll-stability";
 import { site } from "@/lib/site";
@@ -55,8 +65,9 @@ export default function HomePage() {
         <SectionTexture src="/textures/linen-neutral.jpg" />
         <Wrap className="relative">
           <Reveal className="reveal-float">
-            <div className="grid items-center gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
+            <div className="grid items-start gap-6 md:grid-cols-[0.9fr_1.1fr] md:gap-10">
               <div>
+                <MarkTitle className="mb-4 justify-start">Về Jade</MarkTitle>
                 <p className="max-w-[36ch] text-[15px] leading-6 md:text-base md:leading-[26px]">
                   Một khoảng gỗ và cây giữa Cầu Giấy.
                 </p>
@@ -72,15 +83,92 @@ export default function HomePage() {
         </Wrap>
       </section>
 
+      <section
+        id="co-so"
+        aria-labelledby="co-so-heading"
+        className="relative scroll-mt-24 bg-paper py-8 md:scroll-mt-28 md:py-10"
+      >
+        <SectionTexture src="/textures/linen-neutral.jpg" />
+        <div className="relative mx-auto w-full max-w-[1180px] px-5 md:px-8">
+          <div className="home-facilities flex flex-col md:flex-row-reverse md:items-start">
+            <div className="md:min-w-0 md:flex-1">
+              <p className="flex items-center gap-3 text-[13px] leading-5 font-medium tracking-[0.16em] text-brass uppercase">
+                <span className="h-px w-8 bg-brass" aria-hidden="true" />
+                Con người & phương pháp
+              </p>
+              <h2
+                id="co-so-heading"
+                className="mt-4 max-w-[12ch] font-display text-[32px] leading-[1.15] font-medium md:text-[42px]"
+              >
+                Thấu hiểu trước khi chạm.
+              </h2>
+              <p className="mt-4 max-w-[46ch] text-[15px] leading-6">
+                Mỗi trải nghiệm tại Jade bắt đầu từ việc lắng nghe nhu cầu riêng của bạn — từ tư vấn
+                sức khỏe cùng bác sĩ Y học cổ truyền, đến các liệu trình thư giãn kết hợp thao tác
+                chăm sóc và thiết bị hỗ trợ phù hợp.
+              </p>
+              <ol className="mt-6 border-t border-line">
+                {[
+                  ["01", "Tư vấn sức khỏe", "Trao đổi và hiểu rõ mong muốn của từng khách hàng."],
+                  ["02", "Kỹ thuật & thiết bị hỗ trợ", "Ứng dụng phù hợp với từng trải nghiệm chăm sóc."],
+                  ["03", "Khoảng nghỉ cho riêng bạn", "Chú trọng sự thư thái và cảm nhận trong từng liệu trình."],
+                ].map(([number, title, line]) => (
+                  <li key={number} className="grid grid-cols-[2.25rem_minmax(0,1fr)] gap-x-3 border-b border-line py-3">
+                    <span className="text-[12px] leading-5 font-medium tracking-[0.08em] text-brass">{number}</span>
+                    <span>
+                      <span className="block text-[15px] leading-5 font-medium">{title}</span>
+                      <span className="mt-1 block text-[13px] leading-5">{line}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+              <Link
+                href="/services"
+                className="mt-5 inline-flex items-center gap-2 border-b border-ink pb-1 text-sm font-medium no-underline"
+              >
+                Khám phá các dịch vụ
+                <span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+            <div className="home-facilities-gallery flex max-md:w-full flex-col gap-2 md:gap-3">
+              <Image
+                src={homeFacilityDoctor.src}
+                alt={homeFacilityDoctor.alt}
+                width={homeFacilityDoctor.width}
+                height={homeFacilityDoctor.height}
+                sizes="(min-width: 768px) 55vw, 100vw"
+                className="h-auto w-full object-contain"
+              />
+              <div className="grid grid-cols-[830fr_1024fr] items-start gap-2 md:gap-3">
+                <Image
+                  src={homeFacilityMachine.src}
+                  alt={homeFacilityMachine.alt}
+                  width={homeFacilityMachine.width}
+                  height={homeFacilityMachine.height}
+                  sizes="(min-width: 768px) 24vw, 45vw"
+                  className="h-auto w-full"
+                />
+                <Image
+                  src={homeFacilityFace.src}
+                  alt={homeFacilityFace.alt}
+                  width={homeFacilityFace.width}
+                  height={homeFacilityFace.height}
+                  sizes="(min-width: 768px) 30vw, 55vw"
+                  className="h-auto w-full"
+                />
+              </div>
+              <p className="mt-3 text-[13px] leading-5">Những khoảnh khắc thực tế tại Jade Healing Spa.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ServicesMossBand className="py-12 md:py-7">
         <Wrap className="flex flex-col gap-8 md:gap-10">
           <Reveal>
-            <div>
-              <h2 className="font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
-                Dịch vụ
-              </h2>
-              <hr className="mt-6 border-0 border-t border-cream/40" aria-hidden="true" />
-            </div>
+            <MarkTitle as="h2" tone="moss">
+              Dịch vụ
+            </MarkTitle>
           </Reveal>
           <ServiceDirectory reveal homeBand />
         </Wrap>
@@ -106,10 +194,8 @@ export default function HomePage() {
         <SectionTexture src="/textures/linen-neutral.jpg" />
         <Wrap className="relative">
           <Reveal>
-            <div className="mb-6 flex items-end justify-between gap-4">
-              <h2 className="font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
-                Thư viện ảnh
-              </h2>
+            <div className="mb-6 flex items-center justify-between gap-4">
+              <MarkTitle>Thư viện ảnh</MarkTitle>
               <Link className="text-sm underline underline-offset-4" href="/gallery">
                 Xem tất cả
               </Link>
@@ -135,9 +221,7 @@ export default function HomePage() {
         <Wrap className="relative">
           <Reveal className="flex flex-col gap-4 py-8 md:flex-row md:items-end md:justify-between md:py-10">
             <div>
-              <h2 className="font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
-                Ghé spa
-              </h2>
+              <MarkTitle tone="moss">Ghé spa</MarkTitle>
               <p className="mt-3">
                 {site.address}
                 <br />

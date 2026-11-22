@@ -1,3 +1,4 @@
+import { MarkTitle } from "@/components/mark-title";
 import { OfferGrid } from "@/components/offer-card";
 import { Reveal } from "@/components/reveal";
 import { comboOffers, goiOffers, massageIntents } from "@/lib/service-journeys";
@@ -24,9 +25,9 @@ export function ServiceDirectory({
     <div className="flex flex-col gap-12 md:gap-14">
       {visible.map((section) => {
         const title = (
-          <h2 className="text-center font-display text-[28px] leading-9 font-medium md:text-[36px] md:leading-[44px]">
+          <MarkTitle tone={homeBand ? "moss" : "paper"} flank>
             {section.title}
-          </h2>
+          </MarkTitle>
         );
         return (
           <section key={section.id} id={only ? undefined : section.id} className="scroll-mt-28">

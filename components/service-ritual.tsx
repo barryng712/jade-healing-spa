@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { ClockIcon } from "@/components/clock-icon";
 import { ContactActions } from "@/components/contact-actions";
+import { MarkTitle } from "@/components/mark-title";
 import { StepList } from "@/components/step-list";
 import { formatPrice, servicePath, type MenuGroup } from "@/lib/menu";
 import { tierSummary } from "@/lib/service-summaries";
@@ -37,7 +38,7 @@ export function ServiceRitual({
                   }`}
                 >
                   <span>{item.name}</span>
-                  <span className="shrink-0">
+                  <span className="shrink-0 text-brass">
                     {formatPrice(item.priceVnd)} · {item.minutes} phút
                   </span>
                 </Link>
@@ -46,16 +47,16 @@ export function ServiceRitual({
           })}
         </ul>
       ) : null}
-      <h1 className="mt-4 text-center font-display text-[32px] leading-10 font-medium md:text-[44px] md:leading-[52px]">
+      <MarkTitle as="h1" align="center" className="mt-4">
         {tier.name}
-      </h1>
+      </MarkTitle>
       {tierSummary(tier.id) ? (
         <p className="mx-auto mt-3 max-w-[40rem] text-center text-[15px] leading-6 md:text-base md:leading-7">
           {tierSummary(tier.id)}
         </p>
       ) : null}
       <p className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[15px] leading-6">
-        <span className="font-medium">{formatPrice(tier.priceVnd)}</span>
+        <span className="font-medium text-brass">{formatPrice(tier.priceVnd)}</span>
         <span className="inline-flex items-center gap-1.5">
           <ClockIcon className="size-4" />
           {tier.minutes} phút
@@ -66,7 +67,7 @@ export function ServiceRitual({
 
       {steps ? (
         <div className="mt-10 text-left">
-          <h2 className="font-display text-[28px] leading-9 font-medium md:text-[32px] md:leading-10">Quy trình</h2>
+          <MarkTitle>Quy trình</MarkTitle>
           <div className="mt-5">
             <StepList steps={steps} plain />
           </div>

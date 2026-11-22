@@ -1,6 +1,8 @@
 export type SpaPhoto = {
   src: string;
   alt: string;
+  width?: number;
+  height?: number;
 };
 
 /**
@@ -103,6 +105,28 @@ export const homeServicesMossTexture = "/textures/home-services-moss.jpg" as con
 
 /** Beige stone panel behind offer-card copy (tiled). */
 export const offerCardBeigeTexture = "/textures/offer-card-beige.jpg" as const;
+
+/** Home facilities band. Cleaned frames: promo type removed, shown without cover-crop. */
+export const homeFacilityDoctor: SpaPhoto = {
+  src: "/spa/bac-si.jpg",
+  alt: "Người mặc áo blouse trắng đang trao đổi với khách tại Jade Healing Spa",
+  width: 1672,
+  height: 941,
+};
+
+export const homeFacilityMachine: SpaPhoto = {
+  src: "/spa/cong-nghe-cao.jpg",
+  alt: "Kỹ thuật viên dùng máy trên lưng khách tại Jade Healing Spa",
+  width: 2048,
+  height: 2048,
+};
+
+export const homeFacilityFace: SpaPhoto = {
+  src: "/spa/masa-mat-bath.jpg",
+  alt: "Hai khách ngâm mình trong bồn gỗ tại Jade Healing Spa",
+  width: 1024,
+  height: 830,
+};
 
 export const homeNatureBanner: SpaPhoto = {
   src: "/spa/soaking-hall.jpg",

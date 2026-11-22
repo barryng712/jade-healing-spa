@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { IntentRows } from "@/components/intent-rows";
+import { MarkTitle } from "@/components/mark-title";
 import { Wrap } from "@/components/wrap";
 import {
   getMassageIntent,
@@ -54,9 +55,9 @@ export default async function MassageIntentPage({ params }: Props) {
             <li>{intent.name}</li>
           </ol>
         </nav>
-        <h1 className="mt-6 text-center font-display text-[32px] leading-10 font-medium md:text-[44px] md:leading-[52px]">
+        <MarkTitle as="h1" className="mt-6">
           {intent.name}
-        </h1>
+        </MarkTitle>
         <IntentRows rows={rows} />
       </Wrap>
     </article>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { MarkTitle } from "@/components/mark-title";
 import { Wrap } from "@/components/wrap";
 import { site } from "@/lib/site";
 
@@ -12,9 +13,7 @@ export default function ReviewsPage() {
   return (
     <section className="py-12 md:py-7">
       <Wrap>
-        <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
-          Đánh giá
-        </h1>
+        <MarkTitle as="h1">Đánh giá</MarkTitle>
         <p className="mt-6 max-w-[62ch]">
           Chưa có đánh giá được phép đăng.
           <br />

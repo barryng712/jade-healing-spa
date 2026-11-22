@@ -44,7 +44,7 @@ export function IntentRows({ rows, homeBand = false }: { rows: IntentRow[]; home
                   {row.title}
                 </h2>
                 <div className="shrink-0 text-right">
-                  <p className="font-display text-[18px] leading-7 font-medium whitespace-nowrap md:text-[22px] md:leading-8">
+                  <p className="font-display text-[18px] leading-7 font-medium whitespace-nowrap text-brass md:text-[22px] md:leading-8">
                     {row.price}
                   </p>
                   <p className="mt-1 flex items-center justify-end gap-1.5 text-sm leading-5 whitespace-nowrap">

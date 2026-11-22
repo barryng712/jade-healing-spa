@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MarkTitle } from "@/components/mark-title";
 import { ServiceDirectory } from "@/components/service-directory";
 import { Wrap } from "@/components/wrap";
 import { getCategory, serviceCategories } from "@/lib/menu";
@@ -51,9 +52,9 @@ export default async function ServiceCategoryPage({ params }: Props) {
             <li>{category.name}</li>
           </ol>
         </nav>
-        <h1 className="mt-4 font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
+        <MarkTitle as="h1" className="mt-4">
           {category.name}
-        </h1>
+        </MarkTitle>
         <p className="mt-3 max-w-[42ch] text-[15px] leading-6 md:text-base md:leading-[26px]">
           {category.description}
         </p>

@@ -16,7 +16,7 @@ Public Facebook had email and address, no phone. Owner **confirmed** hotline 035
 
 The first screen is only the moving lounge photo, the script logo, **Chăm sóc · An yên · Chữa lành**, Gọi điện, and Facebook. **Kéo xuống** moves to the next band. A video can replace the moving photo later (`heroVideoSrc` in `lib/photos.ts`); it stays empty until the owner supplies a file.
 
-Scrolling reveals, with one fade: the house block (the page `h1`), the services directory (Massage, Gội đầu dưỡng sinh, Combo), the nature banner, gallery frames, and the visit strip. The `h1` and the service names are in the HTML, not inside the photo.
+Scrolling reveals, with one fade: the house block (the page `h1`), the facilities band (**Cơ sở vật chất**: doctor photo, machine photo, one empty frame, and **Nội dung sẽ được bổ sung.**), the services directory (Massage, Gội đầu dưỡng sinh, Combo), the nature banner, gallery frames, and the visit strip. The `h1` and the service names are in the HTML, not inside the photo.
 
 ## Journey 2 — Who we are (About)
 

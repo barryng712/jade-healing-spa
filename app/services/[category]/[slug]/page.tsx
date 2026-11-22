@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { MarkTitle } from "@/components/mark-title";
 import { PhotoFrame } from "@/components/photo-frame";
 import { ServiceRitual } from "@/components/service-ritual";
 import { Wrap } from "@/components/wrap";
@@ -88,9 +89,7 @@ export default async function ServiceDetailPage({ params, searchParams }: Props)
 
         {others.length > 0 ? (
           <div className="mt-12">
-            <h2 className="font-display text-[26px] leading-8 font-medium md:text-[28px] md:leading-9">
-              Dịch vụ liên quan
-            </h2>
+            <MarkTitle>Dịch vụ liên quan</MarkTitle>
             <ul className="mt-4 grid gap-3">
               {others.map((item) => (
                 <li key={item.slug}>

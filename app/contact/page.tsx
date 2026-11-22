@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactActions } from "@/components/contact-actions";
+import { MarkTitle } from "@/components/mark-title";
 import { Wrap } from "@/components/wrap";
 import { site } from "@/lib/site";
 
@@ -14,9 +15,7 @@ export default function ContactPage() {
       <Wrap>
         <div className="grid items-start gap-10 lg:grid-cols-2">
           <div>
-            <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
-              Liên hệ
-            </h1>
+            <MarkTitle as="h1">Liên hệ</MarkTitle>
             <dl className="mt-2">
               <dt className="mt-4 text-xs font-medium tracking-[0.14em] uppercase">Địa chỉ</dt>
               <dd className="mt-0.5">{site.address}</dd>

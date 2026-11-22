@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { MarkTitle } from "@/components/mark-title";
 import { PhotoFrame } from "@/components/photo-frame";
 import { Wrap } from "@/components/wrap";
 import { aboutPhoto } from "@/lib/photos";
@@ -23,9 +24,7 @@ export default function AboutPage() {
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
           <div>
-            <h1 className="font-display text-[34px] leading-[42px] font-medium md:text-[48px] md:leading-[56px]">
-              Về {site.name}
-            </h1>
+            <MarkTitle as="h1">Về {site.name}</MarkTitle>
             <p className="mt-3 font-display text-[18px] leading-7 italic md:text-[22px] md:leading-8">
               {site.tagline}
             </p>

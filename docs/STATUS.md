@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-11-13 (docs match `staging`: ServiceDirectory, massage intents, menu-rituals)
+Last updated: 2026-11-21 (CR-20261121-home-facilities BA approved; site layout unchanged)
 
 Legend: `not started` · `in progress` · `blocked` · `complete` · `owner approved`
 
@@ -27,7 +27,7 @@ Legend: `not started` · `in progress` · `blocked` · `complete` · `owner appr
 
 ## Active change requests
 
-See `docs/change-requests/INDEX.md`. [CR-20261109-massage-intent-regroup](change-requests/CR-20261109-massage-intent-regroup.md) is implemented on `staging`; its Dev gate is still pending owner review. The three November 6 requests are superseded records. Do not rebuild them. Live layout: `docs/design-guidelines.md`, `docs/user-journeys.md`, and this file.
+See `docs/change-requests/INDEX.md`. [CR-20261121-home-facilities](change-requests/CR-20261121-home-facilities.md) is in **Dev** on `improve-ui`. Design is approved. The facilities band is on `/` after the house sheet. [CR-20261109-massage-intent-regroup](change-requests/CR-20261109-massage-intent-regroup.md) is implemented on `staging`; its Dev gate is still pending owner review. The three November 6 requests are superseded records. Do not rebuild them. Live layout: `docs/design-guidelines.md`, `docs/user-journeys.md`, and this file.
 
 Owner shortcut: `/product-change` then approve each gate; `/handoff-gate` after approval.
 
@@ -45,7 +45,7 @@ Routes: `/`, `/about`, `/services`, `/services/massage`, `/services/cham-soc-toc
 - **Menu.** Canva “MEMU TỔNG JADE”, Vietnamese page, in `lib/menu.ts`. Hover Dịch vụ (and the mobile menu) opens massage intents (Thư giãn toàn thân, Trị liệu chuyên sâu, An thần & giấc ngủ), the three gội tier names, and the three combo gói names. Home and `/services` share `ServiceDirectory`: Massage, Gội đầu dưỡng sinh, Combo.
 - **Lists.** Thư giãn lists than-60/90/120 (each opens `?phut=`) plus a non-link row for Chăm sóc theo nhu cầu. Trị liệu lists cổ vai gáy, lưng – eo, and lưng – hông – chân, each “Từ” that group’s minimum, opening the group page. An thần lists ngu-60/90/120/150. Gội cards open `?phut=`. Combo cards are the three gói only. Jade Emperor Therapy and Chăm sóc theo nhu cầu are not combo cards. Lưng – eo has no 120-minute row.
 - **Detail.** `?phut=` selects one tier. Centered tier name, the short line from `lib/service-summaries.ts`, price and clock, photo, then Canva steps from `lib/menu-rituals.ts` when that tier has them. A group with more than one tier also lists those tiers as links to `?phut=` (not the retired minute chips). No “Bước mẫu” filler. Jade Emperor omits Quy trình (no steps on the VN Canva page).
-- **Home.** The first screen is the moving lounge photo (optional `heroVideoSrc`, currently empty). Scroll reveals the house block, services, banner, gallery, and visit strip. The services band uses dark **`bg-jade-band`** + tiled owner **velvet** `home-services-moss.jpg` (520px / 40% soft-light; no cover zoom). Ivory headings on Home. Cards: Ivory + `border-sage/45`. `/services` unchanged. Banner “Từ gỗ, cây và nước.” uses `soaking-hall` as a stand-in.
+- **Home.** The first screen is the moving lounge photo (optional `heroVideoSrc`, currently empty). Scroll reveals the house block, the facilities band (`#co-so`), services, banner, gallery, and visit strip. The services band uses dark **`bg-jade-band`** + tiled owner **velvet** `home-services-moss.jpg` (520px / 40% soft-light; no cover zoom). Ivory headings on Home. Cards: Ivory + `border-sage/45`. `/services` unchanged. Banner “Từ gỗ, cây và nước.” uses `soaking-hall` as a stand-in.
 - **Wordmark.** `public/spa/logo-mark.png`, cut from the logo already on the spa photos. Ivory `#F8F6F0` on a photo, Forest `#263B32` on paper. Headlines are Cormorant Garamond; body and UI are Manrope. Offer-card tops match the house sheet (28px, 40px from `md`); bottoms stay 4px. Intent rows 16px. Detail photo 6px. A separate vector file is still open.
 - **Palette (2026-11-06, owner approved).** Ivory `#F8F6F0`, Forest `#263B32`, Sage `#78846B` (rules only), Sand `#E9E2D5` (token; the services index is Ivory), Bronze `#AD9066` (hairline only, not buttons). Primary buttons are Forest with an Ivory label. On a photo, the call button is Ivory with a Forest label.
 - **Photos.** Nine frames from `assets/spa/` are on the site. `Unknown-9.jpg` stays unused (unconfirmed menu and promotional lines). The printed footer with **0917 110 066** was cropped. The only phone on the site is **0357050796**.
